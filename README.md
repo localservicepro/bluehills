@@ -13,7 +13,8 @@ dependencies — the generated HTML in the repo root is the deployable site.
 ```
 /                       index.html          Home
 /about/                 about/index.html
-/contact/               contact/index.html  Quote form, NAP, map
+/contact/               contact/index.html  Quote form in hero, NAP, map
+/thank-you/             thank-you/index.html  Post-submit confirmation (noindex)
 /lawn-mowing/           service page
 /acreage-mowing/        service page
 /hedge-trimming/        service page
@@ -25,7 +26,7 @@ dependencies — the generated HTML in the repo root is the deployable site.
 
 assets/css/style.css    Complete design system (single stylesheet)
 assets/js/site.js       Mobile nav, services dropdown, before/after slider,
-                        quote modal, quote-form mailto handler
+                        quote modal, quote-form submit + redirect
 assets/img/*.webp       All photography, optimised (~6 MB total, 36 images)
 
 sitemap.xml  robots.txt  llms.txt  site.webmanifest  favicon.ico  .htaccess
@@ -121,16 +122,23 @@ The form has **no `action` attribute** — it targets the current HTTPS page.
 Do not set `action="mailto:..."`: a `mailto:` URL is not "potentially
 trustworthy", so Chrome marks the whole form insecure, disables autofill and
 shows the visitor *"This form is not secure. Autofill has been turned off."*
-The mailto delivery happens in `site.js`, and a `<noscript>` block points
-JavaScript-less visitors at the phone number and email instead.
 
-The mailto handler in `site.js` is written not to interfere with capture: it
-never calls `stopPropagation()`, so the submit event still reaches GHL's
-document-level listener, and it defers the mailto navigation by 600ms so the
-tracker's beacon goes out first. Keep both properties if you edit it.
+**GHL is the only delivery path.** On submit, `site.js` disables the button,
+shows "Sending your request…", waits 600ms so the tracker's beacon can go out,
+then sends the visitor to `/thank-you/`. There is no email fallback: if Form
+Submissions is switched off in GHL, enquiries are lost silently. A `<noscript>`
+block points JavaScript-less visitors at the phone number and email.
+
+The handler is written not to interfere with capture: it never calls
+`stopPropagation()`, so the submit event still reaches GHL's document-level
+listener, and `preventDefault()` only cancels the browser's own navigation.
+Keep both properties if you edit it.
 
 Form Analytics and Form Submissions must be enabled in the GHL settings for
 this to record anything — that is a dashboard setting, not a code change.
+
+`/thank-you/` is `noindex, follow` and deliberately left out of `sitemap.xml`.
+It is also the natural conversion trigger for GHL workflows and Google Ads.
 
 ## Address policy
 
@@ -143,9 +151,10 @@ customers" with the address hidden, to stay consistent with the site.
 
 ## Known follow-ups
 
-1. **Quote form** currently opens the visitor's mail client (`mailto:`) so no enquiry
-   is lost on static hosting. Point it at a real POST endpoint (Formspree, Netlify
-   Forms or a GoDaddy PHP handler) when one is available.
+1. **Quote form has no server-side backup.** Delivery depends entirely on the
+   GoHighLevel tracker. Confirm a real submission lands in the CRM before relying
+   on it, and consider adding a POST endpoint (Formspree, Netlify Forms or a
+   GoDaddy PHP handler) as a second copy of every lead.
 2. **Opening hours** were not supplied, so no hours are published or added to
    `openingHoursSpecification`. Add them to `site.config.mjs` and `layout.mjs` once
    confirmed against the Google Business Profile.

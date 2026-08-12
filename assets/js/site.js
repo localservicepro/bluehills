@@ -152,54 +152,40 @@
     }
   }
 
-  /* ---------- Quote forms: mailto fallback ----------
-     The site is static, so until a POST endpoint exists this composes an
-     email to the business inbox rather than losing the enquiry.
-
-     GoHighLevel's external-tracking.js captures submissions by listening for
-     the native `submit` event at document level. This handler is deliberately
-     built not to interfere with that:
+  /* ---------- Quote forms ----------
+     Submissions are captured by GoHighLevel's external-tracking.js, which
+     listens for the native `submit` event at document level. This handler
+     is deliberately built not to interfere with that:
 
        - it never calls stopPropagation(), so the event still reaches GHL;
-       - preventDefault() only cancels the browser's own mailto navigation,
-         not the dispatch of the event itself;
-       - the mailto is opened on a short timeout so the tracker's beacon has
-         gone out before the browser hands over to the mail client.
+       - preventDefault() only cancels the browser's own navigation, not the
+         dispatch of the event itself;
+       - the redirect runs on a short timeout so the tracker's beacon has
+         gone out before the page unloads.
 
      Field `name` attributes are the GHL contact keys — do not rename them. */
-  document.querySelectorAll('form[data-quote-form][data-mode="mailto"]').forEach(function (form) {
+  var THANK_YOU = '/thank-you/';
+  var BEACON_GRACE_MS = 600;
+
+  document.querySelectorAll('form[data-quote-form]').forEach(function (form) {
+    var submitting = false;
+
     form.addEventListener('submit', function (e) {
       if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
       e.preventDefault();
+      if (submitting) return;
+      submitting = true;
 
-      var get = function (name) {
-        var f = form.elements[name];
-        return f ? String(f.value || '').trim() : '';
-      };
-      var body = [
-        'Full name: ' + get('full_name'),
-        'Phone: ' + get('phone'),
-        'Email: ' + get('email'),
-        'Property address: ' + get('property_address'),
-        'Property size: ' + get('property_size'),
-        'Service needed: ' + get('service_needed'),
-        '',
-        'Job notes:',
-        get('job_notes')
-      ].join('\n');
-
-      var href = 'mailto:admin@bluehillsgpm.com.au'
-        + '?subject=' + encodeURIComponent('Website quote request — ' + (get('property_address') || 'Blue Hills'))
-        + '&body=' + encodeURIComponent(body);
-
-      var status = form.querySelector('[data-form-status]');
-      if (status) {
-        status.textContent = 'Thanks — opening your email app with the request pre-filled. '
-          + 'If nothing happens, call 0411 342 456 or email admin@bluehillsgpm.com.au directly.';
+      var button = form.querySelector('button[type="submit"]');
+      if (button) {
+        button.disabled = true;
+        button.textContent = 'Sending…';
       }
 
-      // Give the CRM tracker room to send its beacon before we navigate.
-      window.setTimeout(function () { window.location.href = href; }, 600);
+      var status = form.querySelector('[data-form-status]');
+      if (status) status.textContent = 'Sending your request…';
+
+      window.setTimeout(function () { window.location.assign(THANK_YOU); }, BEACON_GRACE_MS);
     });
   });
 })();

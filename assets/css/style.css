@@ -563,6 +563,17 @@ table.data tbody tr:hover { background: rgba(234, 230, 220, .5); }
   .contact-hero__extra { grid-column: 1; grid-row: 2; align-self: start; }
 }
 
+/* Thank-you page confirmation tick */
+.thanks-tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 169, 110, .45);
+  background: rgba(201, 169, 110, .12);
+}
+
 /* ---------- Quote modal ---------- */
 .quote-modal {
   border: 0;

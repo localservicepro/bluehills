@@ -11,6 +11,7 @@ import { page, ctaBand } from './layout.mjs';
 import home from './pages/home.mjs';
 import about from './pages/about.mjs';
 import contact from './pages/contact.mjs';
+import thankYou from './pages/thank-you.mjs';
 import { servicePage } from './pages/service-template.mjs';
 import { serviceData } from './pages/services-data.mjs';
 
@@ -30,6 +31,7 @@ const out = [];
 out.push(write('index.html', home));
 out.push(write('about/index.html', about));
 out.push(write('contact/index.html', contact));
+out.push(write('thank-you/index.html', thankYou));
 for (const s of serviceData) {
   out.push(write(s.slug + '/index.html', servicePage(s)));
 }
@@ -68,8 +70,9 @@ ${services.map((s) => `        <a class="svc-card" href="/${s.slug}/" style="pad
   </section>
 
 ${ctaBand()}`,
+  noindex: true,
   jsonLd: []
-}).replace('<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">', '<meta name="robots" content="noindex, follow">');
+});
 out.push(write('404.html', notFound));
 
 /* ---------------- sitemap.xml ---------------- */

@@ -269,11 +269,11 @@ export function quoteForm(id, { compact = false } = {}) {
   //   full_name · email · phone · service_needed · property_address ·
   //   property_size · job_notes
   // No `action` attribute: the form targets the current page, which is HTTPS.
-  // A `mailto:` action is not a "potentially trustworthy" URL, so Chrome marks
-  // the whole form insecure, disables autofill and shows the visitor
-  // "This form is not secure." The mailto delivery happens in site.js instead;
-  // the <noscript> below covers anyone without JavaScript.
-  return `<form class="quote-form" id="${f('form')}" data-quote-form data-mode="mailto" method="post" novalidate>
+  // Never point this at `mailto:` — that is not a "potentially trustworthy"
+  // URL, so Chrome marks the form insecure, disables autofill and warns the
+  // visitor. Submissions are captured by the GoHighLevel tracker on the
+  // native submit event; site.js then sends the visitor to /thank-you/.
+  return `<form class="quote-form" id="${f('form')}" data-quote-form method="post" novalidate>
               <div class="field-row">
                 <div class="field">
                   <label for="${f('full_name')}">Full name</label>
@@ -377,7 +377,8 @@ export function page({
   bodyHtml,
   jsonLd = [],
   active,
-  preloadHero
+  preloadHero,
+  noindex = false
 }) {
   const url = biz.origin + '/' + (slug ? slug + '/' : '');
   const graph = [localBusinessNode(), websiteNode(), ...jsonLd];
@@ -390,7 +391,7 @@ export function page({
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 ${keywords ? `<meta name="keywords" content="${esc(keywords)}">\n` : ''}<link rel="canonical" href="${url}">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}">
 <meta name="author" content="${esc(biz.legalName)}">
 <meta name="geo.region" content="AU-VIC">
 <meta name="geo.placename" content="Pakenham, Victoria">
