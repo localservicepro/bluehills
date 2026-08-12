@@ -117,6 +117,13 @@ name="email">` / `<input type="tel" name="phone">` for contact matching.
 | Property size | `property_size` | `{{contact.property_size}}` |
 | Job notes | `job_notes` | — |
 
+The form has **no `action` attribute** — it targets the current HTTPS page.
+Do not set `action="mailto:..."`: a `mailto:` URL is not "potentially
+trustworthy", so Chrome marks the whole form insecure, disables autofill and
+shows the visitor *"This form is not secure. Autofill has been turned off."*
+The mailto delivery happens in `site.js`, and a `<noscript>` block points
+JavaScript-less visitors at the phone number and email instead.
+
 The mailto handler in `site.js` is written not to interfere with capture: it
 never calls `stopPropagation()`, so the submit event still reaches GHL's
 document-level listener, and it defers the mailto navigation by 600ms so the

@@ -268,7 +268,12 @@ export function quoteForm(id, { compact = false } = {}) {
   // renamed — they are what the CRM matches submissions against:
   //   full_name · email · phone · service_needed · property_address ·
   //   property_size · job_notes
-  return `<form class="quote-form" id="${f('form')}" data-quote-form data-mode="mailto" method="post" action="mailto:${biz.email}" enctype="text/plain" novalidate>
+  // No `action` attribute: the form targets the current page, which is HTTPS.
+  // A `mailto:` action is not a "potentially trustworthy" URL, so Chrome marks
+  // the whole form insecure, disables autofill and shows the visitor
+  // "This form is not secure." The mailto delivery happens in site.js instead;
+  // the <noscript> below covers anyone without JavaScript.
+  return `<form class="quote-form" id="${f('form')}" data-quote-form data-mode="mailto" method="post" novalidate>
               <div class="field-row">
                 <div class="field">
                   <label for="${f('full_name')}">Full name</label>
@@ -317,6 +322,9 @@ ${services.map((s) => `                    <option>${s.short.replace(/&amp;/g, '
                 <textarea id="${f('job_notes')}" name="job_notes"${compact ? ' rows="3"' : ''} placeholder="How often you'd like us, access notes, anything that's been left too long..."></textarea>
               </div>
               <button type="submit" class="btn btn--brass" style="width:100%;justify-content:center">Send Quote Request <span class="btn-arrow" aria-hidden="true"></span></button>
+              <noscript>
+                <p class="form-note">This form needs JavaScript to send. Please call <a href="${biz.phoneHref}">${biz.phoneDisplay}</a> or email <a href="mailto:${biz.email}">${biz.email}</a> and we'll get straight back to you.</p>
+              </noscript>
               <p class="form-note" data-form-status role="status">Free, no obligation. We reply to every enquiry — or call <a href="${biz.phoneHref}">${biz.phoneDisplay}</a> if you'd rather talk it through.</p>
             </form>`;
 }
