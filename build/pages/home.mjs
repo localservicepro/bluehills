@@ -39,13 +39,13 @@ const work = [
     alt: 'Acreage lawn mowing project completed by Blue Hills in Berwick VIC' },
   { n: '02', src: img.hedgePortfolio, title: 'Hedge Trimming &amp; Reduction', loc: 'Botanic Ridge, VIC',
     alt: 'Hedge trimming and reduction project completed by Blue Hills in Botanic Ridge VIC' },
-  { n: '03', src: img.stripes, title: 'Residential Lawn Care', loc: 'Officer, VIC',
+  { n: '03', src: img.stripes, title: 'Residential Lawn Care', loc: 'Harkaway, VIC',
     alt: 'Freshly mowed and edged lawn with clean stripe lines in Officer VIC' },
   { n: '04', src: img.gardenPortfolio, title: 'Garden Maintenance', loc: 'Berwick, VIC',
     alt: 'Garden maintenance project completed by Blue Hills in Berwick VIC' },
   { n: '05', src: img.bodyCorpCrew, title: 'Body Corporate', loc: 'Pakenham, VIC',
     alt: 'Body corporate grounds maintenance carried out by the Blue Hills crew in Pakenham VIC' },
-  { n: '06', src: img.commercial, title: 'Commercial Grounds Maintenance', loc: 'Berwick, VIC',
+  { n: '06', src: img.commercial, title: 'Commercial Grounds Maintenance', loc: 'Braeside, VIC',
     alt: 'Commercial office park lawn mowing and garden care by Blue Hills in Berwick VIC' }
 ];
 
@@ -61,7 +61,7 @@ const faqs = [
   { q: 'Do you offer commercial garden maintenance contracts in Berwick and Narre Warren?',
     a: 'Yes. Blue Hills holds ongoing commercial and industrial property maintenance contracts across Berwick, Narre Warren, Pakenham, and Cranbourne South. We service office parks, retail centres, childcare facilities, and industrial estates — covering mowing, hedging, weed control, garden bed maintenance, and seasonal clean-ups under one consistent provider.' },
   { q: 'What areas around Pakenham do you service?',
-    a: 'We service the full South-East Melbourne corridor, including Pakenham, Officer, Nar Nar Goon, Beaconsfield, Berwick, Harkaway, Narre Warren, Narre Warren North, Lysterfield, Botanic Ridge, Devon Meadows, Tynong, Pakenham Upper, Beaconsfield Upper, Cranbourne South, Maryknoll, Guys Hill, and Koo Wee Rup.' }
+    a: 'We service the full South-East Melbourne corridor, extending up to Braeside, including Pakenham, Officer, Nar Nar Goon, Beaconsfield, Berwick, Harkaway, Narre Warren, Narre Warren North, Lysterfield, Botanic Ridge, Devon Meadows, Tynong, Pakenham Upper, Beaconsfield Upper, Cranbourne South, Maryknoll, Guys Hill, and Koo Wee Rup.' }
 ];
 
 const body = `  <section class="hero">
