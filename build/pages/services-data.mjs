@@ -71,6 +71,16 @@ export const serviceData = [
   areaHeading: 'Lawn mowing across the <span class="accent">Pakenham–Berwick corridor</span>',
   areaIntro: 'Our residential mowing runs cover these suburbs every week. Because we are already in your street, travel is not charged on top.',
   areaSuburbs: ['Pakenham', 'Officer', 'Berwick', 'Narre Warren', 'Narre Warren North', 'Beaconsfield', 'Botanic Ridge', 'Devon Meadows', 'Harkaway', 'Cranbourne South', 'Koo Wee Rup', 'Lysterfield'],
+  galleryHeading: 'Recent lawn mowing jobs',
+  galleryIntro: 'A snapshot of residential lawns on the Blue Hills run — mowed, edged and blown down on a recurring schedule.',
+  gallery: [
+    { src: img.lawn1, title: 'Striped lawn, modern home', alt: 'Freshly mowed and striped front lawn at a modern home maintained by Blue Hills' },
+    { src: img.lawn2, title: 'Shaped shrubs & stripe lines', alt: 'Residential lawn mowed with clean stripe lines beside shaped garden shrubs' },
+    { src: img.lawn3, title: 'Garden lawn & gazebo', alt: 'Mowed garden lawn surrounding a gazebo and flowering shrubs' },
+    { src: img.lawn4, title: 'Crew on site', alt: 'Blue Hills truck and mowing trailer parked on site at a residential lawn mowing job' },
+    { src: img.lawn5, title: 'Scheduled residential visit', alt: 'Blue Hills work vehicle on a residential driveway during a scheduled lawn mowing visit' },
+    { src: img.lawn6, title: 'Nature strip & footpath edging', alt: 'Nature strip and footpath mowed and edged by Blue Hills on a residential street' }
+  ],
   faqHeading: 'Lawn mowing <span class="accent">questions</span>',
   faqs: [
     { q: 'How much does lawn mowing cost in Pakenham?', a: 'Standard residential lawn mowing in Pakenham starts at $99+GST per visit for a two-person crew. Clipping removal is not included. The exact price depends on lawn size, visit frequency and access. You receive a fixed per-visit price in writing after a free on-site assessment.' },
@@ -100,8 +110,8 @@ export const serviceData = [
   answer: 'Blue Hills mows rural and semi-rural acreage from one to ten-plus acres across Pakenham Upper, Nar Nar Goon, Tynong, Guys Hill, Beaconsfield Upper and Koo Wee Rup. We use ride-on machinery matched to the block, covering paddocks, fence lines, driveway verges, dam surrounds and the maintained house area. Acreage mowing is quoted on site and typically booked monthly or seasonally depending on growth.',
   image: img.acreage,
   imageAlt: 'Blue Hills ride-on mower working on an acreage property in Pakenham Upper VIC',
-  secondImage: img.acreagePortfolio,
-  secondImageAlt: 'Completed acreage lawn mowing on a large rural property in Berwick VIC',
+  secondImage: img.acre2,
+  secondImageAlt: 'Large acreage lawn and driveway verges mown and tidied by Blue Hills',
   introEyebrow: 'The Service',
   introHeading: 'Acreage that stays <span class="accent">presentable and safe.</span>',
   intro: [
@@ -145,6 +155,14 @@ export const serviceData = [
   areaHeading: 'Acreage mowing across the <span class="accent">rural east</span>',
   areaIntro: 'Our ride-on gear runs through the semi-rural belt north and east of Pakenham every month through the growing season.',
   areaSuburbs: ['Pakenham Upper', 'Nar Nar Goon', 'Tynong', 'Guys Hill', 'Beaconsfield Upper', 'Maryknoll', 'Koo Wee Rup', 'Harkaway', 'Narre Warren North', 'Lysterfield', 'Officer', 'Cranbourne South'],
+  galleryHeading: 'Recent acreage mowing jobs',
+  galleryIntro: 'Rural and semi-rural blocks across the belt north and east of Pakenham, cut with ride-on machinery.',
+  gallery: [
+    { src: img.acre5, title: 'Ride-on mower at work', alt: 'Blue Hills ride-on mower working across an acreage lawn' },
+    { src: img.acre6, title: 'Zero-turn on open ground', alt: 'Zero-turn ride-on mower on an open acreage property' },
+    { src: img.acre4, title: 'Rural outlook', alt: 'Freshly mown acreage lawn with a rural outlook beyond the boundary' },
+    { src: img.acre1, title: 'Lawn under gum trees', alt: 'Acreage lawn mowed around established gum trees' }
+  ],
   faqHeading: 'Acreage mowing <span class="accent">questions</span>',
   faqs: [
     { q: 'What size properties do you mow?', a: 'We mow rural and semi-rural blocks from around one acre up to ten-plus acres. Below a quarter acre, our standard residential lawn mowing service is usually more cost-effective. Above ten acres, contact us and we will confirm what we can cover in a visit.' },
@@ -173,8 +191,8 @@ export const serviceData = [
   answer: 'Blue Hills trims, shapes and reduces hedges across Berwick, Narre Warren, Pakenham, Officer and Beaconsfield. We handle routine maintenance trims on formal hedges, height and width reductions on hedges that have outgrown their space, and restoration cuts on screens that have been left too long. All cuttings are cleared and removed as part of the job.',
   image: img.hedge,
   imageAlt: 'Professional hedge trimming with sharp, clean lines by Blue Hills in Narre Warren VIC',
-  secondImage: img.hedgePortfolio,
-  secondImageAlt: 'Completed hedge trimming and reduction project by Blue Hills in Botanic Ridge VIC',
+  secondImage: img.hedge3,
+  secondImageAlt: 'Screening hedge along a commercial car park trimmed clear of the parking bays',
   introEyebrow: 'The Service',
   introHeading: 'Sharp lines. <span class="accent">Healthy growth.</span>',
   intro: [
@@ -218,6 +236,14 @@ export const serviceData = [
   areaHeading: 'Hedge trimming across <span class="accent">South-East Melbourne</span>',
   areaIntro: 'We trim hedges throughout the Pakenham–Berwick corridor for homeowners, body corporates and commercial sites alike.',
   areaSuburbs: ['Berwick', 'Narre Warren', 'Narre Warren North', 'Pakenham', 'Officer', 'Beaconsfield', 'Harkaway', 'Botanic Ridge', 'Lysterfield', 'Devon Meadows', 'Beaconsfield Upper', 'Cranbourne South'],
+  galleryHeading: 'Recent hedge trimming jobs',
+  galleryIntro: 'Formal hedges, boundary screens and car park screening cut to a true line, with every cutting removed.',
+  gallery: [
+    { src: img.hedge2, title: 'Driveway hedges', alt: 'Shaped hedges lining the driveway of a two-storey home after trimming' },
+    { src: img.hedge5, title: 'Driveway screen & gate', alt: 'Tall driveway screening hedge trimmed back clear of the entry gate' },
+    { src: img.hedge4, title: 'Boundary hedge', alt: 'Boundary hedge trimmed square beside a palm and maintained lawn' },
+    { src: img.hedge1, title: 'Reduction & reshape', alt: 'Established hedge reduced and reshaped to a clean line by Blue Hills' }
+  ],
   faqHeading: 'Hedge trimming <span class="accent">questions</span>',
   faqs: [
     { q: 'When is the best time to trim a hedge in Victoria?', a: 'The main shaping cut is best done in late spring or early autumn, when the plant has enough growing season left to push new growth and close the face. Light tidy-up trims can be done almost any time. Hard reductions are best avoided in the middle of summer heat or deep winter.' },
@@ -440,6 +466,15 @@ export const serviceData = [
   areaHeading: 'Strata and body corporate sites we <span class="accent">service</span>',
   areaIntro: 'We maintain common areas for owners corporations across the growth corridor, from small townhouse groups to multi-stage estates.',
   areaSuburbs: ['Pakenham', 'Berwick', 'Narre Warren', 'Officer', 'Beaconsfield', 'Botanic Ridge', 'Devon Meadows', 'Cranbourne South', 'Narre Warren North', 'Lysterfield', 'Nar Nar Goon', 'Koo Wee Rup'],
+  galleryHeading: 'Recent body corporate sites',
+  galleryIntro: 'Common areas on townhouse groups, unit developments and managed estates across the Pakenham–Berwick corridor.',
+  gallery: [
+    { src: img.bc6, title: 'Townhouse court common lawn', alt: 'Common area lawn in a townhouse court maintained under a body corporate contract' },
+    { src: img.bc3, title: 'Townhouse frontage', alt: 'Townhouse frontage with maintained garden beds and mown common area lawn' },
+    { src: img.bc2, title: 'Driveway & shaped shrubs', alt: 'Shared driveway with shaped shrubs maintained on a body corporate schedule' },
+    { src: img.bc1, title: 'Boundary hedge & entry', alt: 'Boundary screening hedge and entry gate maintained on a strata-managed estate' },
+    { src: img.bc4, title: 'Commercial frontage', alt: 'Commercial frontage hedge and footpath edge kept clear on a scheduled visit' }
+  ],
   faqHeading: 'Body corporate <span class="accent">questions</span>',
   faqs: [
     { q: 'Do you work directly with strata managers or with committees?', a: 'Both. We work directly with strata and owners corporation managers, and we also deal directly with self-managed committees. Documentation is provided in a format that works either way — a written schedule, visit records and monthly invoicing that reconciles against it.' },

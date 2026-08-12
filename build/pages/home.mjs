@@ -6,7 +6,7 @@ const URL = biz.origin + '/';
 const cards = [
   { n: '01', href: '/lawn-mowing/', title: 'Lawn Mowing &amp; Edging', src: img.lawn,
     alt: 'Blue Hills team performing professional lawn mowing on a residential property in Pakenham VIC',
-    copy: 'Scheduled mowing with crisp edging, blower clean-up, and clipping removal. Available weekly, fortnightly or monthly.',
+    copy: 'Scheduled mowing with crisp edging and a full blower clean-up. Available weekly, fortnightly or monthly.',
     icon: '<path d="M3 8h24M3 15h18M3 22h12"></path>' },
   { n: '02', href: '/acreage-mowing/', title: 'Acreage Mowing', src: img.acreage,
     alt: 'Blue Hills ride-on mower working on an acreage property in Pakenham Upper VIC',
@@ -24,12 +24,12 @@ const cards = [
     alt: 'Weed control treatment in garden beds by Blue Hills across South-East Melbourne',
     copy: 'Selective spraying and hand-weeding to keep your garden beds and lawns pristine and healthy.',
     icon: '<path d="M15 4l8 10a8 8 0 1 1-16 0z"></path>' },
-  { n: '06', href: '/garden-maintenance/#pruning', title: 'Pruning', src: img.pruning,
-    alt: 'Freshly maintained garden path with clean edges and pruned plants in Narre Warren VIC',
+  { n: '06', href: '/garden-maintenance/#pruning', title: 'Pruning', src: img.homePruning,
+    alt: 'Shaped topiary and pruned shrubs framing a home entrance, pruned by Blue Hills',
     copy: 'Structural pruning that keeps gardens looking intentional, not overgrown, plus seasonal pruning.',
     icon: '<circle cx="8" cy="22" r="4"></circle><circle cx="22" cy="22" r="4"></circle><path d="M10 19L22 5M20 19L8 5"></path>' },
-  { n: '07', href: '/body-corporate/', title: 'Body Corporate &amp; Commercial', src: img.bodyCorp,
-    alt: 'Blue Hills crew maintaining body corporate common area gardens in Pakenham VIC',
+  { n: '07', href: '/body-corporate/', title: 'Body Corporate &amp; Commercial', src: img.homeBodyCorp,
+    alt: 'Common area lawn and frontage on a body corporate property maintained by Blue Hills',
     copy: 'Strata, body corp, and commercial property maintenance with documented schedules and reliable invoicing.',
     icon: '<rect x="4" y="10" width="10" height="16"></rect><rect x="17" y="4" width="9" height="22"></rect>' }
 ];
@@ -39,14 +39,14 @@ const work = [
     alt: 'Acreage lawn mowing project completed by Blue Hills in Berwick VIC' },
   { n: '02', src: img.hedgePortfolio, title: 'Hedge Trimming &amp; Reduction', loc: 'Botanic Ridge, VIC',
     alt: 'Hedge trimming and reduction project completed by Blue Hills in Botanic Ridge VIC' },
-  { n: '03', src: img.stripes, title: 'Residential Lawn Care', loc: 'Harkaway, VIC',
-    alt: 'Freshly mowed and edged lawn with clean stripe lines in Officer VIC' },
+  { n: '03', src: img.lawn2, title: 'Residential Lawn Care', loc: 'Harkaway, VIC',
+    alt: 'Residential lawn mowed with clean stripe lines beside shaped shrubs in Harkaway VIC' },
   { n: '04', src: img.gardenPortfolio, title: 'Garden Maintenance', loc: 'Berwick, VIC',
     alt: 'Garden maintenance project completed by Blue Hills in Berwick VIC' },
-  { n: '05', src: img.bodyCorpCrew, title: 'Body Corporate', loc: 'Pakenham, VIC',
-    alt: 'Body corporate grounds maintenance carried out by the Blue Hills crew in Pakenham VIC' },
-  { n: '06', src: img.commercial, title: 'Commercial Grounds Maintenance', loc: 'Braeside, VIC',
-    alt: 'Commercial office park lawn mowing and garden care by Blue Hills in Berwick VIC' }
+  { n: '05', src: img.bc6, title: 'Body Corporate', loc: 'Pakenham, VIC',
+    alt: 'Common area lawn in a townhouse court maintained by Blue Hills in Pakenham VIC' },
+  { n: '06', src: img.hedge3, title: 'Commercial Grounds Maintenance', loc: 'Braeside, VIC',
+    alt: 'Commercial car park screening hedge and grounds maintained by Blue Hills in Braeside VIC' }
 ];
 
 const faqs = [

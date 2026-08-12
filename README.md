@@ -25,7 +25,7 @@ dependencies — the generated HTML in the repo root is the deployable site.
 
 assets/css/style.css    Complete design system (single stylesheet)
 assets/js/site.js       Mobile nav, services dropdown, before/after slider, form
-assets/img/*.webp       All photography, optimised (~4 MB total)
+assets/img/*.webp       All photography, optimised (~6 MB total, 36 images)
 
 sitemap.xml  robots.txt  llms.txt  site.webmanifest  favicon.ico  .htaccess
 
@@ -77,6 +77,15 @@ cache headers and the 404 document on Apache/cPanel hosting.
 - Accessibility: skip link, landmarks, visible focus rings, keyboard-operable
   navigation and before/after slider, `prefers-reduced-motion` support.
 
+## Address policy
+
+The registered address is the owners' home, so **no street address is published**
+anywhere — not in the footer, not on the contact page, and not in the
+`PostalAddress` schema. Blue Hills is treated as a service-area business:
+suburb, region, `geo` and 18 `areaServed` entries carry the local-search signal.
+Google Business Profile should be set to "I deliver goods and services to my
+customers" with the address hidden, to stay consistent with the site.
+
 ## Known follow-ups
 
 1. **Quote form** currently opens the visitor's mail client (`mailto:`) so no enquiry
@@ -87,3 +96,13 @@ cache headers and the 404 document on Apache/cPanel hosting.
    confirmed against the Google Business Profile.
 3. **Reviews** — no `aggregateRating` is published, since inventing one is a schema
    violation. Once Google reviews are syndicated, add real review data.
+4. **Missing photo sets.** Three files in the Drive "Photo Changes" folder could not
+   be retrieved (`Hedge Trimming 6 -.jpeg` exceeds the 10 MB connector limit;
+   the two "OPENING IMAGE" files time out). No photos were supplied for Garden
+   Maintenance, Weed Control or Commercial Property, and no replacement
+   before/after transformation pair. Those sections still use design-bundle images.
+5. **Duplicate photos.** The Photo Changes set overlapped the design bundle in five
+   places — the same photograph supplied twice under different names. Duplicates
+   were removed and references consolidated; `scratchpad` perceptual-hash checks
+   confirm no page shows the same image twice. Re-run that check when new photos
+   land.

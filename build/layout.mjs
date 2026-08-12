@@ -62,9 +62,9 @@ export function localBusinessNode() {
       + 'The team provides lawn mowing, acreage mowing, hedge trimming and reductions, pruning, garden maintenance, garden clean-ups, '
       + 'weed control and softscaping for residential, body corporate, strata, commercial and industrial properties across the '
       + 'Pakenham–Berwick corridor in South-East Melbourne.',
+    // No streetAddress: service-area business, private residential address.
     address: {
       '@type': 'PostalAddress',
-      streetAddress: biz.street,
       addressLocality: biz.suburb,
       addressRegion: biz.state,
       postalCode: biz.postcode,
@@ -237,7 +237,8 @@ ${suburbs.slice(0, 7).map((s) => `            <li>${s}</li>`).join('\n')}
           <ul class="footer-list">
             <li><a href="${biz.phoneHref}">${biz.phoneDisplay}</a></li>
             <li><a href="mailto:${biz.email}">${biz.email}</a></li>
-            <li>${biz.street}, ${biz.suburb} ${biz.state} ${biz.postcode}</li>
+            <li>${biz.suburb} ${biz.state} ${biz.postcode}</li>
+            <li>Mobile service — we come to you</li>
             <li><a href="${biz.gmb}" rel="noopener">Find us on Google Maps</a></li>
             <li class="footer-social">
               <a href="${biz.facebook}" rel="noopener me">Facebook</a>

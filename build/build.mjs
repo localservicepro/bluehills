@@ -157,7 +157,7 @@ out.push(write('llms.txt',
 - Legal name: ${biz.legalName}
 - Trading name: ${biz.name}
 - Established: ${biz.founded}
-- Address: ${biz.street}, ${biz.suburb} ${biz.state} ${biz.postcode}, Australia
+- Based in: ${biz.suburb} ${biz.state} ${biz.postcode}, Australia (mobile service-area business; no public shopfront)
 - Phone: ${biz.phoneDisplay} (${biz.phoneE164})
 - Email: ${biz.email}
 - Website: ${biz.origin}

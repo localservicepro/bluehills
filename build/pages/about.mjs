@@ -4,7 +4,7 @@ import { page, ctaBand, breadcrumbNode, faqNode, webPageNode, dims, ORG_ID } fro
 const URL = biz.origin + '/about/';
 
 const faqs = [
-  { q: 'When was Blue Hills Property Maintenance established?', a: 'Blue Hills Property Maintenance Pty Ltd was established in 2017 and is based at 3 Teal Pl, Pakenham VIC 3810. The business has serviced the Pakenham–Berwick corridor continuously since then.' },
+  { q: 'When was Blue Hills Property Maintenance established?', a: 'Blue Hills Property Maintenance Pty Ltd was established in 2017 and is based in Pakenham, Victoria. The business has serviced the Pakenham–Berwick corridor continuously since then.' },
   { q: 'What areas does Blue Hills service?', a: 'Blue Hills services 18 suburbs across South-East Melbourne: Pakenham, Officer, Nar Nar Goon, Beaconsfield, Berwick, Harkaway, Narre Warren, Narre Warren North, Lysterfield, Botanic Ridge, Devon Meadows, Tynong, Pakenham Upper, Beaconsfield Upper, Cranbourne South, Maryknoll, Guys Hill and Koo Wee Rup.' },
   { q: 'What types of property does Blue Hills work on?', a: 'Residential homes and acreage, body corporate and strata common property, and commercial and industrial sites. The same crew standard applies whether the job is a courtyard in Botanic Ridge or a multi-building estate in Narre Warren.' },
   { q: 'Is Blue Hills insured?', a: 'Yes. Public liability insurance is current and applies to every job, residential and commercial. A certificate of currency can be provided to strata managers, facilities managers or commercial clients on request.' },
@@ -61,7 +61,7 @@ const body = `  <section class="hero hero--page">
         <dl class="facts-grid">
           <div><dt>Legal entity</dt><dd>${biz.legalName}</dd></div>
           <div><dt>Established</dt><dd>2017</dd></div>
-          <div><dt>Based in</dt><dd>${biz.street}, ${biz.suburb} ${biz.state} ${biz.postcode}</dd></div>
+          <div><dt>Based in</dt><dd>${biz.suburb} ${biz.state} ${biz.postcode} — mobile service across 18 suburbs</dd></div>
           <div><dt>Suburbs serviced</dt><dd>18 across South-East Melbourne</dd></div>
           <div><dt>Service lines</dt><dd>Mowing, acreage mowing, hedging, pruning, garden maintenance, clean-ups, weed control, softscaping</dd></div>
           <div><dt>Client types</dt><dd>Residential, acreage, body corporate, strata, commercial, industrial</dd></div>

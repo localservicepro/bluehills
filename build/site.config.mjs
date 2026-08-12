@@ -10,7 +10,10 @@ export const biz = {
   phoneHref: 'tel:+61411342456',
   phoneE164: '+61411342456',
   email: 'admin@bluehillsgpm.com.au',
-  street: '3 Teal Pl',
+  // The registered address is the owners' home, so the street line is
+  // deliberately not published anywhere on the site or in schema. Blue Hills
+  // is a service-area business: suburb, region and areaServed carry the
+  // local-search signal without exposing a private address.
   suburb: 'Pakenham',
   state: 'VIC',
   stateFull: 'Victoria',
@@ -50,7 +53,7 @@ export const img = {
   acreage: '/assets/img/ride-on-acreage-mowing-pakenham-upper-vic.webp',
   hedge: '/assets/img/professional-hedge-trimming-sharp-clean-lines.webp',
   garden: '/assets/img/garden-maintenance-berwick-vic-blue-hills-team.webp',
-  weed: '/assets/img/weed-control-garden-beds-south-east-melbourne.webp',
+  weed: '/assets/img/garden-path-clean-edges-pruned-plants-narre-warren.webp',
   pruning: '/assets/img/garden-path-clean-edges-pruned-plants-narre-warren.webp',
   bodyCorp: '/assets/img/body-corporate-common-area-gardens-pakenham-vic.webp',
   bodyCorpCrew: '/assets/img/body-corporate-grounds-maintenance-pakenham-crew.webp',
@@ -60,5 +63,35 @@ export const img = {
   hedgePortfolio: '/assets/img/hedge-trimming-reduction-botanic-ridge-vic.webp',
   gardenPortfolio: '/assets/img/garden-maintenance-berwick-vic.webp',
   before: '/assets/img/lawn-transformation-before-overgrown-pakenham.webp',
-  after: '/assets/img/lawn-transformation-after-restored-pakenham.webp'
+  after: '/assets/img/lawn-transformation-after-restored-pakenham.webp',
+
+  /* ---- Photo Changes set (client-supplied replacements) ---- */
+  homePruning: '/assets/img/pruning-shaped-topiary-entrance-blue-hills.webp',
+  homeBodyCorp: '/assets/img/body-corporate-common-area-lawn-frontage.webp',
+
+  lawn1: '/assets/img/garden-maintenance-berwick-vic-blue-hills-team.webp',
+  lawn2: '/assets/img/lawn-mowing-shaped-shrubs-striped-lawn.webp',
+  lawn3: '/assets/img/lawn-mowing-garden-lawn-with-gazebo.webp',
+  lawn4: '/assets/img/lawn-mowing-blue-hills-truck-and-trailer-on-site.webp',
+  lawn5: '/assets/img/lawn-mowing-blue-hills-vehicle-residential-driveway.webp',
+  lawn6: '/assets/img/lawn-mowing-nature-strip-and-footpath-edging.webp',
+
+  acre1: '/assets/img/acreage-mowing-open-lawn-with-gum-trees.webp',
+  acre2: '/assets/img/acreage-mowing-large-lawn-and-driveway.webp',
+  acre3: '/assets/img/ride-on-acreage-mowing-pakenham-upper-vic.webp',
+  acre4: '/assets/img/acreage-mowing-striped-lawn-rural-outlook.webp',
+  acre5: '/assets/img/acreage-lawn-mowing-berwick-vic.webp',
+  acre6: '/assets/img/acreage-mowing-zero-turn-ride-on-mower.webp',
+
+  hedge1: '/assets/img/hedge-trimming-reduction-botanic-ridge-vic.webp',
+  hedge2: '/assets/img/hedge-trimming-shaped-hedges-driveway-two-storey-home.webp',
+  hedge3: '/assets/img/grounds-maintenance-commercial-car-park-screening-hedge.webp',
+  hedge4: '/assets/img/hedge-trimming-boundary-hedge-with-palm-and-lawn.webp',
+  hedge5: '/assets/img/hedge-trimming-long-driveway-hedge-and-gate.webp',
+
+  bc1: '/assets/img/body-corporate-boundary-hedge-and-entry-gate.webp',
+  bc2: '/assets/img/body-corporate-driveway-with-shaped-shrubs.webp',
+  bc3: '/assets/img/body-corporate-townhouse-frontage-and-garden-beds.webp',
+  bc4: '/assets/img/body-corporate-commercial-frontage-hedge-and-path.webp',
+  bc6: '/assets/img/body-corporate-townhouse-court-common-lawn.webp'
 };

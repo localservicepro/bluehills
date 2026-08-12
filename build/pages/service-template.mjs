@@ -112,7 +112,29 @@ ${s.pricing.map((p) => `          <p class="lead muted-light">${p}</p>`).join('\
     </div>
   </section>
 
-  <section class="section section--sand">
+${s.gallery ? `  <section class="section" id="recent-work">
+    <div class="shell">
+      <div class="portfolio-head">
+        <div class="stack" style="gap:16px">
+          <p class="eyebrow">Recent Work</p>
+          <h2 class="h2">${s.galleryHeading}</h2>
+          <p class="body-copy max-60">${s.galleryIntro}</p>
+        </div>
+        <a class="link-arrow" href="/contact/">Get the same result <span class="btn-arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="grid-3 grid-3--tight">
+${s.gallery.map((g) => `        <figure class="work-card" style="margin:0;aspect-ratio:4/3">
+          <img src="${g.src}" alt="${g.alt}"${dims(g.src)} loading="lazy" decoding="async">
+          <figcaption>
+            <span class="work-card__label">— ${s.crumb}</span>
+            <h3 class="h3">${g.title}</h3>
+          </figcaption>
+        </figure>`).join('\n')}
+      </div>
+    </div>
+  </section>
+
+` : ''}  <section class="section section--sand">
     <div class="shell text-center">
       <div class="section-head">
         <p class="eyebrow">Coverage</p>
@@ -204,7 +226,19 @@ ${ctaBand({ eyebrow: 'Get Started', heading: s.ctaHeading, copy: s.ctaCopy, cta:
           }))
         }
       },
-      faqNode(URL, s.faqs)
+      faqNode(URL, s.faqs),
+      ...(s.gallery ? [{
+        '@type': 'ImageGallery',
+        '@id': URL + '#recent-work',
+        name: s.galleryHeading.replace(/<[^>]+>/g, ''),
+        about: { '@id': URL + '#service' },
+        image: s.gallery.map((g) => ({
+          '@type': 'ImageObject',
+          contentUrl: biz.origin + g.src,
+          name: g.title,
+          description: g.alt
+        }))
+      }] : [])
     ]
   });
 }

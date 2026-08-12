@@ -113,10 +113,11 @@ ${services.map((s) => `                    <option>${s.short.replace(/&amp;/g, '
               <a class="contact-list__value" href="mailto:${biz.email}">${biz.email}</a>
             </div>
             <div class="contact-list__item">
-              <span class="contact-list__label">Address</span>
+              <span class="contact-list__label">Based in</span>
               <address class="contact-list__value" style="font-style:normal">
-                ${biz.street}<br>${biz.suburb} ${biz.state} ${biz.postcode}<br>Australia
+                ${biz.suburb} ${biz.state} ${biz.postcode}<br>Australia
               </address>
+              <span class="small">We're a mobile service — our crews come to you anywhere in the 18-suburb service area. There's no shopfront to visit.</span>
             </div>
             <div class="contact-list__item">
               <span class="contact-list__label">Business</span>
@@ -133,11 +134,11 @@ ${services.map((s) => `                    <option>${s.short.replace(/&amp;/g, '
           </div>
 
           <div style="margin-top:36px">
-            <h3 class="h4" style="margin-bottom:16px">Find us</h3>
+            <h3 class="h4" style="margin-bottom:16px">Our service area</h3>
             <iframe
               class="map-frame"
-              title="Map showing Blue Hills Property Maintenance in Pakenham VIC"
-              src="https://www.google.com/maps?q=3+Teal+Pl,+Pakenham+VIC+3810,+Australia&amp;output=embed"
+              title="Map of the Blue Hills Property Maintenance service area around Pakenham VIC"
+              src="https://www.google.com/maps?q=Pakenham+VIC+3810,+Australia&amp;output=embed"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"></iframe>
             <p class="small" style="margin-top:12px"><a href="${biz.gmb}" rel="noopener">Open in Google Maps</a></p>
