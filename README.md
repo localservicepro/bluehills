@@ -97,6 +97,34 @@ Body sections carry a single quote CTA only; call and email buttons were
 removed from page bodies at the client's request. The phone number remains in
 the header, the footer, the contact page and the mobile sticky bar.
 
+### GoHighLevel integration
+
+`external-tracking.js` (tracking id `tk_32ff295ccd334631b71115e471523a19`) is
+loaded in `<head>` on every page, and the form is built to GHL's capture rules:
+rendered in the page DOM inside a real `<form>` (no iframe), no disabled
+fields, a native `<button type="submit">`, and `<input type="email"
+name="email">` / `<input type="tel" name="phone">` for contact matching.
+
+**Field `name` attributes are the CRM keys. Do not rename them:**
+
+| Field | `name` | GHL token |
+| --- | --- | --- |
+| Full name | `full_name` | `{{contact.full_name}}` |
+| Email | `email` | `{{contact.email}}` |
+| Phone | `phone` | `{{contact.phone}}` |
+| Service needed | `service_needed` | `{{contact.service_needed}}` |
+| Property address | `property_address` | `{{contact.property_address}}` |
+| Property size | `property_size` | `{{contact.property_size}}` |
+| Job notes | `job_notes` | — |
+
+The mailto handler in `site.js` is written not to interfere with capture: it
+never calls `stopPropagation()`, so the submit event still reaches GHL's
+document-level listener, and it defers the mailto navigation by 600ms so the
+tracker's beacon goes out first. Keep both properties if you edit it.
+
+Form Analytics and Form Submissions must be enabled in the GHL settings for
+this to record anything — that is a dashboard setting, not a code change.
+
 ## Address policy
 
 The registered address is the owners' home, so **no street address is published**

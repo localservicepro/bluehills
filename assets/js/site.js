@@ -153,40 +153,53 @@
   }
 
   /* ---------- Quote forms: mailto fallback ----------
-     The site is hosted as static files. Until a form handler endpoint is
-     wired up, submitting composes an email to the business inbox so no
-     enquiry is silently lost. Applies to both the contact-page form and
-     the modal copy. */
+     The site is static, so until a POST endpoint exists this composes an
+     email to the business inbox rather than losing the enquiry.
+
+     GoHighLevel's external-tracking.js captures submissions by listening for
+     the native `submit` event at document level. This handler is deliberately
+     built not to interfere with that:
+
+       - it never calls stopPropagation(), so the event still reaches GHL;
+       - preventDefault() only cancels the browser's own mailto navigation,
+         not the dispatch of the event itself;
+       - the mailto is opened on a short timeout so the tracker's beacon has
+         gone out before the browser hands over to the mail client.
+
+     Field `name` attributes are the GHL contact keys — do not rename them. */
   document.querySelectorAll('form[data-quote-form][data-mode="mailto"]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
-      e.preventDefault();
       if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
+      e.preventDefault();
 
       var get = function (name) {
         var f = form.elements[name];
         return f ? String(f.value || '').trim() : '';
       };
       var body = [
-        'Name: ' + get('name'),
+        'Full name: ' + get('full_name'),
         'Phone: ' + get('phone'),
         'Email: ' + get('email'),
-        'Suburb: ' + get('suburb'),
-        'Property type: ' + get('property'),
-        'Service required: ' + get('service'),
+        'Property address: ' + get('property_address'),
+        'Property size: ' + get('property_size'),
+        'Service needed: ' + get('service_needed'),
         '',
-        'Details:',
-        get('message')
+        'Job notes:',
+        get('job_notes')
       ].join('\n');
 
-      window.location.href = 'mailto:admin@bluehillsgpm.com.au'
-        + '?subject=' + encodeURIComponent('Website quote request — ' + (get('suburb') || 'Blue Hills'))
+      var href = 'mailto:admin@bluehillsgpm.com.au'
+        + '?subject=' + encodeURIComponent('Website quote request — ' + (get('property_address') || 'Blue Hills'))
         + '&body=' + encodeURIComponent(body);
 
       var status = form.querySelector('[data-form-status]');
       if (status) {
-        status.textContent = 'Opening your email app with the request pre-filled. '
+        status.textContent = 'Thanks — opening your email app with the request pre-filled. '
           + 'If nothing happens, call 0411 342 456 or email admin@bluehillsgpm.com.au directly.';
       }
+
+      // Give the CRM tracker room to send its beacon before we navigate.
+      window.setTimeout(function () { window.location.href = href; }, 600);
     });
   });
 })();

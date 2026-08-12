@@ -264,43 +264,46 @@ ${suburbs.slice(0, 7).map((s) => `            <li>${s}</li>`).join('\n')}
    site-wide modal. `id` namespaces every field so both can coexist. */
 export function quoteForm(id, { compact = false } = {}) {
   const f = (n) => `${id}-${n}`;
+  // `name` attributes are the GoHighLevel contact field keys and must not be
+  // renamed — they are what the CRM matches submissions against:
+  //   full_name · email · phone · service_needed · property_address ·
+  //   property_size · job_notes
   return `<form class="quote-form" id="${f('form')}" data-quote-form data-mode="mailto" method="post" action="mailto:${biz.email}" enctype="text/plain" novalidate>
               <div class="field-row">
                 <div class="field">
-                  <label for="${f('name')}">Your name</label>
-                  <input type="text" id="${f('name')}" name="name" autocomplete="name" required>
+                  <label for="${f('full_name')}">Full name</label>
+                  <input type="text" id="${f('full_name')}" name="full_name" autocomplete="name" required>
                 </div>
                 <div class="field">
                   <label for="${f('phone')}">Phone</label>
                   <input type="tel" id="${f('phone')}" name="phone" autocomplete="tel" required>
                 </div>
               </div>
-              <div class="field-row">
-                <div class="field">
-                  <label for="${f('email')}">Email</label>
-                  <input type="email" id="${f('email')}" name="email" autocomplete="email" required>
-                </div>
-                <div class="field">
-                  <label for="${f('suburb')}">Suburb</label>
-                  <input list="${f('suburbs')}" id="${f('suburb')}" name="suburb" autocomplete="address-level2" required>
-                  <datalist id="${f('suburbs')}">
-${suburbs.map((s) => `                    <option value="${s}"></option>`).join('\n')}
-                  </datalist>
-                </div>
+              <div class="field">
+                <label for="${f('email')}">Email</label>
+                <input type="email" id="${f('email')}" name="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="${f('property_address')}">Property address</label>
+                <input type="text" id="${f('property_address')}" name="property_address" autocomplete="street-address" placeholder="Street address and suburb" required>
               </div>
               <div class="field-row">
                 <div class="field">
-                  <label for="${f('property')}">Property type</label>
-                  <select id="${f('property')}" name="property">
-                    <option>Residential home</option>
-                    <option>Acreage / rural block</option>
-                    <option>Body corporate / strata</option>
-                    <option>Commercial / industrial</option>
+                  <label for="${f('property_size')}">Property size</label>
+                  <select id="${f('property_size')}" name="property_size">
+                    <option>Courtyard or unit</option>
+                    <option>Standard suburban block (up to 700m²)</option>
+                    <option>Large block (700–1,000m²)</option>
+                    <option>Half acre to 1 acre</option>
+                    <option>1–5 acres</option>
+                    <option>5+ acres</option>
+                    <option>Body corporate or commercial site</option>
+                    <option>Not sure</option>
                   </select>
                 </div>
                 <div class="field">
-                  <label for="${f('service')}">Service required</label>
-                  <select id="${f('service')}" name="service">
+                  <label for="${f('service_needed')}">Service needed</label>
+                  <select id="${f('service_needed')}" name="service_needed">
 ${services.map((s) => `                    <option>${s.short.replace(/&amp;/g, '&')}</option>`).join('\n')}
                     <option>Garden clean-up / seasonal reset</option>
                     <option>Pruning</option>
@@ -310,8 +313,8 @@ ${services.map((s) => `                    <option>${s.short.replace(/&amp;/g, '
                 </div>
               </div>
               <div class="field">
-                <label for="${f('message')}">Job details</label>
-                <textarea id="${f('message')}" name="message"${compact ? ' rows="3"' : ''} placeholder="Block size, how often you'd like us, access notes, anything that's been left too long..."></textarea>
+                <label for="${f('job_notes')}">Job notes</label>
+                <textarea id="${f('job_notes')}" name="job_notes"${compact ? ' rows="3"' : ''} placeholder="How often you'd like us, access notes, anything that's been left too long..."></textarea>
               </div>
               <button type="submit" class="btn btn--brass" style="width:100%;justify-content:center">Send Quote Request <span class="btn-arrow" aria-hidden="true"></span></button>
               <p class="form-note" data-form-status role="status">Free, no obligation. We reply to every enquiry — or call <a href="${biz.phoneHref}">${biz.phoneDisplay}</a> if you'd rather talk it through.</p>
@@ -412,6 +415,12 @@ ${keywords ? `<meta name="keywords" content="${esc(keywords)}">\n` : ''}<link re
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&amp;display=swap"></noscript>
 <link rel="stylesheet" href="/assets/css/style.css">
 ${preloadHero ? `<link rel="preload" as="image" href="${preloadHero}" fetchpriority="high">\n` : ''}
+<!-- GoHighLevel external tracking (page analytics + form submission capture) -->
+<script
+  src="https://link.msgsndr.com/js/external-tracking.js"
+  data-tracking-id="tk_32ff295ccd334631b71115e471523a19">
+</script>
+
 <script type="application/ld+json">
 ${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2)}
 </script>
