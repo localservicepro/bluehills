@@ -21,7 +21,7 @@ export const serviceData = [
   keywords: 'lawn mowing Pakenham, lawn mowing Officer, lawn mowing Berwick, lawn mowing Narre Warren, lawn edging Pakenham, mowing service South-East Melbourne',
   eyebrow: 'Residential Lawn Care',
   h1: 'Lawn Mowing in <span class="accent">Pakenham</span> &amp; South-East Melbourne',
-  answer: 'Blue Hills provides scheduled residential lawn mowing across Pakenham, Officer, Berwick, Narre Warren and 14 other South-East Melbourne suburbs. Every visit includes mowing, crisp edging around paths, beds and driveways, and a full blower clean-up. Standard residential lawn mowing starts at <strong>$99+GST per visit</strong> for a two-person crew, and can be booked weekly, fortnightly or monthly.',
+  answer: 'Blue Hills provides scheduled residential lawn mowing for home owners across Pakenham, Officer, Berwick, Narre Warren and 14 other South-East Melbourne suburbs. Every visit includes mowing, crisp edging around paths, beds and driveways, and a full blower clean-up. Standard residential lawn mowing starts at <strong>$99+GST per visit</strong> for a two-person crew, and can be booked weekly, fortnightly or monthly.',
   image: img.lawn,
   imageAlt: 'Blue Hills team performing professional lawn mowing on a residential property in Pakenham VIC',
   secondImage: img.stripes,
@@ -37,34 +37,36 @@ export const serviceData = [
   ],
   facts: [
     { k: 'Starting price', v: 'From $99 + GST per visit (standard residential lawn, two-person crew)' },
+    { k: 'Who we mow for', v: 'Home owners, plus body corporate, strata and commercial sites' },
+    { k: 'Before every visit', v: 'An SMS 24 hours ahead with an ETA — recurring clients are on a fixed route' },
     { k: 'Clipping removal', v: 'Not included in the standard visit — quoted separately on request' },
     { k: 'Frequency', v: 'Weekly, fortnightly or monthly — fortnightly Sep–May is most common' },
-    { k: 'Included every visit', v: 'Mowing, hard edging, blower clean-up of paths and driveways' },
+    { k: 'Included every visit', v: 'Mowing, hard edging, and a blow-down of garden beds and hard surfaces' },
     { k: 'Main service suburbs', v: 'Pakenham, Officer, Berwick, Narre Warren, Beaconsfield, Botanic Ridge' },
     { k: 'Insurance', v: 'Public liability cover on every job' }
   ],
   includedHeading: 'Every lawn mowing visit, <span class="accent">start to finish</span>',
-  includedIntro: 'One flat visit price covers the full cycle — no line items added on the day, no "that will be extra" surprises.',
+  includedIntro: 'A professional lawn mowing service in Pakenham from Blue Hills isn\'t a simple push-and-go. One flat visit price covers the full cycle — no line items added on the day, no "that will be extra" surprises.',
   included: [
     { t: 'Mowing to the right height', d: 'Cut height set for your grass type and the season, never scalped. Ride-on or push mower depending on access and lawn size.' },
     { t: 'Hard edging', d: 'Line-trimmed and hard-edged along driveways, paths, fence lines and garden beds so the boundary between lawn and everything else stays sharp.' },
-    { t: 'Blower clean-up', d: 'Every path, driveway and entertaining area blown clear before we leave. You should not be able to tell where we walked.' },
+    { t: 'Blow-down &amp; clean-up', d: 'All clippings blown off garden beds and hard surfaces — paths, driveways and entertaining areas. You won\'t need to sweep after a Blue Hills visit. We leave the property as if we weren\'t even there.' },
     { t: 'Trimming around obstacles', d: 'Around trees, letterboxes, clotheslines, garden taps, pool fencing and retaining walls — the spots a mower deck cannot reach.' },
     { t: 'Health check on every visit', d: 'We flag lawn issues we spot — grub damage, dry patches, thatch build-up, drainage problems — before they become expensive.' },
-    { t: 'Consistent schedule', d: 'Your visit is locked into a recurring run. No calling around each fortnight, no chasing anyone for a booking.' }
+    { t: 'You know when we\'re coming', d: 'Clients receive an SMS 24 hours before service with an ETA. Recurring clients sit on a fixed route, so we arrive when we say we will — not whenever a gap opens up in the day.' }
   ],
   processHeading: 'From first call to <span class="accent">standing appointment</span>',
   processIntro: 'Getting onto the Blue Hills run takes one phone call and one short site visit. Most new residential clients are mowing within a week.',
   process: [
     { t: 'Free on-site assessment', d: 'We walk the property, measure the lawn area, check access and gate widths, and note anything that affects the job — slope, obstacles, dog runs, irrigation heads.' },
     { t: 'Fixed per-visit quote', d: 'You get a written per-visit price and a recommended frequency. No hourly rate creeping up, no charge for travel inside our service area.' },
-    { t: 'Locked-in schedule', d: 'Your property joins the recurring run for your suburb. You know roughly which day of the fortnight to expect us.' },
+    { t: 'Locked-in schedule', d: 'Your property joins the fixed route for your suburb, and you get an SMS 24 hours before each visit with an ETA. No wondering which day we might turn up.' },
     { t: 'Set and forget', d: 'We turn up, mow, edge, blow down and go. Invoicing is monthly. If we ever cannot make a scheduled visit, you hear from us first.' }
   ],
   pricingEyebrow: 'What It Costs',
   pricingHeading: 'Honest lawn mowing prices in <span class="accent">Pakenham</span>',
   pricing: [
-    'Standard residential lawn mowing starts at <strong>$99 plus GST per visit</strong> for a two-person crew. Clipping removal is not included in that figure and is quoted separately if you want the catch bag emptied off-site.',
+    'Standard residential lawn mowing for home owners starts at <strong>$99 plus GST per visit</strong> for a two-person crew. Clipping removal is not included in that figure and is quoted separately if you want the catch bag emptied off-site.',
     'The final price depends on three things: total lawn area, how often we visit, and access. A compact Officer courtyard on a fortnightly cycle sits at the bottom of the range. A large Harkaway block on a monthly cycle, where growth has more time to get away, sits higher.',
     'Larger and rural blocks are handled under <a href="/acreage-mowing/" style="color:#C9A96E">acreage mowing</a>, which is quoted on site. Everything is quoted before we start — you will never receive an invoice you have not already agreed to.'
   ],
@@ -83,12 +85,14 @@ export const serviceData = [
   ],
   faqHeading: 'Lawn mowing <span class="accent">questions</span>',
   faqs: [
-    { q: 'How much does lawn mowing cost in Pakenham?', a: 'Standard residential lawn mowing in Pakenham starts at $99+GST per visit for a two-person crew. Clipping removal is not included. The exact price depends on lawn size, visit frequency and access. You receive a fixed per-visit price in writing after a free on-site assessment.' },
+    { q: 'How much does lawn mowing cost in Pakenham?', a: 'Residential lawn mowing in Pakenham for home owners starts at $99+GST per visit for a two-person crew. Clipping removal is not included. The exact price depends on lawn size, visit frequency and access. You receive a fixed per-visit price in writing after a free on-site assessment.' },
     { q: 'How often should my lawn be mowed in South-East Melbourne?', a: 'Most South-East Melbourne lawns are best mowed fortnightly from September to May, then monthly from June to August when growth slows. Fast-growing kikuyu on an irrigated block may need weekly mowing through peak spring. We recommend a frequency after seeing your grass type and site.' },
     { q: 'Do you remove the grass clippings?', a: 'Clipping removal is not part of the standard visit price. Most clients have clippings mulched back into the lawn, which returns nitrogen and moisture to the soil. If you would prefer clippings taken off-site, we quote that as an add-on.' },
     { q: 'Do I need to be home when you mow?', a: 'No. Once your property is on the run we can service it whether you are home or not, provided we have side gate access. If the gate is locked, let us know the code or leave it unlatched on your service day.' },
     { q: 'What happens if it rains on my scheduled day?', a: 'Mowing a saturated lawn damages the turf and leaves ruts, so we reschedule rather than force it. You are contacted with a new day, usually within the same week. You are never charged for a visit we did not complete.' },
     { q: 'Do you mow both front and back yards?', a: 'Yes. The quoted per-visit price covers the whole property unless you specifically ask us to service only part of it — some clients on larger blocks have us mow the front and the immediate house surrounds only.' },
+    { q: 'Will I know when you are coming?', a: 'Yes. Clients receive an SMS 24 hours before service with an ETA, and recurring clients sit on a fixed route for their suburb. We arrive when we say we will rather than whenever a gap opens up in the day, and if weather or a breakdown moves your visit you hear from us first.' },
+    { q: 'Can you handle body corporate and commercial lawns as well as residential?', a: 'Yes. Alongside residential lawn mowing for home owners we hold body corporate, strata and commercial grounds contracts across the same suburbs. Common area lawns, entry statements and car park surrounds are mowed and edged on a documented schedule.' },
     { q: 'Do you also edge and whipper snip?', a: 'Yes, on every single visit. Hard edging along driveways, paths and garden beds plus line trimming around obstacles is included in the mowing price, not charged as an extra.' }
   ],
   schemaName: 'Lawn mowing and edging',
