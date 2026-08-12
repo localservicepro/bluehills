@@ -25,8 +25,7 @@ export function servicePage(s) {
             <p>${s.answer}</p>
           </div>
           <div class="btn-row">
-            <a class="btn btn--brass" href="/contact/">Get a Free Quote <span class="btn-arrow" aria-hidden="true"></span></a>
-            <a class="btn btn--ghost-light" href="${biz.phoneHref}">Call ${biz.phoneDisplay}</a>
+            <a class="btn btn--brass" href="/contact/" data-quote-open>Get a Free Quote <span class="btn-arrow" aria-hidden="true"></span></a>
           </div>
         </div>
         <div class="hero__media" style="padding-bottom:0">
@@ -84,7 +83,7 @@ ${s.included.map((it, i) => `        <article class="svc-card" style="padding:34
           <h2 class="h2">${s.processHeading}</h2>
           <p class="body-copy">${s.processIntro}</p>
           <div class="btn-row">
-            <a class="btn btn--ghost" href="/contact/">Book Your Free Assessment</a>
+            <a class="btn btn--ghost" href="/contact/" data-quote-open>Book Your Free Assessment</a>
           </div>
         </div>
         <ul class="reasons reasons--light">
@@ -102,7 +101,7 @@ ${s.process.map((p, i) => `          <li><span class="reasons__num">${String(i +
           <h2 class="h2">${s.pricingHeading}</h2>
 ${s.pricing.map((p) => `          <p class="lead muted-light">${p}</p>`).join('\n')}
           <div class="btn-row">
-            <a class="btn btn--brass" href="/contact/">Request Your Quote</a>
+            <a class="btn btn--brass" href="/contact/" data-quote-open>Request Your Quote</a>
           </div>
         </div>
         <figure style="margin:0">

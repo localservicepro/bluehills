@@ -28,8 +28,7 @@ const body = `  <section class="hero hero--page">
             <p>Blue Hills Property Maintenance Pty Ltd is a Pakenham-based garden and property maintenance company established in <strong>2017</strong>. We provide lawn mowing, acreage mowing, hedge trimming and reductions, pruning, garden maintenance, weed control and softscaping to residential, body corporate, strata, commercial and industrial clients across <strong>18 suburbs</strong> in South-East Melbourne.</p>
           </div>
           <div class="btn-row">
-            <a class="btn btn--brass" href="/contact/">Get a Free Quote <span class="btn-arrow" aria-hidden="true"></span></a>
-            <a class="btn btn--ghost-light" href="${biz.phoneHref}">Call ${biz.phoneDisplay}</a>
+            <a class="btn btn--brass" href="/contact/" data-quote-open>Get a Free Quote <span class="btn-arrow" aria-hidden="true"></span></a>
           </div>
         </div>
         <div class="hero__media" style="padding-bottom:0">

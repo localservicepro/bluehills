@@ -667,7 +667,7 @@
       </nav>
       <div class="header-actions">
         <a class="header-phone" href="tel:+61411342456">0411 342 456</a>
-        <a class="header-cta" href="/contact/">Free Quote</a>
+        <a class="header-cta" href="/contact/" data-quote-open>Free Quote</a>
       </div>
     </div>
   </header>
@@ -690,8 +690,7 @@
             <p>Blue Hills provides scheduled residential lawn mowing across Pakenham, Officer, Berwick, Narre Warren and 14 other South-East Melbourne suburbs. Every visit includes mowing, crisp edging around paths, beds and driveways, and a full blower clean-up. Standard residential lawn mowing starts at <strong>$99+GST per visit</strong> for a two-person crew, and can be booked weekly, fortnightly or monthly.</p>
           </div>
           <div class="btn-row">
-            <a class="btn btn--brass" href="/contact/">Get a Free Quote <span class="btn-arrow" aria-hidden="true"></span></a>
-            <a class="btn btn--ghost-light" href="tel:+61411342456">Call 0411 342 456</a>
+            <a class="btn btn--brass" href="/contact/" data-quote-open>Get a Free Quote <span class="btn-arrow" aria-hidden="true"></span></a>
           </div>
         </div>
         <div class="hero__media" style="padding-bottom:0">
@@ -781,7 +780,7 @@
           <h2 class="h2">From first call to <span class="accent">standing appointment</span></h2>
           <p class="body-copy">Getting onto the Blue Hills run takes one phone call and one short site visit. Most new residential clients are mowing within a week.</p>
           <div class="btn-row">
-            <a class="btn btn--ghost" href="/contact/">Book Your Free Assessment</a>
+            <a class="btn btn--ghost" href="/contact/" data-quote-open>Book Your Free Assessment</a>
           </div>
         </div>
         <ul class="reasons reasons--light">
@@ -804,7 +803,7 @@
           <p class="lead muted-light">The final price depends on three things: total lawn area, how often we visit, and access. A compact Officer courtyard on a fortnightly cycle sits at the bottom of the range. A large Harkaway block on a monthly cycle, where growth has more time to get away, sits higher.</p>
           <p class="lead muted-light">Larger and rural blocks are handled under <a href="/acreage-mowing/" style="color:#C9A96E">acreage mowing</a>, which is quoted on site. Everything is quoted before we start — you will never receive an invoice you have not already agreed to.</p>
           <div class="btn-row">
-            <a class="btn btn--brass" href="/contact/">Request Your Quote</a>
+            <a class="btn btn--brass" href="/contact/" data-quote-open>Request Your Quote</a>
           </div>
         </div>
         <figure style="margin:0">
@@ -947,8 +946,7 @@
         <h2 class="h2 h2--lg">Get Your Lawn on a <span class="accent">Set-and-Forget Schedule</span></h2>
         <p class="lead muted-light">Free on-site assessment, fixed per-visit price, and a crew that turns up. Request your lawn mowing quote today.</p>
         <div class="btn-row" style="justify-content:center">
-          <a class="btn btn--brass btn--lg" href="/contact/">Request a Quote</a>
-          <a class="btn btn--ghost-light btn--lg" href="tel:+61411342456">Call 0411 342 456</a>
+          <a class="btn btn--brass btn--lg" href="/contact/" data-quote-open>Request a Quote</a>
         </div>
       </div>
     </div>
@@ -995,7 +993,7 @@
           <ul class="footer-list">
             <li><a href="tel:+61411342456">0411 342 456</a></li>
             <li><a href="mailto:admin@bluehillsgpm.com.au">admin@bluehillsgpm.com.au</a></li>
-            <li>Pakenham VIC 3810</li>
+            <li>Pakenham, VIC</li>
             <li>Mobile service — we come to you</li>
             <li><a href="https://maps.app.goo.gl/dwusyfqhVsmjgG6H7" rel="noopener">Find us on Google Maps</a></li>
             <li class="footer-social">
@@ -1007,7 +1005,7 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; <span data-year>2026</span> Blue Hills Property Maintenance Pty Ltd</p>
-        <p>Pakenham VIC 3810 &bull; Established 2017</p>
+        <p>Pakenham, VIC &bull; Established 2017</p>
       </div>
     </div>
   </footer>
@@ -1015,6 +1013,89 @@
     <a href="tel:+61411342456">Call 0411 342 456</a>
     <a href="/contact/">Free Quote</a>
   </div>
+<dialog class="quote-modal" id="quote-modal" aria-labelledby="quote-modal-title">
+    <div class="quote-modal__inner">
+      <button type="button" class="quote-modal__close" data-quote-close aria-label="Close quote form">&times;</button>
+      <p class="eyebrow">Free Quote — No Obligation</p>
+      <h2 class="h2" id="quote-modal-title" style="font-size:clamp(26px,3vw,34px);margin:10px 0 8px">Request your <span class="accent">free quote</span></h2>
+      <p class="small" style="margin-bottom:24px">Tell us about the property and we'll come back with a fixed price. Servicing 18 suburbs across South-East Melbourne.</p>
+      <form class="quote-form" id="modal-form" data-quote-form data-mode="mailto" method="post" action="mailto:admin@bluehillsgpm.com.au" enctype="text/plain" novalidate>
+              <div class="field-row">
+                <div class="field">
+                  <label for="modal-name">Your name</label>
+                  <input type="text" id="modal-name" name="name" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label for="modal-phone">Phone</label>
+                  <input type="tel" id="modal-phone" name="phone" autocomplete="tel" required>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="modal-email">Email</label>
+                  <input type="email" id="modal-email" name="email" autocomplete="email" required>
+                </div>
+                <div class="field">
+                  <label for="modal-suburb">Suburb</label>
+                  <input list="modal-suburbs" id="modal-suburb" name="suburb" autocomplete="address-level2" required>
+                  <datalist id="modal-suburbs">
+                    <option value="Pakenham"></option>
+                    <option value="Officer"></option>
+                    <option value="Nar Nar Goon"></option>
+                    <option value="Beaconsfield"></option>
+                    <option value="Berwick"></option>
+                    <option value="Harkaway"></option>
+                    <option value="Narre Warren"></option>
+                    <option value="Narre Warren North"></option>
+                    <option value="Lysterfield"></option>
+                    <option value="Botanic Ridge"></option>
+                    <option value="Devon Meadows"></option>
+                    <option value="Tynong"></option>
+                    <option value="Pakenham Upper"></option>
+                    <option value="Beaconsfield Upper"></option>
+                    <option value="Cranbourne South"></option>
+                    <option value="Maryknoll"></option>
+                    <option value="Guys Hill"></option>
+                    <option value="Koo Wee Rup"></option>
+                  </datalist>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="modal-property">Property type</label>
+                  <select id="modal-property" name="property">
+                    <option>Residential home</option>
+                    <option>Acreage / rural block</option>
+                    <option>Body corporate / strata</option>
+                    <option>Commercial / industrial</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="modal-service">Service required</label>
+                  <select id="modal-service" name="service">
+                    <option>Lawn Mowing & Edging</option>
+                    <option>Acreage Mowing</option>
+                    <option>Hedge Trimming & Reductions</option>
+                    <option>Garden Maintenance</option>
+                    <option>Weed Control</option>
+                    <option>Body Corporate & Strata</option>
+                    <option>Commercial Property Maintenance</option>
+                    <option>Garden clean-up / seasonal reset</option>
+                    <option>Pruning</option>
+                    <option>Softscaping / mulching</option>
+                    <option>Multiple services</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="modal-message">Job details</label>
+                <textarea id="modal-message" name="message" rows="3" placeholder="Block size, how often you'd like us, access notes, anything that's been left too long..."></textarea>
+              </div>
+              <button type="submit" class="btn btn--brass" style="width:100%;justify-content:center">Send Quote Request <span class="btn-arrow" aria-hidden="true"></span></button>
+              <p class="form-note" data-form-status role="status">Free, no obligation. We reply to every enquiry — or call <a href="tel:+61411342456">0411 342 456</a> if you'd rather talk it through.</p>
+            </form>
+    </div>
+  </dialog>
 <script src="/assets/js/site.js" defer></script>
 </body>
 </html>

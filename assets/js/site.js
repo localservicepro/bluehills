@@ -94,14 +94,74 @@
     el.textContent = String(new Date().getFullYear());
   });
 
-  /* ---------- Quote form: mailto fallback ----------
+  /* ---------- Quote modal ----------
+     Every quote CTA is a real <a href="/contact/">, so with JavaScript off
+     the visitor simply lands on the contact page and its inline form. Here
+     we upgrade those links into a modal. */
+  var modal = document.getElementById('quote-modal');
+
+  if (modal) {
+    var lastFocus = null;
+
+    var openModal = function (trigger) {
+      lastFocus = trigger || document.activeElement;
+      if (typeof modal.showModal === 'function') modal.showModal();
+      else modal.setAttribute('open', '');
+      document.body.classList.add('quote-open');
+      var first = modal.querySelector('input, select, textarea');
+      if (first) first.focus({ preventScroll: true });
+    };
+
+    var closeModal = function () {
+      if (typeof modal.close === 'function') modal.close();
+      else modal.removeAttribute('open');
+      document.body.classList.remove('quote-open');
+      if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+    };
+
+    document.querySelectorAll('[data-quote-open]').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        // Let modified clicks (new tab, download) behave normally.
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+        e.preventDefault();
+        openModal(el);
+      });
+    });
+
+    modal.addEventListener('click', function (e) {
+      if (e.target.closest('[data-quote-close]')) { closeModal(); return; }
+      // Click on the dialog element itself is the backdrop, not the panel.
+      if (e.target === modal) closeModal();
+    });
+    modal.addEventListener('close', function () { document.body.classList.remove('quote-open'); });
+    modal.addEventListener('cancel', function () { document.body.classList.remove('quote-open'); });
+  } else {
+    // Contact page: the form is already on the page, so quote CTAs scroll to
+    // it and focus the first field instead of opening a second copy.
+    var inline = document.querySelector('[data-quote-form]');
+    if (inline) {
+      document.querySelectorAll('[data-quote-open]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+          e.preventDefault();
+          inline.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          var first = inline.querySelector('input, select, textarea');
+          if (first) first.focus({ preventScroll: true });
+        });
+      });
+    }
+  }
+
+  /* ---------- Quote forms: mailto fallback ----------
      The site is hosted as static files. Until a form handler endpoint is
      wired up, submitting composes an email to the business inbox so no
-     enquiry is silently lost. */
-  var form = document.getElementById('quote-form');
-  if (form && form.dataset.mode === 'mailto') {
+     enquiry is silently lost. Applies to both the contact-page form and
+     the modal copy. */
+  document.querySelectorAll('form[data-quote-form][data-mode="mailto"]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
+
       var get = function (name) {
         var f = form.elements[name];
         return f ? String(f.value || '').trim() : '';
@@ -122,11 +182,11 @@
         + '?subject=' + encodeURIComponent('Website quote request — ' + (get('suburb') || 'Blue Hills'))
         + '&body=' + encodeURIComponent(body);
 
-      var status = document.getElementById('form-status');
+      var status = form.querySelector('[data-form-status]');
       if (status) {
         status.textContent = 'Opening your email app with the request pre-filled. '
           + 'If nothing happens, call 0411 342 456 or email admin@bluehillsgpm.com.au directly.';
       }
     });
-  }
+  });
 })();

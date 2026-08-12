@@ -73,7 +73,7 @@ const body = `  <section class="hero">
           <h1 class="h1">Professional lawn mowing &amp; <span class="accent">gardening maintenance</span> in Pakenham</h1>
           <p class="lead lead--light max-56">Set &amp; forget property care across the South-East Melbourne corridor. Professional grounds maintenance with pride and precision, scheduled service, and a finish you'll be proud of — every visit, every season.</p>
           <div class="btn-row">
-            <a class="btn btn--brass" href="/contact/">Free Quote <span class="btn-arrow" aria-hidden="true"></span></a>
+            <a class="btn btn--brass" href="/contact/" data-quote-open>Free Quote <span class="btn-arrow" aria-hidden="true"></span></a>
             <a class="btn btn--ghost-light" href="#services">Services</a>
           </div>
         </div>

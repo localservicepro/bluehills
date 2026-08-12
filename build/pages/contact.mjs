@@ -1,5 +1,5 @@
 import { biz, suburbs, services, img } from '../site.config.mjs';
-import { page, breadcrumbNode, faqNode, webPageNode, ORG_ID } from '../layout.mjs';
+import { page, quoteForm, breadcrumbNode, faqNode, webPageNode, ORG_ID } from '../layout.mjs';
 
 const URL = biz.origin + '/contact/';
 
@@ -11,7 +11,7 @@ const faqs = [
   { q: 'Do you charge for travel?', a: 'No. There is no travel charge for properties inside our 18-suburb service area. If you are just outside it, ask anyway — we regularly travel further for acreage, body corporate and commercial work.' }
 ];
 
-const body = `  <section class="hero hero--page" style="padding-bottom:64px">
+const body = `  <section class="hero hero--page" style="padding-bottom:80px">
     <div class="hero__skew" aria-hidden="true"></div>
     <div class="shell hero__inner">
       <nav class="crumbs" aria-label="Breadcrumb" style="margin-bottom:28px">
@@ -20,15 +20,29 @@ const body = `  <section class="hero hero--page" style="padding-bottom:64px">
           <li><span aria-current="page">Contact</span></li>
         </ol>
       </nav>
-      <div class="stack" style="gap:26px;max-width:760px">
-        <p class="eyebrow eyebrow--rule">Free Quotes — No Obligation</p>
-        <h1 class="h1" style="font-size:clamp(34px,4.2vw,56px)">Contact <span class="accent">Blue Hills</span> Property Maintenance</h1>
-        <div class="answer-block answer-block--dark">
-          <p>Call <a href="${biz.phoneHref}" style="color:#C9A96E"><strong>${biz.phoneDisplay}</strong></a> or email <a href="mailto:${biz.email}" style="color:#C9A96E"><strong>${biz.email}</strong></a> for a free, no-obligation quote on lawn mowing, acreage mowing, hedge trimming, garden maintenance, weed control, or body corporate and commercial grounds maintenance anywhere across our 18-suburb South-East Melbourne service area.</p>
+      <div class="contact-hero">
+        <div class="contact-hero__head">
+          <p class="eyebrow eyebrow--rule">Free Quotes — No Obligation</p>
+          <h1 class="h1" style="font-size:clamp(30px,3.8vw,50px);margin:20px 0 22px">Get your free <span class="accent">Blue Hills quote</span></h1>
+          <div class="answer-block answer-block--dark">
+            <p>Send the form and we'll come back with a fixed price — free, with no obligation — on lawn mowing, acreage mowing, hedge trimming, garden maintenance, weed control, or body corporate and commercial grounds maintenance anywhere across our 18-suburb South-East Melbourne service area.</p>
+          </div>
         </div>
-        <div class="btn-row">
-          <a class="btn btn--brass" href="${biz.phoneHref}">Call ${biz.phoneDisplay} <span class="btn-arrow" aria-hidden="true"></span></a>
-          <a class="btn btn--ghost-light" href="mailto:${biz.email}">Email Us</a>
+
+        <div class="form-card form-card--hero contact-hero__form">
+          <h2 class="h3" style="font-size:18px;margin-bottom:6px">Tell us about your property</h2>
+          <p class="small" style="margin-bottom:22px">The more detail you give us, the more accurate the first response.</p>
+          ${quoteForm('contact')}
+        </div>
+
+        <div class="contact-hero__extra">
+          <ul class="prose-list prose-list--light">
+            <li>Free on-site assessment before any work starts</li>
+            <li>Fixed per-visit price in writing — no hourly creep</li>
+            <li>Established 2017, fully insured, consistent crews</li>
+            <li>No travel charge inside the service area</li>
+          </ul>
+          <p class="small small--light" style="margin-top:22px">Prefer to talk? Call <a href="${biz.phoneHref}" style="color:#C9A96E;font-weight:700">${biz.phoneDisplay}</a> or email <a href="mailto:${biz.email}" style="color:#C9A96E">${biz.email}</a>.</p>
         </div>
       </div>
     </div>
@@ -37,68 +51,6 @@ const body = `  <section class="hero hero--page" style="padding-bottom:64px">
   <section class="section">
     <div class="shell">
       <div class="contact-grid">
-
-        <div>
-          <p class="eyebrow" style="margin-bottom:16px">Request a Quote</p>
-          <h2 class="h2" style="margin-bottom:14px">Tell us about <span class="accent">your property</span></h2>
-          <p class="body-copy" style="margin-bottom:30px">The more detail you give us, the more accurate the first response. We reply to every enquiry — if you would rather talk it through, call ${biz.phoneDisplay}.</p>
-
-          <div class="form-card">
-            <form id="quote-form" data-mode="mailto" method="post" action="mailto:${biz.email}" enctype="text/plain" novalidate>
-              <div class="field-row">
-                <div class="field">
-                  <label for="f-name">Your name</label>
-                  <input type="text" id="f-name" name="name" autocomplete="name" required>
-                </div>
-                <div class="field">
-                  <label for="f-phone">Phone</label>
-                  <input type="tel" id="f-phone" name="phone" autocomplete="tel" required>
-                </div>
-              </div>
-              <div class="field-row">
-                <div class="field">
-                  <label for="f-email">Email</label>
-                  <input type="email" id="f-email" name="email" autocomplete="email" required>
-                </div>
-                <div class="field">
-                  <label for="f-suburb">Suburb</label>
-                  <input list="suburb-list" id="f-suburb" name="suburb" autocomplete="address-level2" required>
-                  <datalist id="suburb-list">
-${suburbs.map((s) => `                    <option value="${s}"></option>`).join('\n')}
-                  </datalist>
-                </div>
-              </div>
-              <div class="field-row">
-                <div class="field">
-                  <label for="f-property">Property type</label>
-                  <select id="f-property" name="property">
-                    <option>Residential home</option>
-                    <option>Acreage / rural block</option>
-                    <option>Body corporate / strata</option>
-                    <option>Commercial / industrial</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="f-service">Service required</label>
-                  <select id="f-service" name="service">
-${services.map((s) => `                    <option>${s.short.replace(/&amp;/g, '&')}</option>`).join('\n')}
-                    <option>Garden clean-up / seasonal reset</option>
-                    <option>Pruning</option>
-                    <option>Softscaping / mulching</option>
-                    <option>Multiple services</option>
-                  </select>
-                </div>
-              </div>
-              <div class="field">
-                <label for="f-message">Job details</label>
-                <textarea id="f-message" name="message" placeholder="Block size, how often you'd like us, access notes, anything that's been left too long..."></textarea>
-              </div>
-              <button type="submit" class="btn btn--brass" style="width:100%;justify-content:center">Send Quote Request <span class="btn-arrow" aria-hidden="true"></span></button>
-              <p class="form-note" id="form-status" role="status">This form opens your email app with the details filled in. Prefer to skip it? Call <a href="${biz.phoneHref}">${biz.phoneDisplay}</a> or email <a href="mailto:${biz.email}">${biz.email}</a> directly.</p>
-            </form>
-          </div>
-        </div>
-
         <div>
           <p class="eyebrow" style="margin-bottom:16px">Details</p>
           <h2 class="h2" style="margin-bottom:30px">Get in <span class="accent">touch</span></h2>
@@ -114,9 +66,7 @@ ${services.map((s) => `                    <option>${s.short.replace(/&amp;/g, '
             </div>
             <div class="contact-list__item">
               <span class="contact-list__label">Based in</span>
-              <address class="contact-list__value" style="font-style:normal">
-                ${biz.suburb} ${biz.state} ${biz.postcode}<br>Australia
-              </address>
+              <address class="contact-list__value" style="font-style:normal">${biz.suburb}, ${biz.state}</address>
               <span class="small">We're a mobile service — our crews come to you anywhere in the 18-suburb service area. There's no shopfront to visit.</span>
             </div>
             <div class="contact-list__item">
@@ -132,19 +82,18 @@ ${services.map((s) => `                    <option>${s.short.replace(/&amp;/g, '
               </span>
             </div>
           </div>
-
-          <div style="margin-top:36px">
-            <h3 class="h4" style="margin-bottom:16px">Our service area</h3>
-            <iframe
-              class="map-frame"
-              title="Map of the Blue Hills Property Maintenance service area around Pakenham VIC"
-              src="https://www.google.com/maps?q=Pakenham+VIC+3810,+Australia&amp;output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <p class="small" style="margin-top:12px"><a href="${biz.gmb}" rel="noopener">Open in Google Maps</a></p>
-          </div>
         </div>
 
+        <div>
+          <h2 class="h4" style="margin-bottom:16px">Our service area</h2>
+          <iframe
+            class="map-frame"
+            title="Map of the Blue Hills Property Maintenance service area around Pakenham VIC"
+            src="https://www.google.com/maps?q=Pakenham+VIC+3810,+Australia&amp;output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <p class="small" style="margin-top:12px"><a href="${biz.gmb}" rel="noopener">Open in Google Maps</a></p>
+        </div>
       </div>
     </div>
   </section>

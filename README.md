@@ -24,7 +24,8 @@ dependencies — the generated HTML in the repo root is the deployable site.
 404.html                                    Custom not-found page
 
 assets/css/style.css    Complete design system (single stylesheet)
-assets/js/site.js       Mobile nav, services dropdown, before/after slider, form
+assets/js/site.js       Mobile nav, services dropdown, before/after slider,
+                        quote modal, quote-form mailto handler
 assets/img/*.webp       All photography, optimised (~6 MB total, 36 images)
 
 sitemap.xml  robots.txt  llms.txt  site.webmanifest  favicon.ico  .htaccess
@@ -76,6 +77,25 @@ cache headers and the 404 document on Apache/cPanel hosting.
 - Descriptive, keyword-bearing image filenames and alt text throughout.
 - Accessibility: skip link, landmarks, visible focus rings, keyboard-operable
   navigation and before/after slider, `prefers-reduced-motion` support.
+
+## Quote capture
+
+There is one quote form, defined once as `quoteForm(id)` in `build/layout.mjs`
+and rendered in two places:
+
+- **Contact page** — inline in the hero, beside the H1, so a lead meets it
+  without scrolling. On mobile it sits directly under the headline.
+- **Every other page** — inside `<dialog id="quote-modal">`, opened by any
+  element carrying `data-quote-open`.
+
+Every quote CTA is a real `<a href="/contact/">`. The script upgrades those
+links into modal triggers, so with JavaScript disabled a visitor simply lands
+on the contact page and its inline form — nothing is lost. On the contact page
+itself (no modal present) the same CTAs scroll to the form and focus it.
+
+Body sections carry a single quote CTA only; call and email buttons were
+removed from page bodies at the client's request. The phone number remains in
+the header, the footer, the contact page and the mobile sticky bar.
 
 ## Address policy
 

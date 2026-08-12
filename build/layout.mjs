@@ -202,7 +202,7 @@ export function header(active) {
       </nav>
       <div class="header-actions">
         <a class="header-phone" href="${biz.phoneHref}">${biz.phoneDisplay}</a>
-        <a class="header-cta" href="/contact/">Free Quote</a>
+        <a class="header-cta" href="/contact/" data-quote-open>Free Quote</a>
       </div>
     </div>
   </header>`;
@@ -237,7 +237,7 @@ ${suburbs.slice(0, 7).map((s) => `            <li>${s}</li>`).join('\n')}
           <ul class="footer-list">
             <li><a href="${biz.phoneHref}">${biz.phoneDisplay}</a></li>
             <li><a href="mailto:${biz.email}">${biz.email}</a></li>
-            <li>${biz.suburb} ${biz.state} ${biz.postcode}</li>
+            <li>${biz.suburb}, ${biz.state}</li>
             <li>Mobile service — we come to you</li>
             <li><a href="${biz.gmb}" rel="noopener">Find us on Google Maps</a></li>
             <li class="footer-social">
@@ -249,7 +249,7 @@ ${suburbs.slice(0, 7).map((s) => `            <li>${s}</li>`).join('\n')}
       </div>
       <div class="footer-bottom">
         <p>&copy; <span data-year>2026</span> ${esc(biz.legalName)}</p>
-        <p>${biz.suburb} ${biz.state} ${biz.postcode} &bull; Established ${biz.founded}</p>
+        <p>${biz.suburb}, ${biz.state} &bull; Established ${biz.founded}</p>
       </div>
     </div>
   </footer>
@@ -257,6 +257,80 @@ ${suburbs.slice(0, 7).map((s) => `            <li>${s}</li>`).join('\n')}
     <a href="${biz.phoneHref}">Call ${biz.phoneDisplay}</a>
     <a href="/contact/">Free Quote</a>
   </div>`;
+}
+
+/* ---------------- Quote form ----------------
+   One markup source used twice: inline in the contact hero, and inside the
+   site-wide modal. `id` namespaces every field so both can coexist. */
+export function quoteForm(id, { compact = false } = {}) {
+  const f = (n) => `${id}-${n}`;
+  return `<form class="quote-form" id="${f('form')}" data-quote-form data-mode="mailto" method="post" action="mailto:${biz.email}" enctype="text/plain" novalidate>
+              <div class="field-row">
+                <div class="field">
+                  <label for="${f('name')}">Your name</label>
+                  <input type="text" id="${f('name')}" name="name" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label for="${f('phone')}">Phone</label>
+                  <input type="tel" id="${f('phone')}" name="phone" autocomplete="tel" required>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="${f('email')}">Email</label>
+                  <input type="email" id="${f('email')}" name="email" autocomplete="email" required>
+                </div>
+                <div class="field">
+                  <label for="${f('suburb')}">Suburb</label>
+                  <input list="${f('suburbs')}" id="${f('suburb')}" name="suburb" autocomplete="address-level2" required>
+                  <datalist id="${f('suburbs')}">
+${suburbs.map((s) => `                    <option value="${s}"></option>`).join('\n')}
+                  </datalist>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="${f('property')}">Property type</label>
+                  <select id="${f('property')}" name="property">
+                    <option>Residential home</option>
+                    <option>Acreage / rural block</option>
+                    <option>Body corporate / strata</option>
+                    <option>Commercial / industrial</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="${f('service')}">Service required</label>
+                  <select id="${f('service')}" name="service">
+${services.map((s) => `                    <option>${s.short.replace(/&amp;/g, '&')}</option>`).join('\n')}
+                    <option>Garden clean-up / seasonal reset</option>
+                    <option>Pruning</option>
+                    <option>Softscaping / mulching</option>
+                    <option>Multiple services</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="${f('message')}">Job details</label>
+                <textarea id="${f('message')}" name="message"${compact ? ' rows="3"' : ''} placeholder="Block size, how often you'd like us, access notes, anything that's been left too long..."></textarea>
+              </div>
+              <button type="submit" class="btn btn--brass" style="width:100%;justify-content:center">Send Quote Request <span class="btn-arrow" aria-hidden="true"></span></button>
+              <p class="form-note" data-form-status role="status">Free, no obligation. We reply to every enquiry — or call <a href="${biz.phoneHref}">${biz.phoneDisplay}</a> if you'd rather talk it through.</p>
+            </form>`;
+}
+
+/* Site-wide quote modal. Every body CTA is a real link to /contact/, so the
+   page still works with JavaScript off; the script upgrades those links into
+   modal triggers. */
+export function quoteModal() {
+  return `<dialog class="quote-modal" id="quote-modal" aria-labelledby="quote-modal-title">
+    <div class="quote-modal__inner">
+      <button type="button" class="quote-modal__close" data-quote-close aria-label="Close quote form">&times;</button>
+      <p class="eyebrow">Free Quote — No Obligation</p>
+      <h2 class="h2" id="quote-modal-title" style="font-size:clamp(26px,3vw,34px);margin:10px 0 8px">Request your <span class="accent">free quote</span></h2>
+      <p class="small" style="margin-bottom:24px">Tell us about the property and we'll come back with a fixed price. Servicing 18 suburbs across South-East Melbourne.</p>
+      ${quoteForm('modal', { compact: true })}
+    </div>
+  </dialog>`;
 }
 
 export function ctaBand({
@@ -272,8 +346,7 @@ export function ctaBand({
         <h2 class="h2 h2--lg">${heading}</h2>
         <p class="lead muted-light">${copy}</p>
         <div class="btn-row" style="justify-content:center">
-          <a class="btn btn--brass btn--lg" href="/contact/">${cta}</a>
-          <a class="btn btn--ghost-light btn--lg" href="${biz.phoneHref}">Call ${biz.phoneDisplay}</a>
+          <a class="btn btn--brass btn--lg" href="/contact/" data-quote-open>${cta}</a>
         </div>
       </div>
     </div>
@@ -350,7 +423,7 @@ ${header(active)}
 ${bodyHtml}
 </main>
 ${footer()}
-<script src="/assets/js/site.js" defer></script>
+${slug === 'contact' ? '' : quoteModal() + '\n'}<script src="/assets/js/site.js" defer></script>
 </body>
 </html>
 `;

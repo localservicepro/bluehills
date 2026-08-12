@@ -538,6 +538,75 @@ table.data tbody tr:hover { background: rgba(234, 230, 220, .5); }
 .field-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 22px; }
 .form-note { font-size: 12px; line-height: 1.7; color: rgba(26, 46, 50, .6); margin-top: 16px; }
 
+/* Form card sitting inside the dark hero */
+.form-card--hero {
+  background: var(--bone);
+  /* The hero sets a cream text colour; the card is cream, so reset to ink
+     or any element without its own colour renders invisible. */
+  color: var(--ink);
+  box-shadow: 0 40px 70px -30px rgba(0, 0, 0, .55);
+  padding: 32px;
+  border: 0;
+}
+.form-card--hero .field label { color: rgba(26, 46, 50, .7); }
+
+/* Contact hero: heading, form, then supporting copy in the DOM, so the form
+   is the second thing a lead meets on mobile. Desktop re-places it into a
+   right-hand column spanning both rows. */
+.contact-hero { display: grid; grid-template-columns: 1fr; gap: 32px; align-items: start; }
+@media (min-width: 901px) {
+  /* Row 2 is the flexible track, so the taller row-spanning form card pushes
+     its extra height there instead of padding out row 1 under the copy. */
+  .contact-hero { grid-template-columns: 1fr minmax(380px, 520px); grid-template-rows: auto 1fr; gap: 28px 56px; }
+  .contact-hero__head  { grid-column: 1; grid-row: 1; }
+  .contact-hero__form  { grid-column: 2; grid-row: 1 / span 2; }
+  .contact-hero__extra { grid-column: 1; grid-row: 2; align-self: start; }
+}
+
+/* ---------- Quote modal ---------- */
+.quote-modal {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  max-width: min(640px, calc(100vw - 32px));
+  width: 100%;
+  max-height: calc(100dvh - 32px);
+  overflow: visible;
+  color: var(--ink);
+}
+.quote-modal::backdrop { background: rgba(26, 46, 50, .72); backdrop-filter: blur(2px); }
+.quote-modal__inner {
+  position: relative;
+  background: var(--bone);
+  border-top: 4px solid var(--brass);
+  padding: 38px 36px 34px;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, .6);
+}
+.quote-modal__close {
+  position: absolute;
+  top: 10px; right: 12px;
+  width: 40px; height: 40px;
+  border: 0;
+  background: none;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--teal-mid);
+  cursor: pointer;
+  border-radius: 50%;
+}
+.quote-modal__close:hover { background: rgba(30, 77, 84, .08); color: var(--teal-deep); }
+.quote-modal[open] { animation: quote-in .18s ease-out; }
+@keyframes quote-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .quote-modal[open] { animation: none; } }
+body.quote-open { overflow: hidden; }
+
+@media (max-width: 560px) {
+  .quote-modal__inner { padding: 34px 20px 26px; }
+  .form-card--hero { padding: 24px 20px; }
+}
+
 .contact-list { display: flex; flex-direction: column; gap: 26px; }
 .contact-list__item { display: flex; flex-direction: column; gap: 6px; border-bottom: 1px solid var(--hairline); padding-bottom: 22px; }
 .contact-list__item:last-child { border-bottom: 0; }
