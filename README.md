@@ -96,7 +96,7 @@ itself (no modal present) the same CTAs scroll to the form and focus it.
 
 Body sections carry a single quote CTA only; call and email buttons were
 removed from page bodies at the client's request. The phone number remains in
-the header, the footer, the contact page and the mobile sticky bar.
+the header, the footer, the contact page and the mobile menu.
 
 ### GoHighLevel integration
 
@@ -139,6 +139,34 @@ this to record anything — that is a dashboard setting, not a code change.
 
 `/thank-you/` is `noindex, follow` and deliberately left out of `sitemap.xml`.
 It is also the natural conversion trigger for GHL workflows and Google Ads.
+
+## Mobile
+
+Breakpoint is 900px. Below it:
+
+- The header is **logo + menu button only** — 69px tall. The topbar, the phone
+  number and the Free Quote button are all hidden until the menu is opened,
+  because a sticky header eating 125px of a phone screen is a real cost.
+- Open state lives on `.site-header.nav-open`, not on the `<ul>`. The `<nav>`
+  wrapper carries `order` and `width:100%`; putting those on the inner list
+  alone leaves the menu sharing row one with the logo.
+- The menu button is also the close button: bars animate to an X and the label
+  swaps Menu/Close. The menu also closes on a second tap, on any link tap, on
+  a tap outside the header, on Escape, and on resize past 900px.
+- Hover-to-open for the services dropdown is wrapped in
+  `@media (hover: hover) and (min-width: 901px)`. Without that gate the
+  `:hover` rule out-specifies `.is-open` and the submenu will not expand on
+  touch.
+- There is no sticky bottom call bar.
+
+`scratchpad/mobileaudit.mjs` walks six pages at 360/390/414/768 and fails on
+horizontal overflow, elements wider than the viewport, tap targets under 40px,
+text under 10px, a header over 90px, and any break in the menu open/close/
+submenu behaviour. Run it after touching layout CSS.
+
+Note the 10px uppercase micro-labels (`.svc-card__num`, `.work-card__label`,
+`.compare__tag`, `.brand__tag`) are deliberate brand-board styling, which is
+why the audit floor is 10px rather than 12px.
 
 ## Address policy
 

@@ -4,21 +4,57 @@
 (function () {
   'use strict';
 
-  /* ---------- Mobile navigation ---------- */
+  /* ---------- Mobile navigation ----------
+     Open state lives on .site-header so the menu, the phone number and the
+     Free Quote button can all be revealed together. The button doubles as
+     the close control: bars animate to an X and the label swaps to "Close". */
+  var header = document.querySelector('.site-header');
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('primary-nav');
+  var trigger = document.querySelector('.nav__trigger');
+  var dropdown = document.getElementById('services-menu');
+
+  function closeServices() {
+    if (!dropdown) return;
+    dropdown.classList.remove('is-open');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+  }
+
+  function setMenu(open) {
+    if (!header || !toggle) return;
+    header.classList.toggle('nav-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    var label = toggle.querySelector('.nav-toggle__label');
+    if (label) label.textContent = open ? 'Close' : 'Menu';
+    if (!open) closeServices();
+  }
+
+  function menuIsOpen() {
+    return !!header && header.classList.contains('nav-open');
+  }
 
   if (toggle && nav) {
-    toggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.addEventListener('click', function () { setMenu(!menuIsOpen()); });
+
+    // Tapping any destination closes the menu — otherwise same-page anchor
+    // links leave it covering the content the visitor just asked for.
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setMenu(false);
+    });
+
+    // Tap anywhere outside the header closes it.
+    document.addEventListener('click', function (e) {
+      if (menuIsOpen() && header && !header.contains(e.target)) setMenu(false);
+    });
+
+    // Reset when resizing up to desktop, so the menu can't be stuck open.
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900 && menuIsOpen()) setMenu(false);
     });
   }
 
   /* ---------- Services dropdown (click on touch / keyboard, hover via CSS) ---------- */
-  var trigger = document.querySelector('.nav__trigger');
-  var dropdown = document.getElementById('services-menu');
-
   if (trigger && dropdown) {
     trigger.addEventListener('click', function (e) {
       e.preventDefault();
@@ -27,23 +63,18 @@
     });
 
     document.addEventListener('click', function (e) {
-      if (!dropdown.contains(e.target) && !trigger.contains(e.target)) {
-        dropdown.classList.remove('is-open');
-        trigger.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        dropdown.classList.remove('is-open');
-        trigger.setAttribute('aria-expanded', 'false');
-        if (nav && nav.classList.contains('is-open')) {
-          nav.classList.remove('is-open');
-          if (toggle) toggle.setAttribute('aria-expanded', 'false');
-        }
-      }
+      if (!dropdown.contains(e.target) && !trigger.contains(e.target)) closeServices();
     });
   }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    closeServices();
+    if (menuIsOpen()) {
+      setMenu(false);
+      if (toggle) toggle.focus();
+    }
+  });
 
   /* ---------- Before / after comparison slider ---------- */
   document.querySelectorAll('[data-compare]').forEach(function (root) {

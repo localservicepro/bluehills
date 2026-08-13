@@ -189,16 +189,17 @@ export function header(active) {
   <header class="site-header">
     <div class="site-header__inner">
       <a href="/" class="brand" aria-label="${esc(biz.name)} — home">
-        <img src="${img.logo}" alt="${esc(biz.name)} logo"${dims(img.logo)} style="height:44px;width:auto" fetchpriority="high">
+        <img src="${img.logo}" alt="${esc(biz.name)} logo"${dims(img.logo)} fetchpriority="high">
         <span class="brand__text">
           <span class="brand__name">Blue Hills</span>
           <span class="brand__tag">Property Maintenance</span>
         </span>
       </a>
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
-        <span></span><span></span><span></span>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="nav-toggle__label">Menu</span>
       </button>
-      <nav aria-label="Primary">${navMarkup(active)}
+      <nav class="site-nav" aria-label="Primary">${navMarkup(active)}
       </nav>
       <div class="header-actions">
         <a class="header-phone" href="${biz.phoneHref}">${biz.phoneDisplay}</a>
@@ -214,7 +215,7 @@ export function footer() {
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-brand__logo">
-            <img src="${img.logo}" alt=""${dims(img.logo)} style="height:40px;width:auto" loading="lazy">
+            <img src="${img.logo}" alt=""${dims(img.logo)} loading="lazy">
             <span class="footer-brand__name">BLUE HILLS</span>
           </div>
           <p class="small">Garden &amp; Property Maintenance — established 2017 in Pakenham, servicing the South-East Melbourne corridor with set-and-forget reliability.</p>
@@ -253,10 +254,7 @@ ${suburbs.slice(0, 7).map((s) => `            <li>${s}</li>`).join('\n')}
       </div>
     </div>
   </footer>
-  <div class="call-bar">
-    <a href="${biz.phoneHref}">Call ${biz.phoneDisplay}</a>
-    <a href="/contact/">Free Quote</a>
-  </div>`;
+`;
 }
 
 /* ---------------- Quote form ----------------
