@@ -27,7 +27,8 @@ dependencies — the generated HTML in the repo root is the deployable site.
 assets/css/style.css    Complete design system (single stylesheet)
 assets/js/site.js       Mobile nav, services dropdown, before/after slider,
                         quote modal, quote-form submit + redirect
-assets/img/*.webp       All photography, optimised (~6 MB total, 36 images)
+assets/img/*-<w>.webp   Photography at 400/640/900/1200 widths for srcset
+assets/fonts/*.woff2    Self-hosted Lato + Playfair, subset to used glyphs
 
 sitemap.xml  robots.txt  llms.txt  site.webmanifest  favicon.ico  .htaccess
 
@@ -139,6 +140,42 @@ this to record anything — that is a dashboard setting, not a code change.
 
 `/thank-you/` is `noindex, follow` and deliberately left out of `sitemap.xml`.
 It is also the natural conversion trigger for GHL workflows and Google Ads.
+
+## Performance
+
+PageSpeed mobile found four real problems; all four are addressed in the build.
+
+**Render-blocking.** The GoHighLevel tracker sat in `<head>` with no `defer`
+and held first paint for 3.1s. It now carries `defer` plus a `preconnect`.
+`defer` still runs it before `DOMContentLoaded`, so its submit listener is
+attached long before anyone can fill in the form — do not change this to
+`async`, which would make ordering unpredictable.
+
+**The stylesheet is inlined** into every page at build time from
+`assets/css/style.css` (minified in `build/layout.mjs`). It costs ~7 KB
+gzipped per document and removes a blocking round trip. Edit the `.css` file,
+never the generated HTML.
+
+**Fonts are self-hosted** from `assets/fonts/`, subset to the ~196 characters
+the site renders (`scratchpad/subsetfonts.py`). This removes the DNS + TLS +
+CSS round trip to Google Fonts before a glyph can start downloading. Three are
+preloaded: Playfair 400, Playfair 400 italic and Lato 400 — the faces used in
+the H1 and body copy. If you add a weight to the CSS, add the file too or it
+silently falls back.
+
+**Images ship as width variants.** `scratchpad/variants.py` writes
+`name-400/640/900/1200.webp`; `imgTag()` in `build/layout.mjs` emits the
+srcset and page code keeps referring to the logical `name.webp`. The `sizes`
+values live in `SIZES` and must match the real CSS layout — if a grid changes,
+update them or the browser picks the wrong file. On a 412px phone the hero now
+loads the 900 variant at 138 KB instead of the 1200 at 245 KB.
+
+Measured initial mobile load (412px @1.75 DPR, gzipped where applicable):
+images 144 KB, fonts 131 KB, third-party JS 81 KB, HTML 17 KB, own JS 3 KB —
+**375 KB total**, against roughly 1.1 MB of images alone before this pass.
+
+Two flagged items are third-party and not fixable from here: the tracker's
+66 KB of unminified JavaScript, and a 32ms forced reflow attributed to it.
 
 ## Mobile
 

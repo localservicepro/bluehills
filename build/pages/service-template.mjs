@@ -1,5 +1,5 @@
 import { biz, img } from '../site.config.mjs';
-import { page, ctaBand, breadcrumbNode, faqNode, webPageNode, dims, ORG_ID } from '../layout.mjs';
+import { page, ctaBand, breadcrumbNode, faqNode, webPageNode, imgTag, widestVariant, SIZES, ORG_ID } from '../layout.mjs';
 
 /* Renders a service page from a data object. Every service page carries the
    same AEO/GEO scaffolding: a direct answer block under the H1, a citable
@@ -30,7 +30,7 @@ export function servicePage(s) {
         </div>
         <div class="hero__media" style="padding-bottom:0">
           <div class="hero__frame">
-            <img src="${s.image}" alt="${s.imageAlt}"${dims(s.image)} fetchpriority="high" decoding="async">
+            ${imgTag({ src: s.image, alt: s.imageAlt, sizes: SIZES.hero, priority: true })}
           </div>
         </div>
       </div>
@@ -105,7 +105,7 @@ ${s.pricing.map((p) => `          <p class="lead muted-light">${p}</p>`).join('\
           </div>
         </div>
         <figure style="margin:0">
-          <img src="${s.secondImage}" alt="${s.secondImageAlt}"${dims(s.secondImage)} loading="lazy" decoding="async" style="width:100%;height:auto;display:block;box-shadow:0 40px 70px -35px rgba(0,0,0,.6)">
+          ${imgTag({ src: s.secondImage, alt: s.secondImageAlt, sizes: SIZES.hero, style: 'width:100%;height:auto;display:block;box-shadow:0 40px 70px -35px rgba(0,0,0,.6)' })}
         </figure>
       </div>
     </div>
@@ -123,7 +123,7 @@ ${s.gallery ? `  <section class="section" id="recent-work">
       </div>
       <div class="grid-3 grid-3--tight">
 ${s.gallery.map((g) => `        <figure class="work-card" style="margin:0;aspect-ratio:4/3">
-          <img src="${g.src}" alt="${g.alt}"${dims(g.src)} loading="lazy" decoding="async">
+          ${imgTag({ src: g.src, alt: g.alt })}
           <figcaption>
             <span class="work-card__label">— ${s.crumb}</span>
             <h3 class="h3">${g.title}</h3>
@@ -199,7 +199,7 @@ ${ctaBand({ eyebrow: 'Get Started', heading: s.ctaHeading, copy: s.ctaCopy, cta:
         serviceType: s.schemaType,
         description: s.answer.replace(/<[^>]+>/g, ''),
         url: URL,
-        image: biz.origin + s.image,
+        image: biz.origin + widestVariant(s.image),
         provider: { '@id': ORG_ID },
         areaServed: s.areaSuburbs.map((x) => ({ '@type': 'City', name: x })),
         category: 'Garden and property maintenance',
@@ -233,7 +233,7 @@ ${ctaBand({ eyebrow: 'Get Started', heading: s.ctaHeading, copy: s.ctaCopy, cta:
         about: { '@id': URL + '#service' },
         image: s.gallery.map((g) => ({
           '@type': 'ImageObject',
-          contentUrl: biz.origin + g.src,
+          contentUrl: biz.origin + widestVariant(g.src),
           name: g.title,
           description: g.alt
         }))

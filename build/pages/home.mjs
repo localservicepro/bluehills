@@ -1,5 +1,5 @@
 import { biz, suburbs, img } from '../site.config.mjs';
-import { page, ctaBand, breadcrumbNode, faqNode, webPageNode, dims, ORG_ID } from '../layout.mjs';
+import { page, ctaBand, breadcrumbNode, faqNode, webPageNode, imgTag, widestVariant, SIZES, ORG_ID } from '../layout.mjs';
 
 const URL = biz.origin + '/';
 
@@ -79,7 +79,7 @@ const body = `  <section class="hero">
         </div>
         <div class="hero__media">
           <div class="hero__frame">
-            <img src="${img.hero}" alt="Manicured lawn maintained by Blue Hills Property Maintenance in Pakenham VIC"${dims(img.hero)} fetchpriority="high" decoding="async">
+            ${imgTag({ src: img.hero, alt: 'Manicured lawn maintained by Blue Hills Property Maintenance in Pakenham VIC', sizes: SIZES.hero, priority: true })}
           </div>
           <div class="fact-card">
             <h2>Trusted across the South East Corridor</h2>
@@ -127,7 +127,7 @@ const body = `  <section class="hero">
       <div class="grid-3">
 ${cards.map((c) => `        <a class="svc-card" href="${c.href}">
           <div class="svc-card__media">
-            <img src="${c.src}" alt="${c.alt}"${dims(c.src)} loading="lazy" decoding="async">
+            ${imgTag({ src: c.src, alt: c.alt })}
             <span class="svc-card__num">${c.n}</span>
           </div>
           <div class="svc-card__body">
@@ -171,9 +171,9 @@ ${cards.map((c) => `        <a class="svc-card" href="${c.href}">
         </div>
         <figure style="margin:0">
           <div class="compare" data-compare>
-            <img src="${img.after}" alt="After — restored and freshly mowed lawn at a Pakenham property"${dims(img.after)} loading="lazy" decoding="async">
+            ${imgTag({ src: img.after, alt: 'After — restored and freshly mowed lawn at a Pakenham property', sizes: SIZES.hero })}
             <div class="compare__before">
-              <img src="${img.before}" alt="Before — overgrown and neglected lawn at the same Pakenham property"${dims(img.before)} loading="lazy" decoding="async">
+              ${imgTag({ src: img.before, alt: 'Before — overgrown and neglected lawn at the same Pakenham property', sizes: SIZES.hero })}
             </div>
             <span class="compare__tag compare__tag--before">Before</span>
             <span class="compare__tag compare__tag--after">After</span>
@@ -201,7 +201,7 @@ ${cards.map((c) => `        <a class="svc-card" href="${c.href}">
       </div>
       <div class="grid-3 grid-3--tight">
 ${work.map((w) => `        <figure class="work-card" style="margin:0">
-          <img src="${w.src}" alt="${w.alt}"${dims(w.src)} loading="lazy" decoding="async">
+          ${imgTag({ src: w.src, alt: w.alt })}
           <figcaption>
             <span class="work-card__label">— Project ${w.n}</span>
             <h3 class="h3">${w.title}</h3>
@@ -271,7 +271,7 @@ export default page({
       about: { '@id': ORG_ID },
       image: work.map((w) => ({
         '@type': 'ImageObject',
-        contentUrl: biz.origin + w.src,
+        contentUrl: biz.origin + widestVariant(w.src),
         name: w.title.replace(/&amp;/g, '&'),
         description: w.alt,
         contentLocation: { '@type': 'Place', name: w.loc }

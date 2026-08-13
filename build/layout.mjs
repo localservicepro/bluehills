@@ -6,6 +6,17 @@ import { biz, suburbs, services, img } from './site.config.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
+/* The stylesheet is inlined into every page. It costs ~7 KB gzipped per
+   document but removes a render-blocking round trip, which PageSpeed measured
+   at 170ms on mobile. Minified here rather than kept minified on disk so the
+   source stays readable. */
+const CSS = fs.readFileSync(path.join(REPO, 'assets/css/style.css'), 'utf8')
+  .replace(/\/\*[\s\S]*?\*\//g, '')
+  .replace(/\s*([{}:;,>])\s*/g, '$1')
+  .replace(/;}/g, '}')
+  .replace(/\s+/g, ' ')
+  .trim();
+
 /* Real intrinsic dimensions read off disk, so width/height attributes always
    match the file and the browser can reserve the right box (zero CLS). */
 const dimCache = new Map();
@@ -33,6 +44,68 @@ export function dims(src) {
   return ` width="${d.w}" height="${d.h}"`;
 }
 
+/* ---------------- Responsive images ----------------
+   Photography is written to disk as `name-<width>.webp` variants (see
+   scratchpad/variants.py). Page code still refers to the logical
+   `/assets/img/name.webp`; this resolves that to the real files and emits a
+   srcset so a phone downloads a 400 or 640 rather than the 1200. */
+const IMG_DIR = path.join(REPO, 'assets/img');
+const variantCache = new Map();
+
+function variantsOf(src) {
+  if (variantCache.has(src)) return variantCache.get(src);
+  const base = path.basename(src).replace(/\.webp$/, '');
+  const re = new RegExp('^' + base.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '-(\\d+)\\.webp$');
+  const found = fs.readdirSync(IMG_DIR)
+    .map((f) => { const m = re.exec(f); return m ? { file: '/assets/img/' + f, w: +m[1] } : null; })
+    .filter(Boolean)
+    .sort((a, b) => a.w - b.w);
+  if (!found.length) throw new Error('No width variants on disk for ' + src);
+  for (const v of found) v.h = readDims(v.file).h;
+  variantCache.set(src, found);
+  return found;
+}
+
+/** Common `sizes` values, keyed by where the image is used. */
+export const SIZES = {
+  // half the shell on desktop, full bleed inside the 18px gutters on phones
+  hero: '(min-width: 901px) 560px, calc(100vw - 36px)',
+  // three-up grid on desktop, two-up on tablet, one-up on phones
+  card: '(min-width: 901px) 400px, (min-width: 601px) calc(50vw - 40px), calc(100vw - 36px)'
+};
+
+/**
+ * Build a responsive <img>. `src` is the logical path; the widest variant
+ * becomes the plain src so browsers without srcset still get a real image.
+ */
+export function imgTag({ src, alt, sizes = SIZES.card, loading = 'lazy', priority = false, cls, style }) {
+  const v = variantsOf(src);
+  const top = v[v.length - 1];
+  const srcset = v.map((x) => `${x.file} ${x.w}w`).join(', ');
+  return '<img'
+    + (cls ? ` class="${cls}"` : '')
+    + ` src="${top.file}"`
+    + ` srcset="${srcset}"`
+    + ` sizes="${sizes}"`
+    + ` alt="${alt}"`
+    + ` width="${top.w}" height="${top.h}"`
+    + (priority ? ' fetchpriority="high"' : ` loading="${loading}"`)
+    + ' decoding="async"'
+    + (style ? ` style="${style}"` : '')
+    + '>';
+}
+
+/** srcset string on its own, for <link rel=preload imagesrcset>. */
+export function variantSrcset(src) {
+  return variantsOf(src).map((x) => `${x.file} ${x.w}w`).join(', ');
+}
+
+/** Widest variant path — for og:image and schema, which need one absolute URL. */
+export function widestVariant(src) {
+  const v = variantsOf(src);
+  return v[v.length - 1].file;
+}
+
 export const ORG_ID = biz.origin + '/#business';
 export const WEBSITE_ID = biz.origin + '/#website';
 
@@ -50,7 +123,7 @@ export function localBusinessNode() {
     alternateName: 'Blue Hills Garden & Property Maintenance',
     url: biz.origin + '/',
     logo: { '@type': 'ImageObject', url: biz.origin + img.logo },
-    image: biz.origin + img.hero,
+    image: biz.origin + widestVariant(img.hero),
     telephone: biz.phoneE164,
     email: biz.email,
     foundingDate: biz.founded,
@@ -144,7 +217,7 @@ export function webPageNode({ pageUrl, title, description, type = 'WebPage', ima
     inLanguage: 'en-AU',
     isPartOf: { '@id': WEBSITE_ID },
     about: { '@id': ORG_ID },
-    primaryImageOfPage: image ? { '@type': 'ImageObject', url: biz.origin + image } : undefined,
+    primaryImageOfPage: image ? { '@type': 'ImageObject', url: biz.origin + widestVariant(image) } : undefined,
     dateModified,
     breadcrumb: { '@id': pageUrl + '#breadcrumb' },
     speakable: {
@@ -403,27 +476,30 @@ ${keywords ? `<meta name="keywords" content="${esc(keywords)}">\n` : ''}<link re
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="${biz.origin}${image}">
+<meta property="og:image" content="${biz.origin}${widestVariant(image)}">
 <meta property="og:image:alt" content="${esc(imageAlt)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(description)}">
-<meta name="twitter:image" content="${biz.origin}${image}">
+<meta name="twitter:image" content="${biz.origin}${widestVariant(image)}">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&amp;display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&amp;display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&amp;display=swap"></noscript>
-<link rel="stylesheet" href="/assets/css/style.css">
-${preloadHero ? `<link rel="preload" as="image" href="${preloadHero}" fetchpriority="high">\n` : ''}
-<!-- GoHighLevel external tracking (page analytics + form submission capture) -->
-<script
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/playfair-400.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/playfair-400italic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/lato-400.woff2" crossorigin>
+<style>${CSS}</style>
+${preloadHero ? `<link rel="preload" as="image" href="${widestVariant(preloadHero)}" imagesrcset="${variantSrcset(preloadHero)}" imagesizes="${SIZES.hero}" fetchpriority="high">\n` : ''}
+<!-- GoHighLevel external tracking (page analytics + form submission capture).
+     defer, not blocking: loaded without it this script held up first render by
+     ~3.1s on mobile. defer still guarantees it runs before DOMContentLoaded,
+     so its document-level submit listener is attached well before anyone can
+     fill in the form. -->
+<link rel="preconnect" href="https://link.msgsndr.com" crossorigin>
+<script defer
   src="https://link.msgsndr.com/js/external-tracking.js"
   data-tracking-id="tk_32ff295ccd334631b71115e471523a19">
 </script>

@@ -1,5 +1,5 @@
 import { biz, suburbs, img } from '../site.config.mjs';
-import { page, ctaBand, breadcrumbNode, faqNode, webPageNode, dims, ORG_ID } from '../layout.mjs';
+import { page, ctaBand, breadcrumbNode, faqNode, webPageNode, imgTag, SIZES, ORG_ID } from '../layout.mjs';
 
 const URL = biz.origin + '/about/';
 
@@ -33,7 +33,7 @@ const body = `  <section class="hero hero--page">
         </div>
         <div class="hero__media" style="padding-bottom:0">
           <div class="hero__frame">
-            <img src="${img.garden}" alt="The Blue Hills team performing professional garden maintenance in Berwick VIC"${dims(img.garden)} fetchpriority="high" decoding="async">
+            ${imgTag({ src: img.garden, alt: 'The Blue Hills team performing professional garden maintenance in Berwick VIC', sizes: SIZES.hero, priority: true })}
           </div>
         </div>
       </div>
