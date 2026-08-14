@@ -504,6 +504,12 @@ ${preloadHero ? `<link rel="preload" as="image" href="${widestVariant(preloadHer
   data-tracking-id="tk_32ff295ccd334631b71115e471523a19">
 </script>
 
+<!-- Marks the document scriptable before first paint, so the scroll-reveal
+     copy starts hidden instead of flashing in and then being hidden. The
+     timer is the failsafe: if site.js never loads, everything is shown
+     anyway. site.js clears it. -->
+<script>document.documentElement.classList.add('js');window.__revealFailsafe=setTimeout(function(){document.documentElement.classList.add('reveal-all')},2000)</script>
+
 <script type="application/ld+json">
 ${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2)}
 </script>

@@ -219,4 +219,40 @@
       window.setTimeout(function () { window.location.assign(THANK_YOU); }, BEACON_GRACE_MS);
     });
   });
+
+  /* ---------- Scroll reveal for the copy grids ----------
+     The heading column of a copy grid is sticky (see style.css) and its prose
+     column is long, so the two columns fade up block by block as the reader
+     arrives. Elements start hidden via `.js` set in the head; clearing the
+     failsafe timer here means an unloaded script shows the copy instead of
+     leaving blank columns. */
+  window.clearTimeout(window.__revealFailsafe);
+
+  var columns = document.querySelectorAll('.copy-grid__head, .copy-grid__body');
+  var items = [];
+  columns.forEach(function (col) {
+    Array.prototype.forEach.call(col.children, function (el, i) {
+      // Stagger within a column, capped so a long column does not end up
+      // waiting most of a second for its last paragraph.
+      el.style.transitionDelay = Math.min(i, 3) * 90 + 'ms';
+      items.push(el);
+    });
+  });
+
+  if (!items.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('is-in'); });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-in');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+  items.forEach(function (el) { observer.observe(el); });
 })();

@@ -40,11 +40,15 @@ export function servicePage(s) {
   <section class="section">
     <div class="shell">
       <div class="grid-2 grid-2--copy">
-        <div class="stack" style="gap:22px">
+        <div class="stack copy-grid__head" style="gap:22px">
           <p class="eyebrow">${s.introEyebrow}</p>
           <h2 class="h2">${s.introHeading}</h2>
+          <div class="copy-grid__aside">
+            <p class="small">Free on-site assessment, a fixed price in writing, and no obligation either way.</p>
+            <a class="btn btn--brass" href="/contact/" data-quote-open>Get a Free Quote <span class="btn-arrow" aria-hidden="true"></span></a>
+          </div>
         </div>
-        <div class="stack" style="gap:24px;flex:1.5">
+        <div class="stack copy-grid__body" style="gap:24px;flex:1.5">
 ${s.intro.map((p) => `          <p class="lead">${p}</p>`).join('\n')}
         </div>
       </div>

@@ -22,10 +22,12 @@ export const serviceData = [
   eyebrow: 'Residential Lawn Care',
   h1: 'Lawn Mowing in <span class="accent">Pakenham</span> &amp; South-East Melbourne',
   answer: 'Blue Hills provides scheduled residential lawn mowing for home owners across Pakenham, Officer, Berwick, Narre Warren and 14 other South-East Melbourne suburbs. Every visit includes mowing, crisp edging around paths, beds and driveways, and a full blower clean-up. Standard residential lawn mowing starts at <strong>$99+GST per visit</strong> for a two-person crew, and can be booked weekly, fortnightly or monthly.',
-  image: img.lawn,
-  imageAlt: 'Blue Hills team performing professional lawn mowing on a residential property in Pakenham VIC',
-  secondImage: img.stripes,
-  secondImageAlt: 'Freshly mowed and edged lawn with clean stripe lines in Officer VIC',
+  /* Client-supplied "Lawn Mowing" photography only — no stock, no design-bundle
+     imagery on this page. Hero and feature shot are Lawn Mowing 5 and 4. */
+  image: img.lawn4,
+  imageAlt: 'Blue Hills truck and mowing trailer on site at a residential lawn mowing job in Pakenham VIC',
+  secondImage: img.lawn5,
+  secondImageAlt: 'Wide residential lawn mowed and edged by Blue Hills, with the branded trailer on the driveway',
   offerPrice: '99',
   offerNote: 'From $99 plus GST per visit for a standard residential lawn with a two-person crew. Clipping removal is not included.',
   introEyebrow: 'The Service',
@@ -79,8 +81,6 @@ export const serviceData = [
     { src: img.lawn1, title: 'Striped lawn, modern home', alt: 'Freshly mowed and striped front lawn at a modern home maintained by Blue Hills' },
     { src: img.lawn2, title: 'Shaped shrubs & stripe lines', alt: 'Residential lawn mowed with clean stripe lines beside shaped garden shrubs' },
     { src: img.lawn3, title: 'Garden lawn & gazebo', alt: 'Mowed garden lawn surrounding a gazebo and flowering shrubs' },
-    { src: img.lawn4, title: 'Crew on site', alt: 'Blue Hills truck and mowing trailer parked on site at a residential lawn mowing job' },
-    { src: img.lawn5, title: 'Scheduled residential visit', alt: 'Blue Hills work vehicle on a residential driveway during a scheduled lawn mowing visit' },
     { src: img.lawn6, title: 'Nature strip & footpath edging', alt: 'Nature strip and footpath mowed and edged by Blue Hills on a residential street' }
   ],
   faqHeading: 'Lawn mowing <span class="accent">questions</span>',

@@ -104,6 +104,58 @@ textarea:focus-visible {
 .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 64px; }
 .grid-2--wide { grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 56px; align-items: center; }
 .grid-2--copy { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+
+/* Copy grids pair a short heading column with a tall prose column, which left
+   a screen-high empty block under the heading. The heading now tracks the
+   reader down the prose instead of sitting above a void, and each block of
+   copy fades up as it comes into view.
+
+   align-self:start is what makes the sticky work — a stretched grid item is
+   already as tall as the row, so it has nowhere to stick to. */
+.copy-grid__head { align-self: start; }
+@media (min-width: 901px) {
+  /* Narrower heading column: the prose is what the reader is here for, and a
+     half-width heading left a wide as well as tall gap. */
+  .grid-2--copy { grid-template-columns: 0.82fr 1.18fr; gap: 56px; }
+  /* Only the columns that are just a heading get pinned. A sticky element can
+     only travel the difference between the two column heights, so once the
+     column also carries the quote block there is barely any travel left and
+     the heading unsticks halfway down — which reads as a glitch, not a
+     feature. Those columns are filled instead of pinned. */
+  .copy-grid__head:not(:has(.copy-grid__aside)) { position: sticky; top: 104px; }
+}
+/* Sits under the heading and gives the sticky column something to be, rather
+   than a screen of empty sand. */
+.copy-grid__aside {
+  margin-top: 12px;
+  padding-top: 26px;
+  border-top: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 30ch;
+}
+.copy-grid__aside .small { margin: 0; }
+
+.js .copy-grid__head > *,
+.js .copy-grid__body > * {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .75s cubic-bezier(.22, .61, .36, 1),
+              transform .75s cubic-bezier(.22, .61, .36, 1);
+  will-change: opacity, transform;
+}
+.js .copy-grid__head > .is-in,
+.js .copy-grid__body > .is-in { opacity: 1; transform: none; will-change: auto; }
+/* Failsafe: if site.js never runs, nothing stays invisible. */
+.reveal-all .copy-grid__head > *,
+.reveal-all .copy-grid__body > * { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .copy-grid__head > *,
+  .js .copy-grid__body > * { opacity: 1; transform: none; transition: none; }
+}
+
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
 .grid-3--tight { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .grid-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }

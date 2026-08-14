@@ -43,11 +43,11 @@ const body = `  <section class="hero hero--page">
   <section class="section">
     <div class="shell">
       <div class="grid-2 grid-2--copy">
-        <div class="stack" style="gap:22px">
+        <div class="stack copy-grid__head" style="gap:22px">
           <p class="eyebrow">Our Story</p>
           <h2 class="h2">Built on the <span class="accent">boring things</span> that actually matter.</h2>
         </div>
-        <div class="stack" style="gap:24px;flex:1.5">
+        <div class="stack copy-grid__body" style="gap:24px;flex:1.5">
           <p class="lead">Blue Hills started in 2017 with one ute, one trailer and a straightforward proposition: show up on the day you said you would, do the whole job rather than the visible parts of it, and leave the property cleaner than a homeowner would themselves.</p>
           <p class="lead">Nine years on, that has not changed — it has just scaled. We now run scheduled crews across the Pakenham–Berwick corridor, servicing everything from quarter-acre suburban blocks in Officer to ten-acre rural properties in Pakenham Upper, alongside body corporate estates and commercial sites.</p>
           <p class="lead">What has kept the business growing is not marketing. It is that the same crew comes back, they know your gate code and where the irrigation heads are, and the invoice at the end of the month matches what was agreed at the start.</p>

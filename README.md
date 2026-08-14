@@ -178,6 +178,39 @@ images 144 KB, fonts 131 KB, third-party JS 81 KB, HTML 17 KB, own JS 3 KB —
 Two flagged items are third-party and not fixable from here: the tracker's
 66 KB of unminified JavaScript, and a 32ms forced reflow attributed to it.
 
+## Copy grids and motion
+
+`.grid-2--copy` pairs a short heading column with a long prose column. Left
+alone that leaves a screen-high void under the heading. Three things fix it,
+and they interact — change one and check the others:
+
+1. **The heading column is narrower** (`0.82fr 1.18fr` at ≥901px). The prose is
+   what the reader came for.
+2. **Heading-only columns are sticky**, so the heading tracks the reader down
+   the prose instead of sitting above nothing. `align-self: start` is what makes
+   this work at all — a stretched grid item is already as tall as the row, so it
+   has nowhere to stick to. The rule is scoped
+   `:not(:has(.copy-grid__aside))` on purpose: a sticky element can only travel
+   the difference between the two column heights, so a column that also carries
+   the quote block unsticks a third of the way down, which reads as a glitch.
+3. **Service pages fill the column instead** — `.copy-grid__aside` puts a rule,
+   a one-line promise and the quote CTA under the heading. Home and About have
+   no aside, so they take the sticky path.
+
+Every child of `.copy-grid__head` and `.copy-grid__body` fades up on scroll via
+an `IntersectionObserver` in `site.js`, staggered 90ms and capped at four steps.
+Two safeguards matter:
+
+- The hidden state is gated on `.js`, set by a tiny inline script in `<head>`
+  so the copy never paints and then disappears.
+- That same script arms a 2s timer that adds `.reveal-all`; `site.js` clears it
+  on run. If `site.js` ever fails to load, the copy appears anyway rather than
+  leaving blank columns.
+
+`prefers-reduced-motion: reduce` skips the animation entirely — the copy is
+simply visible. `scratchpad/revealtest.mjs` covers all of it, including the
+script-blocked and reduced-motion paths.
+
 ## Mobile
 
 Breakpoint is 900px. Below it:
@@ -270,15 +303,21 @@ title and `schemaName`.
    the two "OPENING IMAGE" files time out). No photos were supplied for Garden
    Maintenance, Weed Control or Commercial Property, and no replacement
    before/after transformation pair. Those sections still use design-bundle images.
-5. **No photos for the renamed weed page.** There are no block slashing or
+5. **Lawn mowing runs entirely on client photography.** All six "Lawn Mowing"
+   files from the Drive *Photo Changes* folder are on that page and nothing
+   else is: Lawn Mowing 4 is the hero, 5 is the pricing feature shot, and
+   1, 2, 3 and 6 are the Recent Work tiles. Both promoted files were
+   re-encoded from the originals at 1200px (the first pass had capped them at
+   900) — the sources are in the scratchpad `dl/` folder if they need redoing.
+6. **No photos for the renamed weed page.** There are no block slashing or
    vegetation management photographs in the supplied sets, so `/weed-control/`
    still uses garden imagery for a page that now sells slashing. A few shots of
    a vacant block before and after a cut would carry that section.
-6. **Two amendment rows need the client's wording**, not a guess — see the
+7. **Two amendment rows need the client's wording**, not a guess — see the
    response notes: the "Mow, edge, trim, blow. Weed, shape, remove" line does
    not exist on this build, and "from standard weekly" has no matching source
    text.
-7. **Duplicate photos.** The Photo Changes set overlapped the design bundle in five
+8. **Duplicate photos.** The Photo Changes set overlapped the design bundle in five
    places — the same photograph supplied twice under different names. Duplicates
    were removed and references consolidated; `scratchpad` perceptual-hash checks
    confirm no page shows the same image twice. Re-run that check when new photos

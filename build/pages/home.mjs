@@ -100,11 +100,11 @@ const body = `  <section class="hero">
   <section class="section" id="about">
     <div class="shell">
       <div class="grid-2 grid-2--copy">
-        <div class="stack" style="gap:22px">
+        <div class="stack copy-grid__head" style="gap:22px">
           <p class="eyebrow">Our Approach</p>
           <h2 class="h2">Professional <span class="accent">Grounds Maintenance.</span><br>With Pride &amp; Precision.</h2>
         </div>
-        <div class="stack" style="gap:28px;flex:1.5">
+        <div class="stack copy-grid__body" style="gap:28px;flex:1.5">
           <div style="display:flex;gap:24px">
             <span aria-hidden="true" style="font-size:72px;line-height:.9;font-family:var(--serif);color:var(--brass);opacity:.5">A</span>
             <p class="lead">Pakenham based team specialising in all round property maintenance including lawn mowing and garden maintenance for home owners and commercial clients. Since 2017, we've built our reputation on consistency, presentation, and turning up when we say we will.</p>
