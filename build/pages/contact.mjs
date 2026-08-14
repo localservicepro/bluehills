@@ -8,7 +8,7 @@ const faqs = [
   { q: 'Is the quote free?', a: 'Yes. On-site assessments and written quotes are free and carry no obligation, for residential, acreage, body corporate and commercial enquiries alike.' },
   { q: 'How quickly can you start?', a: 'Most new residential clients are on a mowing run within about a week of the assessment. One-off clean-ups and hedge jobs depend on current workload. Body corporate and commercial contracts usually start at the beginning of the following month once scope is signed off.' },
   { q: 'What information should I have ready?', a: 'Your suburb, the property type (residential, acreage, body corporate or commercial), roughly what you need done, and how often. A rough block size helps for acreage. If access is restricted by a locked gate or a service window, mention it up front.' },
-  { q: 'Do you charge for travel?', a: 'No. There is no travel charge for properties inside our 18-suburb service area. If you are just outside it, ask anyway — we regularly travel further for acreage, body corporate and commercial work.' }
+  { q: 'Do you charge for travel?', a: 'No. There is no travel charge for properties inside our 18-suburb service area. If you are just outside it, ask anyway — we regularly travel further for the right client.' }
 ];
 
 const body = `  <section class="hero hero--page" style="padding-bottom:80px">
@@ -25,7 +25,7 @@ const body = `  <section class="hero hero--page" style="padding-bottom:80px">
           <p class="eyebrow eyebrow--rule">Free Quotes — No Obligation</p>
           <h1 class="h1" style="font-size:clamp(30px,3.8vw,50px);margin:20px 0 22px">Get your free <span class="accent">Blue Hills quote</span></h1>
           <div class="answer-block answer-block--dark">
-            <p>Send the form and we'll come back with a fixed price — free, with no obligation — on lawn mowing, acreage mowing, hedge trimming, garden maintenance, weed control, or body corporate and commercial grounds maintenance anywhere across our 18-suburb South-East Melbourne service area.</p>
+            <p>Send the form and we'll come back with a fixed price — free, with no obligation — on lawn mowing, acreage mowing, hedge trimming, garden maintenance, weed management, or body corporate and commercial grounds maintenance anywhere across our 18-suburb South-East Melbourne service area.</p>
           </div>
         </div>
 
@@ -103,7 +103,7 @@ const body = `  <section class="hero hero--page" style="padding-bottom:80px">
       <div class="section-head">
         <p class="eyebrow">Coverage</p>
         <h2 class="h2">Suburbs we <span class="accent">quote in</span></h2>
-        <p class="body-copy max-68">No travel charge anywhere inside this area. Just outside it? Ask anyway — we regularly travel further for acreage, body corporate and commercial work.</p>
+        <p class="body-copy max-68">No travel charge anywhere inside this area. Just outside it? Ask anyway — we regularly travel further for the right client.</p>
       </div>
       <ul class="grid-tiles">
 ${suburbs.map((s) => `        <li class="suburb-tile">${s}</li>`).join('\n')}
@@ -130,7 +130,7 @@ export default page({
   slug: 'contact',
   active: 'contact',
   title: 'Contact Blue Hills Property Maintenance Pakenham | 0411 342 456',
-  description: 'Contact Blue Hills Property Maintenance in Pakenham for a free, no-obligation quote on lawn mowing, acreage mowing, hedge trimming, garden maintenance, weed control and body corporate or commercial grounds care. Call 0411 342 456.',
+  description: 'Contact Blue Hills Property Maintenance in Pakenham for a free, no-obligation quote on lawn mowing, acreage mowing, hedge trimming, garden maintenance, weed management and body corporate or commercial grounds care. Call 0411 342 456.',
   keywords: 'contact Blue Hills Property Maintenance, lawn mowing quote Pakenham, garden maintenance quote Berwick, free quote gardener Officer, Pakenham lawn mowing phone number',
   image: img.stripes,
   imageAlt: 'Freshly mowed and edged lawn with clean stripe lines in Officer VIC',

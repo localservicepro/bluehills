@@ -41,7 +41,9 @@ export const services = [
   { slug: 'acreage-mowing',     nav: 'Acreage Mowing',      short: 'Acreage Mowing' },
   { slug: 'hedge-trimming',     nav: 'Hedge Trimming',      short: 'Hedge Trimming & Reductions' },
   { slug: 'garden-maintenance', nav: 'Garden Maintenance',  short: 'Garden Maintenance' },
-  { slug: 'weed-control',       nav: 'Weed Control',        short: 'Weed Control' },
+  // Renamed from "Weed Control" at the client's request. The URL stays
+  // /weed-control/ so the page keeps its indexed history and inbound links.
+  { slug: 'weed-control',       nav: 'Weed & Vegetation Management', short: 'Weed Management & Block Slashing' },
   { slug: 'body-corporate',     nav: 'Body Corporate',      short: 'Body Corporate & Strata' },
   { slug: 'commercial-property', nav: 'Commercial Property', short: 'Commercial Property Maintenance' }
 ];

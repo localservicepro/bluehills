@@ -133,7 +133,7 @@ export function localBusinessNode() {
     description:
       'Blue Hills Property Maintenance is a Pakenham-based garden and property maintenance company established in 2017. '
       + 'The team provides lawn mowing, acreage mowing, hedge trimming and reductions, pruning, garden maintenance, garden clean-ups, '
-      + 'weed control and softscaping for residential, body corporate, strata, commercial and industrial properties across the '
+      + 'weed management, block slashing, vegetation management and softscaping for residential, body corporate, strata, commercial and industrial properties across the '
       + 'Pakenham–Berwick corridor in South-East Melbourne.',
     // No streetAddress: service-area business, private residential address.
     address: {

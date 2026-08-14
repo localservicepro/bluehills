@@ -19,7 +19,8 @@ dependencies — the generated HTML in the repo root is the deployable site.
 /acreage-mowing/        service page
 /hedge-trimming/        service page
 /garden-maintenance/    service page  (#pruning anchor)
-/weed-control/          service page
+/weed-control/          service page  (Weed Management, Block Slashing &
+                                       Vegetation Management — see below)
 /body-corporate/        service page
 /commercial-property/   service page
 404.html                                    Custom not-found page
@@ -208,11 +209,50 @@ why the audit floor is 10px rather than 12px.
 ## Address policy
 
 The registered address is the owners' home, so **no street address is published**
-anywhere — not in the footer, not on the contact page, and not in the
-`PostalAddress` schema. Blue Hills is treated as a service-area business:
-suburb, region, `geo` and 18 `areaServed` entries carry the local-search signal.
-Google Business Profile should be set to "I deliver goods and services to my
-customers" with the address hidden, to stay consistent with the site.
+anywhere — not in the footer, not on the contact page, not on the About page,
+and not in the `PostalAddress` schema. Blue Hills is treated as a service-area
+business: suburb, region, `geo` and 18 `areaServed` entries carry the
+local-search signal. Google Business Profile should be set to "I deliver goods
+and services to my customers" with the address hidden, to stay consistent with
+the site.
+
+Two suburb-level references to `3810` remain and are deliberate: `postalCode`
+in the `PostalAddress` node, and the contact-page map embed, which is centred on
+`Pakenham VIC 3810` rather than a property. Neither identifies a dwelling, and
+both are load-bearing for local search. Everything else is suburb + state only
+(`Pakenham, VIC`).
+
+## Green waste policy
+
+Green waste is **not** automatically taken off site. The copy on
+`/garden-maintenance/` and `/hedge-trimming/` says so explicitly, because
+claiming otherwise sets an expectation the crew cannot always meet:
+
+- Cuttings, prunings, weeds and leaf litter are **always** raked up, collected
+  and cleaned up. The client is never left with a pile.
+- Green waste **leaves the property** when removal is stipulated in the
+  proposal — quoted in when the volume warrants it.
+- On smaller jobs, where appropriate, the client's own green bin is used —
+  filled sensibly and **never overfilled**.
+- Lawn clipping removal is separately and consistently described as an add-on
+  that is not in the $99 visit price.
+
+If you edit either page, keep all four conditions. "All green waste removed"
+is the phrasing to avoid.
+
+## Weed page naming
+
+The page at `/weed-control/` is titled **Weed Management, Block Slashing &
+Vegetation Management** and covers three things: weed treatment on maintained
+properties, slashing of vacant blocks and paddocks, and heavier vegetation
+clearing (including council fire-prevention notices).
+
+**The URL slug stays `weed-control`.** It is the indexed URL and `weed control
+Pakenham` is still a real search query — the term is retained in `keywords`
+and in `llms.txt` citation guidance even though the visible name changed.
+Navigation uses the shorter `Weed & Vegetation Management`
+(`services[].nav` in `site.config.mjs`); the full name is the H1, the page
+title and `schemaName`.
 
 ## Known follow-ups
 
@@ -230,7 +270,15 @@ customers" with the address hidden, to stay consistent with the site.
    the two "OPENING IMAGE" files time out). No photos were supplied for Garden
    Maintenance, Weed Control or Commercial Property, and no replacement
    before/after transformation pair. Those sections still use design-bundle images.
-5. **Duplicate photos.** The Photo Changes set overlapped the design bundle in five
+5. **No photos for the renamed weed page.** There are no block slashing or
+   vegetation management photographs in the supplied sets, so `/weed-control/`
+   still uses garden imagery for a page that now sells slashing. A few shots of
+   a vacant block before and after a cut would carry that section.
+6. **Two amendment rows need the client's wording**, not a guess — see the
+   response notes: the "Mow, edge, trim, blow. Weed, shape, remove" line does
+   not exist on this build, and "from standard weekly" has no matching source
+   text.
+7. **Duplicate photos.** The Photo Changes set overlapped the design bundle in five
    places — the same photograph supplied twice under different names. Duplicates
    were removed and references consolidated; `scratchpad` perceptual-hash checks
    confirm no page shows the same image twice. Re-run that check when new photos

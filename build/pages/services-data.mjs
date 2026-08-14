@@ -5,7 +5,7 @@ const R = {
   acreage: { slug: 'acreage-mowing', label: 'Acreage Mowing' },
   hedge: { slug: 'hedge-trimming', label: 'Hedge Trimming' },
   garden: { slug: 'garden-maintenance', label: 'Garden Maintenance' },
-  weed: { slug: 'weed-control', label: 'Weed Control' },
+  weed: { slug: 'weed-control', label: 'Weed & Vegetation Management' },
   body: { slug: 'body-corporate', label: 'Body Corporate' },
   comm: { slug: 'commercial-property', label: 'Commercial Property' }
 };
@@ -188,11 +188,11 @@ export const serviceData = [
   slug: 'hedge-trimming',
   crumb: 'Hedge Trimming',
   title: 'Hedge Trimming & Reductions Berwick, Narre Warren | Blue Hills',
-  description: 'Professional hedge trimming and hedge reductions across Berwick, Narre Warren, Pakenham and Beaconsfield. Formal hedges shaped, oversized hedges reduced, and overgrown screens restored. Fully insured, all cuttings removed. Free quote — 0411 342 456.',
+  description: 'Professional hedge trimming and hedge reductions across Berwick, Narre Warren, Pakenham and Beaconsfield. Formal hedges shaped, oversized hedges reduced, and overgrown screens restored. Fully insured, every cutting raked up and cleared. Free quote — 0411 342 456.',
   keywords: 'hedge trimming Berwick, hedge trimming Narre Warren, hedge reduction Pakenham, hedge cutting Beaconsfield, formal hedge shaping South-East Melbourne, overgrown hedge restoration',
   eyebrow: 'Hedges & Screens',
   h1: 'Hedge Trimming &amp; <span class="accent">Reductions</span> in Berwick &amp; Narre Warren',
-  answer: 'Blue Hills trims, shapes and reduces hedges across Berwick, Narre Warren, Pakenham, Officer and Beaconsfield. We handle routine maintenance trims on formal hedges, height and width reductions on hedges that have outgrown their space, and restoration cuts on screens that have been left too long. All cuttings are cleared and removed as part of the job.',
+  answer: 'Blue Hills trims, shapes and reduces hedges across Berwick, Narre Warren, Pakenham, Officer and Beaconsfield. We handle routine maintenance trims on formal hedges, height and width reductions on hedges that have outgrown their space, and restoration cuts on screens that have been left too long. Every cutting is raked out and cleared as part of the job, and green waste is taken off site where your quote includes removal.',
   image: img.hedge,
   imageAlt: 'Professional hedge trimming with sharp, clean lines by Blue Hills in Narre Warren VIC',
   secondImage: img.hedge3,
@@ -207,7 +207,7 @@ export const serviceData = [
   facts: [
     { k: 'Services', v: 'Maintenance trims, height reductions, width reductions, restoration cuts, shaping' },
     { k: 'Common species', v: 'Photinia, lilly pilly, viburnum, murraya, box, pittosporum, conifer, cypress' },
-    { k: 'Cuttings', v: 'All cuttings raked, collected and removed — included in the job' },
+    { k: 'Cuttings', v: 'Always raked and collected; taken off site where your quote includes green waste removal' },
     { k: 'Typical frequency', v: 'Formal hedges two to three times a year; fast growers may need more' },
     { k: 'Best timing', v: 'Main shaping cut in late spring or early autumn; light tidy-ups any time' },
     { k: 'Height access', v: 'Ladder and pole work for tall screens where safe access allows' }
@@ -220,7 +220,7 @@ export const serviceData = [
     { t: 'Tapered sides', d: 'Sides cut with a slight taper, narrower at the top, so light reaches the base of the hedge and the bottom does not go bare and leggy.' },
     { t: 'Height reduction', d: 'Bringing tall screens down to a workable height, staged over multiple visits where the species needs time to recover.' },
     { t: 'Width reduction', d: 'Reclaiming driveways, paths and fence lines from hedges that have crept outward over several seasons of light trimming.' },
-    { t: 'Full clean-up and removal', d: 'Cuttings raked out of beds and off lawns, hard surfaces blown down, and all green waste taken away.' }
+    { t: 'Full clean-up', d: 'Cuttings raked out of beds and off lawns and hard surfaces blown down on every visit. Where your quote includes green waste removal we load it and take it away; on smaller trims we will use your green bin instead if that is appropriate, without overfilling it.' }
   ],
   processHeading: 'How we <span class="accent">approach your hedge</span>',
   processIntro: 'Every hedge gets assessed before a blade touches it. That is what stops a maintenance trim turning into a two-year recovery.',
@@ -228,7 +228,7 @@ export const serviceData = [
     { t: 'Assess species and condition', d: 'We identify what the hedge is, how much old wood is in it, whether the base is going bare, and how far it can safely be cut this season.' },
     { t: 'Agree the target shape', d: 'You tell us the height and line you want. We tell you honestly whether it can be reached in one visit or needs staging, and what it will look like immediately after.' },
     { t: 'Cut and shape', d: 'Faces and top cut to line, sides tapered, dead and crossing material taken out of the interior where it is restricting airflow.' },
-    { t: 'Clear and remove', d: 'Beds raked out, lawns cleared, paths blown down, cuttings loaded and removed. The hedge should be the only evidence we were there.' }
+    { t: 'Clear and clean down', d: 'Beds raked out, lawns cleared, paths blown down and every cutting collected. Green waste leaves with us when removal is in your quote, or goes in your green bin on smaller jobs. The hedge should be the only evidence we were there.' }
   ],
   pricingEyebrow: 'What It Costs',
   pricingHeading: 'Hedge pricing depends on <span class="accent">length, height and access</span>',
@@ -241,7 +241,7 @@ export const serviceData = [
   areaIntro: 'We trim hedges throughout the Pakenham–Berwick corridor for homeowners, body corporates and commercial sites alike.',
   areaSuburbs: ['Berwick', 'Narre Warren', 'Narre Warren North', 'Pakenham', 'Officer', 'Beaconsfield', 'Harkaway', 'Botanic Ridge', 'Lysterfield', 'Devon Meadows', 'Beaconsfield Upper', 'Cranbourne South'],
   galleryHeading: 'Recent hedge trimming jobs',
-  galleryIntro: 'Formal hedges, boundary screens and car park screening cut to a true line, with every cutting removed.',
+  galleryIntro: 'Formal hedges, boundary screens and car park screening cut to a true line, with every cutting raked up and cleared.',
   gallery: [
     { src: img.hedge2, title: 'Driveway hedges', alt: 'Shaped hedges lining the driveway of a two-storey home after trimming' },
     { src: img.hedge5, title: 'Driveway screen & gate', alt: 'Tall driveway screening hedge trimmed back clear of the entry gate' },
@@ -253,14 +253,14 @@ export const serviceData = [
     { q: 'When is the best time to trim a hedge in Victoria?', a: 'The main shaping cut is best done in late spring or early autumn, when the plant has enough growing season left to push new growth and close the face. Light tidy-up trims can be done almost any time. Hard reductions are best avoided in the middle of summer heat or deep winter.' },
     { q: 'How often should hedges be trimmed?', a: 'Most formal hedges in South-East Melbourne need two to three trims a year to hold a sharp line. Fast growers such as photinia and lilly pilly on good soil may need three or four. A single annual trim will keep a hedge alive but it will slowly thicken and lose its shape.' },
     { q: 'Can you reduce the height of an overgrown hedge?', a: 'Yes. Height and width reductions are a core part of what we do. Depending on the species and how far it has to come back, we may stage the reduction across two or three visits over a season so the hedge regenerates rather than being left with bare, brown faces.' },
-    { q: 'Do you take the hedge cuttings away?', a: 'Yes. Raking out the beds, clearing lawns and hard surfaces, and removing all green waste is included in the hedge trimming price. You are not left with a pile to deal with.' },
+    { q: 'Do you take the hedge cuttings away?', a: 'Cuttings are always raked out of the beds, cleared off lawns and hard surfaces, and collected — you are never left with a pile to deal with. Whether they leave the property depends on your quote. Green waste removal is priced into the job where the volume calls for it, and where that is stipulated in your proposal we take everything away. On smaller trims we will use your own green bin if that is appropriate, filled sensibly and never overfilled. If you would prefer nothing went in your bin, tell us and we will quote removal instead.' },
     { q: 'Will cutting my hedge hard kill it?', a: 'It depends entirely on the species. Photinia, lilly pilly, viburnum and murraya generally reshoot well from old wood. Most conifers and cypress will not reshoot from bare wood, so those can only be trimmed back to green growth. We assess this before cutting and tell you what is safely achievable.' },
     { q: 'Do you trim tall hedges and screens?', a: 'Yes, where safe access allows. We use ladder and pole equipment for taller screens. If a hedge genuinely requires elevated work platform access or crosses into tree work, we will tell you rather than attempt it unsafely.' }
   ],
   schemaName: 'Hedge trimming and hedge reductions',
   schemaType: 'Hedge Trimming',
   ctaHeading: 'Get Your Hedges Back to a <span class="accent">Sharp Line</span>',
-  ctaCopy: 'Species-appropriate trimming, honest advice on what is achievable this season, and every cutting removed. Book a free hedge assessment.',
+  ctaCopy: 'Species-appropriate trimming, honest advice on what is achievable this season, and a full clean-up every visit. Book a free hedge assessment.',
   related: [R.garden, R.lawn, R.body]
 },
 
@@ -290,7 +290,7 @@ export const serviceData = [
     { k: 'Included work', v: 'Bed weeding, pruning, cutting back, edge definition, leaf and debris clearing, blow-down' },
     { k: 'Also available', v: 'Softscaping, mulching, plant replacement, garden bed reshaping' },
     { k: 'Typical frequency', v: 'Monthly or six-weekly for maintained gardens; seasonal for lower-maintenance sites' },
-    { k: 'Green waste', v: 'Collected and removed as part of the visit' },
+    { k: 'Green waste', v: 'Always collected; removed from site where your proposal includes it, otherwise your green bin — never overfilled' },
     { k: 'Core suburbs', v: 'Berwick, Pakenham, Officer, Beaconsfield, Narre Warren, Harkaway' }
   ],
   includedId: 'pruning',
@@ -302,7 +302,7 @@ export const serviceData = [
     { t: 'Bed edge definition', d: 'Crisp, cut edges between lawn and garden beds. It is the single change that makes the biggest visual difference to a tired garden.' },
     { t: 'Leaf and debris clearing', d: 'Leaf litter, fallen branches and seed drop cleared out of beds, off paths, and away from drains and downpipes.' },
     { t: 'Mulch top-ups and softscaping', d: 'Mulch refreshed to suppress weeds and hold moisture; plantings, bed reshaping and other softscaping work quoted as needed.' },
-    { t: 'Full site clean-down', d: 'Paths, driveways and entertaining areas blown clear, and all green waste removed from site.' }
+    { t: 'Full site clean-down', d: 'Paths, driveways and entertaining areas blown clear and the garden left tidy. Green waste is taken off site where your proposal includes removal; on smaller visits it goes in your green bin instead, filled sensibly and never overloaded.' }
   ],
   processEyebrow: 'How It Works',
   processHeading: 'Reset first, then <span class="accent">keep it there</span>',
@@ -327,7 +327,7 @@ export const serviceData = [
   faqs: [
     { q: 'How often should a garden be professionally maintained?', a: 'Most established gardens in South-East Melbourne sit best on a monthly or six-weekly visit. Densely planted gardens with high weed pressure benefit from monthly. Low-maintenance native or gravel-heavy gardens can often run on a seasonal schedule of four visits a year.' },
     { q: 'Do you do one-off garden clean-ups as well as regular visits?', a: 'Yes. One-off seasonal resets and pre-sale property clean-ups are a large part of our work. Many clients start with a single clean-up and then move onto an ongoing schedule once the garden is back to a standard worth holding.' },
-    { q: 'Do you remove the green waste?', a: 'Yes. Prunings, weeds, leaf litter and other green waste are collected and taken away as part of the visit. You are not left with bags or a pile on the nature strip.' },
+    { q: 'Do you remove the green waste?', a: 'Prunings, weeds and leaf litter are always collected and cleaned up — you are never left with a pile on the lawn or the nature strip. Whether it leaves the property depends on your proposal. Green waste removal is quoted into the job when the volume warrants it, and where that is stipulated we take it all away. On smaller visits, where it is appropriate and there is room, it goes into your own green bin, filled properly and never overfilled. If you would rather we did not use your bin, say so and we will price removal instead.' },
     { q: 'Can you get a garden ready for a property sale?', a: 'Yes, and it is one of the highest-return jobs we do. A pre-sale presentation tidy typically includes a hard clean-up, pruning, recut bed edges, fresh mulch, weed treatment and a full mow and edge, timed to land just before photography or the first open for inspection.' },
     { q: 'What is softscaping?', a: 'Softscaping is the living side of a garden — plants, turf, mulch, soil and garden beds — as opposed to hardscaping such as paving, decking and retaining walls. We handle softscaping work including new plantings, mulching and reshaping garden beds.' },
     { q: 'Can garden maintenance be combined with my mowing visit?', a: 'Yes, and most clients do exactly that. Combining mowing, garden maintenance and hedge work into one scheduled visit means one crew, one trip and one invoice, which almost always works out cheaper than booking them separately.' }
@@ -339,76 +339,86 @@ export const serviceData = [
   related: [R.hedge, R.weed, R.lawn]
 },
 
-/* ============================ WEED CONTROL ============================ */
+/* ============ WEED MANAGEMENT, BLOCK SLASHING & VEGETATION ============ */
+/* Renamed from "Weed Control" at the client's request. The /weed-control/
+   URL is deliberately unchanged so the page keeps its indexed history. */
 {
   slug: 'weed-control',
-  crumb: 'Weed Control',
-  title: 'Weed Control Pakenham, Officer & Berwick | Blue Hills',
-  description: 'Professional weed control across Pakenham, Officer, Berwick and Narre Warren. Selective lawn spraying, garden bed treatment, hand-weeding, driveway and path weed control for homes, body corporates and commercial sites. Free quote — 0411 342 456.',
-  keywords: 'weed control Pakenham, weed spraying Officer, lawn weed control Berwick, garden bed weeding Narre Warren, driveway weed control South-East Melbourne, selective herbicide lawn Victoria',
-  eyebrow: 'Weeds & Beds',
-  h1: 'Weed Control in <span class="accent">Pakenham</span>, Officer &amp; Berwick',
-  answer: 'Blue Hills provides weed control for lawns, garden beds, driveways and paths across Pakenham, Officer, Berwick, Narre Warren and the wider South-East Melbourne corridor. We combine selective lawn spraying, targeted garden bed treatment and hand-weeding, matched to the weed present and the surface it is growing in. Weed control is available as a one-off treatment or as part of a recurring maintenance schedule.',
+  crumb: 'Weed & Vegetation Management',
+  title: 'Weed Management & Block Slashing Pakenham | Blue Hills',
+  description: 'Weed management, block slashing and vegetation management across Pakenham, Officer, Berwick and Narre Warren. Selective lawn spraying, garden bed treatment, hand-weeding, driveway weed control, and slashing of vacant blocks, paddocks, easements and fence lines. Free quote — 0411 342 456.',
+  keywords: 'weed management Pakenham, weed control Pakenham, block slashing Pakenham, slashing vacant block Officer, vegetation management Berwick, paddock slashing Cardinia, fire hazard notice slashing Pakenham, lawn weed control Berwick, driveway weed control South-East Melbourne',
+  eyebrow: 'Weeds, Blocks & Vegetation',
+  h1: 'Weed Management, Block Slashing &amp; <span class="accent">Vegetation Management</span>',
+  answer: 'Blue Hills provides weed management, block slashing and vegetation management across Pakenham, Officer, Berwick, Narre Warren and the wider South-East Melbourne corridor. On maintained properties we treat weeds in lawns, garden beds, driveways and paths using selective spraying, targeted spot treatment and hand-weeding. On vacant blocks, paddocks, easements and neglected sites we slash and clear overgrown vegetation, including work done to satisfy council fire-prevention notices. All of it is available as a one-off job or as part of a recurring maintenance schedule.',
   image: img.weed,
-  imageAlt: 'Weed control treatment in garden beds carried out by Blue Hills across South-East Melbourne',
+  imageAlt: 'Weed management and treated garden beds maintained by Blue Hills across South-East Melbourne',
   secondImage: img.stripes,
   secondImageAlt: 'Weed-free, freshly mowed and edged lawn with clean stripe lines in Officer VIC',
   introEyebrow: 'The Service',
-  introHeading: 'Treat the weed, <span class="accent">protect the lawn.</span>',
+  introHeading: 'From <span class="accent">bindii in a lawn</span> to a block you cannot walk through.',
   intro: [
-    'Most weed problems are not solved by spraying harder. They are solved by identifying what the weed actually is, and then choosing a treatment that kills it without taking the lawn or the plantings with it. Bindii, clover, oxalis, onion weed, nutgrass, capeweed and winter grass all behave differently and all respond to different approaches.',
-    'On lawns we use selective treatment, which targets broadleaf weeds while leaving the turf unharmed. On garden beds we use a mix of targeted spot treatment and hand-weeding, because blanket spraying near established plantings is how people lose shrubs. On driveways, paths and gravel we use knockdown treatment where nothing else is growing.',
-    'Timing matters as much as product. Bindii, for example, has to be treated in late winter before it sets its seed spike — treat it in January and you are dealing with prickles you could have prevented in July. Clients on a maintenance schedule get treated at the right point in the season without having to think about it.'
+    'Weed and vegetation problems sit on a spectrum. At one end is a lawn with bindii and clover through it, where the answer is the right selective product applied at the right point in the season. At the other is a vacant block that has not been touched in two years, where the answer is a slasher, a plan for the debris, and someone who knows what is under the grass before they drive into it.',
+    'Blue Hills covers the whole of that range. On maintained properties we use selective treatment on turf, targeted spot treatment and hand-weeding in garden beds — because blanket spraying near established plantings is how people lose shrubs — and knockdown treatment on driveways, paths and gravel where nothing desirable is growing.',
+    'On vacant land, paddocks, easements, fence lines and neglected sites we slash. That covers residential blocks held for future building, rural paddocks, industrial yards, body corporate reserves and land that has attracted a council fire-prevention notice. We walk a block before we cut it, because star pickets, rubbish, stumps and old fencing hidden in long grass are what damage machinery and people.',
+    'Timing matters as much as method. Bindii has to be treated in late winter before it sets its seed spike — treat it in January and you are dealing with prickles you could have prevented in July. Fire-prevention slashing has to be done before the declared fire danger period, not after the notice arrives. Clients on a schedule get both handled at the right point in the year without having to think about it.'
   ],
   facts: [
     { k: 'Lawn weeds', v: 'Selective treatment for bindii, clover, capeweed, cats ear, oxalis, winter grass' },
     { k: 'Garden beds', v: 'Targeted spot treatment plus hand-weeding around established plantings' },
     { k: 'Hard surfaces', v: 'Driveways, paths, gravel, kerbs and expansion joints' },
-    { k: 'Best timing', v: 'Bindii and winter grass treated late winter, before seed set' },
-    { k: 'Booking', v: 'One-off treatment or included in a recurring maintenance schedule' },
-    { k: 'Property types', v: 'Residential, body corporate common areas, commercial and industrial sites' }
+    { k: 'Block slashing', v: 'Vacant blocks, paddocks, easements, fence lines, industrial yards and reserves' },
+    { k: 'Vegetation management', v: 'Overgrown site clearing, regrowth knock-down and access reinstatement' },
+    { k: 'Fire prevention', v: 'Slashing to meet council fire-prevention notices ahead of the declared period' },
+    { k: 'Best timing', v: 'Bindii and winter grass treated late winter; fire-prevention slashing before summer' },
+    { k: 'Booking', v: 'One-off job or included in a recurring maintenance schedule' },
+    { k: 'Property types', v: 'Residential, acreage, vacant land, body corporate common areas, commercial and industrial' }
   ],
-  includedHeading: 'How we tackle <span class="accent">different weed problems</span>',
-  includedIntro: 'A driveway weed, a lawn weed and a weed in a garden bed are three separate problems. Treating them the same way is how gardens get damaged.',
+  includedHeading: 'How we tackle <span class="accent">each kind of growth</span>',
+  includedIntro: 'A driveway weed, a lawn weed, a weed in a garden bed and two acres of chest-high grass are four separate problems. Treating them the same way is how gardens get damaged and machinery gets broken.',
   included: [
     { t: 'Selective lawn spraying', d: 'Broadleaf weeds treated with a selective product that targets the weed and leaves your turf intact. Applied at the right rate and the right time of year.' },
-    { t: 'Garden bed spot treatment', d: 'Weeds in beds treated individually rather than blanket-sprayed, so nothing drifts onto the shrubs and perennials you actually want.' },
-    { t: 'Hand-weeding', d: 'Close to established plantings, in dense beds and around edible gardens, hand-weeding is safer and cleaner than any chemical option.' },
+    { t: 'Garden bed spot treatment', d: 'Weeds in beds treated individually or pulled by hand rather than blanket-sprayed, so nothing drifts onto the shrubs, perennials and edible plantings you actually want.' },
     { t: 'Driveway and path treatment', d: 'Knockdown treatment through paving joints, gravel, kerbs and cracks where there is no desirable planting to protect.' },
-    { t: 'Seasonal timing', d: 'Treatments scheduled to the weed calendar — bindii and winter grass before seed set, spring broadleaf flush, autumn pre-emergent windows.' },
-    { t: 'Prevention', d: 'Mulch depth, bed edges and lawn density all suppress weeds. We address the conditions letting weeds in, not just the weeds already there.' }
+    { t: 'Block slashing', d: 'Vacant residential blocks, paddocks, easements, fence lines, industrial yards and body corporate reserves cut back to a manageable height. Blocks are walked first so hidden pickets, stumps and rubbish are found before the machine does.' },
+    { t: 'Vegetation management', d: 'Heavier clearing on sites that have gone past slashing alone — woody regrowth, blackberry and scrub knocked down, access reinstated along boundaries, drains and service runs.' },
+    { t: 'Fire-prevention compliance', d: 'Slashing and clearing to meet Cardinia, Casey and surrounding council fire-prevention notices. Booked ahead of the declared fire danger period rather than after an infringement.' }
   ],
-  processHeading: 'A weed program that <span class="accent">actually reduces weeds</span>',
-  processIntro: 'One-off spraying kills what is visible today. Reducing the seed bank in your soil is what stops the same weeds returning every single season.',
+  processHeading: 'A program that <span class="accent">actually reduces the problem</span>',
+  processIntro: 'A one-off spray kills what is visible today and a one-off slash buys you eight weeks. Reducing the seed bank and staying ahead of the growth curve is what stops the same job recurring at the same cost every season.',
   process: [
-    { t: 'Identify what is growing', d: 'We identify the weeds present and where they are established — lawn, beds, hard surfaces — because that determines everything about the treatment.' },
-    { t: 'Match treatment to surface', d: 'Selective on turf, targeted or manual in beds, knockdown on hard surfaces. Nothing is applied near plantings it could damage.' },
-    { t: 'Treat at the right time', d: 'Where possible we treat before seed set, which is what actually reduces next season\'s germination rather than just clearing this season\'s growth.' },
-    { t: 'Follow up and suppress', d: 'A follow-up pass catches the second germination, and mulch, edging and healthy turf density are used to keep the ground covered so weeds have nowhere to start.' }
+    { t: 'Assess the site', d: 'We identify what is growing and where — lawn, beds, hard surfaces, or a whole block — and on vacant land we walk it for pickets, stumps, rubbish and drop-offs before any machinery goes on.' },
+    { t: 'Match method to surface', d: 'Selective on turf, targeted or manual in beds, knockdown on hard surfaces, slashing or heavier clearing on open ground. Nothing is applied or driven near what it could damage.' },
+    { t: 'Do it at the right time', d: 'Weeds treated before seed set, which is what reduces next season\'s germination rather than clearing this season\'s growth. Fire-prevention slashing scheduled before the declared period, not after the notice.' },
+    { t: 'Follow up and suppress', d: 'A follow-up pass catches the second germination or the regrowth flush. On gardens, mulch, edging and turf density keep the ground covered; on blocks, a scheduled cut is far cheaper than an annual rescue.' }
   ],
   pricingEyebrow: 'What It Costs',
-  pricingHeading: 'Weed control priced by <span class="accent">area and approach</span>',
+  pricingHeading: 'Priced by <span class="accent">area, access and how far it has gone</span>',
   pricing: [
-    'Weed control is quoted on the area being treated and the method it requires. A selective spray across a suburban lawn is quick and inexpensive. Hand-weeding dense garden beds that have not been touched in a year takes real time and is priced accordingly.',
-    'Recurring clients pay far less over a year than one-off callouts, for the simple reason that weed pressure drops once the seed bank is reduced and the ground stays covered. The first treatment on a badly infested site is always the most expensive one.',
-    'Weed control is frequently added to a <a href="/garden-maintenance/" style="color:#C9A96E">garden maintenance</a> or <a href="/lawn-mowing/" style="color:#C9A96E">mowing</a> schedule at minimal extra cost, since the crew is already on site.'
+    'Weed treatment is quoted on the area being treated and the method it requires. A selective spray across a suburban lawn is quick and inexpensive. Hand-weeding dense garden beds that have not been touched in a year takes real time and is priced accordingly.',
+    'Block slashing and vegetation management are quoted after a site visit, because the price is driven by block size, how high and how woody the growth is, slope, access for the machine, and what is hidden in it. A block cut twice a year is a fraction of the cost per visit of the same block left for two years.',
+    'Recurring clients pay far less over a year than one-off callouts, for the simple reason that weed pressure drops once the seed bank is reduced and a block that is kept down never becomes a clearing job. The first treatment or first cut on a badly gone site is always the most expensive one.',
+    'Weed work is frequently added to a <a href="/garden-maintenance/" style="color:#C9A96E">garden maintenance</a> or <a href="/lawn-mowing/" style="color:#C9A96E">mowing</a> schedule at minimal extra cost, since the crew is already on site.'
   ],
-  areaHeading: 'Weed control across <span class="accent">South-East Melbourne</span>',
-  areaIntro: 'We treat weeds for homeowners, body corporate common areas and commercial sites throughout the Pakenham–Berwick corridor.',
-  areaSuburbs: ['Pakenham', 'Officer', 'Berwick', 'Narre Warren', 'Beaconsfield', 'Botanic Ridge', 'Devon Meadows', 'Harkaway', 'Cranbourne South', 'Koo Wee Rup', 'Nar Nar Goon', 'Lysterfield'],
-  faqHeading: 'Weed control <span class="accent">questions</span>',
+  areaHeading: 'Weed and vegetation work across <span class="accent">South-East Melbourne</span>',
+  areaIntro: 'We treat weeds and slash blocks for homeowners, landholders, body corporate common areas and commercial sites throughout the Pakenham–Berwick corridor and the semi-rural belt around it.',
+  areaSuburbs: ['Pakenham', 'Officer', 'Berwick', 'Narre Warren', 'Beaconsfield', 'Botanic Ridge', 'Devon Meadows', 'Harkaway', 'Cranbourne South', 'Koo Wee Rup', 'Nar Nar Goon', 'Tynong', 'Pakenham Upper', 'Lysterfield'],
+  faqHeading: 'Weed and vegetation <span class="accent">questions</span>',
   faqs: [
+    { q: 'Do you slash vacant blocks and paddocks?', a: 'Yes. Block slashing is a core part of this service. We slash vacant residential blocks, rural paddocks, easements, fence lines, industrial yards and body corporate reserves across Pakenham, Officer, Nar Nar Goon, Tynong, Pakenham Upper and the surrounding areas. Blocks are walked before cutting so hidden star pickets, stumps, rubbish and drop-offs are identified first.' },
+    { q: 'Can you slash a block to meet a council fire-prevention notice?', a: 'Yes, and it is a large part of what we do through spring. Cardinia, Casey and neighbouring councils issue fire-prevention notices requiring blocks to be cut back before the declared fire danger period. We slash to that standard and can do it on a recurring schedule so the notice never becomes an infringement. Book early — the weeks either side of the deadline are the busiest of our year.' },
+    { q: 'What is the difference between slashing and vegetation management?', a: 'Slashing cuts grass and light growth back to a manageable height and suits blocks kept on a regular cycle. Vegetation management is the heavier work on sites that have gone past slashing — woody regrowth, blackberry and scrub knocked down, boundaries and access tracks reinstated. We tell you at the assessment which one your site actually needs.' },
     { q: 'Will weed spraying damage my lawn?', a: 'Not when a selective product is used correctly. Selective herbicides target broadleaf weeds and leave turf grasses unaffected. Damage generally comes from the wrong product, the wrong rate, or spraying in extreme heat — all of which are avoidable.' },
     { q: 'When should bindii be treated in Victoria?', a: 'Bindii should be treated in late winter, roughly July to August, before it sets its seed spike. Treating it once the prickles have formed kills the plant but the prickles remain. Treating it early is the only way to have a bindii-free lawn by summer.' },
     { q: 'How long until weeds die after treatment?', a: 'Most broadleaf lawn weeds visibly yellow within a few days and fully break down over one to three weeks depending on the weed and the weather. Tougher perennials such as oxalis and nutgrass usually need repeat treatments across a season.' },
     { q: 'Is the treatment safe around children and pets?', a: 'Treated areas should be kept clear until the application has fully dried, which is typically a few hours in normal conditions. We let you know the re-entry period on the day and can schedule treatment for a time that suits your household.' },
     { q: 'Can you treat weeds in garden beds without killing my plants?', a: 'Yes. In beds we use targeted spot treatment and hand-weeding rather than blanket spraying, specifically so nothing drifts onto established shrubs, perennials or edible plantings. Close to sensitive plants, hand-weeding is the default.' },
-    { q: 'Do you offer ongoing weed control programs?', a: 'Yes. Recurring weed control, either standalone or built into a garden maintenance or mowing schedule, is the most effective option. Treating at the right point each season progressively reduces the seed bank so there is less to deal with each year.' }
+    { q: 'Do you offer ongoing weed and slashing programs?', a: 'Yes, and they are considerably cheaper than one-off callouts. Recurring weed treatment progressively reduces the seed bank so there is less to deal with each year, and a block kept on a scheduled cut never turns into a clearing job. Both can be built into an existing garden maintenance or mowing schedule.' }
   ],
-  schemaName: 'Weed control and spraying',
-  schemaType: 'Weed Control',
-  ctaHeading: 'Get on Top of the Weeds <span class="accent">Before They Seed</span>',
-  ctaCopy: 'Lawns, garden beds, driveways and paths — treated properly, timed correctly, and without collateral damage to your plantings.',
+  schemaName: 'Weed management, block slashing and vegetation management',
+  schemaType: 'Weed Management',
+  ctaHeading: 'Get on Top of It <span class="accent">Before It Gets Away</span>',
+  ctaCopy: 'Lawns, garden beds, driveways, vacant blocks and overgrown sites — treated or slashed properly, timed correctly, and without collateral damage.',
   related: [R.lawn, R.garden, R.body]
 },
 

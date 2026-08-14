@@ -20,9 +20,9 @@ const cards = [
     alt: 'Blue Hills team performing professional garden maintenance in Berwick VIC',
     copy: 'Regular maintenance, seasonal resets, and pre-sale property presentations across Berwick and Beaconsfield.',
     icon: '<circle cx="15" cy="11" r="7"></circle><path d="M15 18v9"></path>' },
-  { n: '05', href: '/weed-control/', title: 'Weed Control', src: img.weed,
-    alt: 'Weed control treatment in garden beds by Blue Hills across South-East Melbourne',
-    copy: 'Selective spraying and hand-weeding to keep your garden beds and lawns pristine and healthy.',
+  { n: '05', href: '/weed-control/', title: 'Weed Management &amp; Block Slashing', src: img.weed,
+    alt: 'Weed management treatment in garden beds by Blue Hills across South-East Melbourne',
+    copy: 'Selective spraying and hand-weeding for lawns and beds, plus block slashing and vegetation management on vacant and overgrown land.',
     icon: '<path d="M15 4l8 10a8 8 0 1 1-16 0z"></path>' },
   { n: '06', href: '/garden-maintenance/#pruning', title: 'Pruning', src: img.homePruning,
     alt: 'Shaped topiary and pruned shrubs framing a home entrance, pruned by Blue Hills',
@@ -149,7 +149,7 @@ ${cards.map((c) => `        <a class="svc-card" href="${c.href}">
           <p class="muted-light" style="max-width:420px;line-height:1.7">Four reasons our clients book us, recommend us, and stay with us year after year.</p>
         </div>
         <ul class="reasons reasons--dark">
-          <li><span class="reasons__num">01</span><div class="reasons__body"><h3 class="h3">Established 2017</h3><p class="small small--light">Nearly a decade of consistent service across Pakenham, Officer, and Berwick.</p></div></li>
+          <li><span class="reasons__num">01</span><div class="reasons__body"><h3 class="h3">Established 2017</h3><p class="small small--light">Nine years of consistent service across Pakenham, Officer, and Berwick.</p></div></li>
           <li><span class="reasons__num">02</span><div class="reasons__body"><h3 class="h3">Set &amp; Forget Scheduling</h3><p class="small small--light">Recurring visits booked in advance. We turn up. You don't have to think about it.</p></div></li>
           <li><span class="reasons__num">03</span><div class="reasons__body"><h3 class="h3">Fully Insured &amp; Equipped</h3><p class="small small--light">Commercial-grade machinery, public liability cover, and trained crew on every job.</p></div></li>
           <li><span class="reasons__num">04</span><div class="reasons__body"><h3 class="h3">Residential to Commercial</h3><p class="small small--light">From a courtyard in Botanic Ridge to a body corp estate in Narre Warren, we scale.</p></div></li>
@@ -220,12 +220,12 @@ ${work.map((w) => `        <figure class="work-card" style="margin:0">
       <div class="section-head">
         <p class="eyebrow">Coverage</p>
         <h2 class="h2">Where We Work Across <span class="accent">South-East Melbourne</span></h2>
-        <p class="body-copy max-68">Our crews operate daily across the Pakenham—Berwick corridor. If your property falls inside the South-East Melbourne corridor, we likely already drive past it weekly.</p>
+        <p class="body-copy max-68">Our crews operate daily across the Pakenham—Berwick corridor. If your property falls inside the South-East Melbourne corridor, there is a good chance we are already working in your street.</p>
       </div>
       <ul class="grid-tiles">
 ${suburbs.map((s) => `        <li class="suburb-tile">${s}</li>`).join('\n')}
       </ul>
-      <p class="body-copy" style="margin-top:32px">Not on the list? <a href="/contact/">Ask us anyway</a> — we regularly travel to neighbouring suburbs for larger acreage, body corporate and commercial jobs.</p>
+      <p class="body-copy" style="margin-top:32px">Not on the list? <a href="/contact/">Ask us anyway</a> — we regularly travel to neighbouring suburbs for the right client.</p>
     </div>
   </section>
 
@@ -249,7 +249,7 @@ export default page({
   slug: '',
   active: 'home',
   title: 'Lawn Mowing & Garden Maintenance Pakenham | Blue Hills',
-  description: 'Professional lawn mowing and garden maintenance in Pakenham, Officer, Berwick and across South-East Melbourne. Acreage mowing, hedge trimming, weed control, body corporate and commercial grounds care. Established 2017. Free quotes — call 0411 342 456.',
+  description: 'Professional lawn mowing and garden maintenance in Pakenham, Officer, Berwick and across South-East Melbourne. Acreage mowing, hedge trimming, weed management, body corporate and commercial grounds care. Established 2017. Free quotes — call 0411 342 456.',
   keywords: 'lawn mowing Pakenham, garden maintenance Pakenham, acreage mowing Pakenham Upper, hedge trimming Berwick, weed control Officer, body corporate garden maintenance Narre Warren, commercial property maintenance South-East Melbourne',
   image: img.hero,
   imageAlt: 'Manicured lawn maintained by Blue Hills Property Maintenance in Pakenham VIC',

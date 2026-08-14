@@ -8,7 +8,7 @@ const faqs = [
   { q: 'What areas does Blue Hills service?', a: 'Blue Hills services 18 suburbs across South-East Melbourne: Pakenham, Officer, Nar Nar Goon, Beaconsfield, Berwick, Harkaway, Narre Warren, Narre Warren North, Lysterfield, Botanic Ridge, Devon Meadows, Tynong, Pakenham Upper, Beaconsfield Upper, Cranbourne South, Maryknoll, Guys Hill and Koo Wee Rup.' },
   { q: 'What types of property does Blue Hills work on?', a: 'Residential homes and acreage, body corporate and strata common property, and commercial and industrial sites. The same crew standard applies whether the job is a courtyard in Botanic Ridge or a multi-building estate in Narre Warren.' },
   { q: 'Is Blue Hills insured?', a: 'Yes. Public liability insurance is current and applies to every job, residential and commercial. A certificate of currency can be provided to strata managers, facilities managers or commercial clients on request.' },
-  { q: 'What services does Blue Hills offer?', a: 'Lawn mowing including acreage, hedge trimming and hedge reductions, general pruning, garden clean-ups, ongoing garden maintenance, weed control and softscaping — for residential, body corporate, strata, commercial and industrial clients.' }
+  { q: 'What services does Blue Hills offer?', a: 'Lawn mowing including acreage, hedge trimming and hedge reductions, general pruning, garden clean-ups, ongoing garden maintenance, weed management, block slashing, vegetation management and softscaping — for residential, body corporate, strata, commercial and industrial clients.' }
 ];
 
 const body = `  <section class="hero hero--page">
@@ -25,7 +25,7 @@ const body = `  <section class="hero hero--page">
           <p class="eyebrow eyebrow--rule">About Blue Hills</p>
           <h1 class="h1" style="font-size:clamp(34px,4.2vw,56px)">A Pakenham crew who <span class="accent">turn up.</span></h1>
           <div class="answer-block answer-block--dark">
-            <p>Blue Hills Property Maintenance Pty Ltd is a Pakenham-based garden and property maintenance company established in <strong>2017</strong>. We provide lawn mowing, acreage mowing, hedge trimming and reductions, pruning, garden maintenance, weed control and softscaping to residential, body corporate, strata, commercial and industrial clients across <strong>18 suburbs</strong> in South-East Melbourne.</p>
+            <p>Blue Hills Property Maintenance Pty Ltd is a Pakenham-based garden and property maintenance company established in <strong>2017</strong>. We provide lawn mowing, acreage mowing, hedge trimming and reductions, pruning, garden maintenance, weed management, block slashing and softscaping to residential, body corporate, strata, commercial and industrial clients across <strong>18 suburbs</strong> in South-East Melbourne.</p>
           </div>
           <div class="btn-row">
             <a class="btn btn--brass" href="/contact/" data-quote-open>Get a Free Quote <span class="btn-arrow" aria-hidden="true"></span></a>
@@ -49,7 +49,7 @@ const body = `  <section class="hero hero--page">
         </div>
         <div class="stack" style="gap:24px;flex:1.5">
           <p class="lead">Blue Hills started in 2017 with one ute, one trailer and a straightforward proposition: show up on the day you said you would, do the whole job rather than the visible parts of it, and leave the property cleaner than a homeowner would themselves.</p>
-          <p class="lead">Nearly a decade later that has not changed, it has just scaled. We now run scheduled crews across the Pakenham–Berwick corridor, servicing everything from quarter-acre suburban blocks in Officer to ten-acre rural properties in Pakenham Upper, alongside body corporate estates and commercial sites.</p>
+          <p class="lead">Nine years on, that has not changed — it has just scaled. We now run scheduled crews across the Pakenham–Berwick corridor, servicing everything from quarter-acre suburban blocks in Officer to ten-acre rural properties in Pakenham Upper, alongside body corporate estates and commercial sites.</p>
           <p class="lead">What has kept the business growing is not marketing. It is that the same crew comes back, they know your gate code and where the irrigation heads are, and the invoice at the end of the month matches what was agreed at the start.</p>
           <p style="padding-top:8px;font-style:italic;color:rgba(26,46,50,.6)">— The Blue Hills Crew, Pakenham VIC</p>
         </div>
@@ -60,9 +60,9 @@ const body = `  <section class="hero hero--page">
         <dl class="facts-grid">
           <div><dt>Legal entity</dt><dd>${biz.legalName}</dd></div>
           <div><dt>Established</dt><dd>2017</dd></div>
-          <div><dt>Based in</dt><dd>${biz.suburb} ${biz.state} ${biz.postcode} — mobile service across 18 suburbs</dd></div>
+          <div><dt>Based in</dt><dd>${biz.suburb}, ${biz.state} — mobile service across 18 suburbs, no public shopfront</dd></div>
           <div><dt>Suburbs serviced</dt><dd>18 across South-East Melbourne</dd></div>
-          <div><dt>Service lines</dt><dd>Mowing, acreage mowing, hedging, pruning, garden maintenance, clean-ups, weed control, softscaping</dd></div>
+          <div><dt>Service lines</dt><dd>Mowing, acreage mowing, hedging, pruning, garden maintenance, clean-ups, weed management, block slashing, vegetation management, softscaping</dd></div>
           <div><dt>Client types</dt><dd>Residential, acreage, body corporate, strata, commercial, industrial</dd></div>
           <div><dt>Insurance</dt><dd>Public liability cover current on every job</dd></div>
           <div><dt>Contact</dt><dd><a href="${biz.phoneHref}">${biz.phoneDisplay}</a> · <a href="mailto:${biz.email}">${biz.email}</a></dd></div>
@@ -87,7 +87,7 @@ const body = `  <section class="hero hero--page">
         <article class="svc-card" style="padding:34px">
           <span class="reasons__num" aria-hidden="true">02</span>
           <h3 class="h3" style="margin:14px 0 12px">The whole job, every time</h3>
-          <p class="small">Edging and blow-down are part of the mow, not an upsell. Cuttings get removed. Nobody leaves a property with one section obviously unfinished because the trailer was full.</p>
+          <p class="small">Edging and blow-down are part of the mow, not an upsell. Cuttings get raked up and cleared. Nobody leaves a property with one section obviously unfinished because the trailer was full.</p>
         </article>
         <article class="svc-card" style="padding:34px">
           <span class="reasons__num" aria-hidden="true">03</span>
@@ -108,7 +108,7 @@ const body = `  <section class="hero hero--page">
       <div class="grid-2 align-center">
         <div class="stack" style="gap:26px">
           <p class="eyebrow">What We Do</p>
-          <h2 class="h2">Nine service lines, <span class="accent">one provider</span></h2>
+          <h2 class="h2">Ten service lines, <span class="accent">one provider</span></h2>
           <p class="lead muted-light">Most of our clients buy more than one service. Bundling them into a single scheduled visit is cheaper than separate contractors and means one crew is accountable for how the whole property looks.</p>
           <div class="btn-row">
             <a class="btn btn--brass" href="/#services">Browse All Services</a>
@@ -121,7 +121,8 @@ const body = `  <section class="hero hero--page">
           <li><a href="/garden-maintenance/">General pruning</a></li>
           <li><a href="/garden-maintenance/">Garden clean-ups and seasonal resets</a></li>
           <li><a href="/garden-maintenance/">Ongoing garden maintenance</a></li>
-          <li><a href="/weed-control/">Weed control and spraying</a></li>
+          <li><a href="/weed-control/">Weed management and spraying</a></li>
+          <li><a href="/weed-control/">Block slashing and vegetation management</a></li>
           <li><a href="/garden-maintenance/">Softscaping, mulching and planting</a></li>
           <li><a href="/body-corporate/">Body corporate, strata, commercial and industrial grounds</a></li>
         </ul>
@@ -133,7 +134,7 @@ const body = `  <section class="hero hero--page">
     <div class="shell text-center">
       <div class="section-head">
         <p class="eyebrow">Coverage</p>
-        <h2 class="h2">The 18 suburbs we <span class="accent">service weekly</span></h2>
+        <h2 class="h2">The 18 suburbs we <span class="accent">work across</span></h2>
         <p class="body-copy max-68">Blue Hills operates daily across the Pakenham–Berwick corridor and the semi-rural belt to its north and east.</p>
       </div>
       <ul class="grid-tiles">
