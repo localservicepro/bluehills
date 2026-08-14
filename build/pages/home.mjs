@@ -225,7 +225,6 @@ ${work.map((w) => `        <figure class="work-card" style="margin:0">
       <ul class="grid-tiles">
 ${suburbs.map((s) => `        <li class="suburb-tile">${s}</li>`).join('\n')}
       </ul>
-      <p class="body-copy" style="margin-top:32px">Not on the list? <a href="/contact/">Ask us anyway</a> — we regularly travel to neighbouring suburbs for the right client.</p>
     </div>
   </section>
 
