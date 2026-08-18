@@ -287,6 +287,61 @@ Navigation uses the shorter `Weed & Vegetation Management`
 (`services[].nav` in `site.config.mjs`); the full name is the H1, the page
 title and `schemaName`.
 
+## Photography
+
+Client photography lives in the Drive folder **Blue Hills Property Maintenance
+Pty Ltd › Photo Changes**. The naming convention is the client's and it maps
+directly onto page slots:
+
+- `<Topic> 1` … `<Topic> 6` — the six photographs for that service page.
+- `<Topic> OPENING IMAGE` — the hero, i.e. the framed image beside the H1.
+- `Opening Page <thing>` — a tile on the **home** page, not a service page.
+
+Where no opening image was supplied, the strongest of the numbered six is used
+as the hero and the rest fill the Recent Work tiles. Where a slot has no client
+photograph at all it still shows design-bundle imagery.
+
+Current placement, verified by perceptual hash against the Drive originals
+(`scratchpad/srcmap.json`):
+
+| Page | Hero | Feature shot | Recent Work tiles |
+| --- | --- | --- | --- |
+| `/` | design bundle | — | Opening Page Tile 6 pruning, Opening Page - Body Corp |
+| `/about/` | Lawn Mowing 1 | — | — |
+| `/lawn-mowing/` | Lawn Mowing 4 | Lawn Mowing 5 | Lawn Mowing 1, 2, 3, 6 |
+| `/acreage-mowing/` | Acreage Mowing 3 | Acreage Mowing 2 | Acreage Mowing 5, 6, 4, 1 |
+| `/hedge-trimming/` | **design bundle** | Hedge Trimming 3 | Hedge Trimming 2, 5, 4, 1 |
+| `/garden-maintenance/` | Lawn Mowing 1 | design bundle | — |
+| `/weed-control/` | design bundle | design bundle | — |
+| `/body-corporate/` | **design bundle** | design bundle | Body Corporate 6, 3, 2, 1, 4 |
+| `/commercial-property/` | design bundle | design bundle | — |
+
+Every file that could be downloaded is placed; nothing is sitting unused.
+
+### Regenerating a photo
+
+Originals are in the scratchpad `dl/` folder. `scratchpad/variants.py` writes
+`name-400/640/900/1200.webp` and deletes the un-suffixed original, so a photo
+promoted to a hero later may only have a 900 — re-encode it from the source
+(that is what happened to Lawn Mowing 4 and 5). Heroes need the 1200.
+
+### Files that cannot be retrieved
+
+Three files in the folder are too large for the Drive connector, which times
+out somewhere above 5 MB — `Body Corporate 6.jpeg` at 5.09 MB is the largest
+that has come through. Direct Drive downloads are not an alternative: every
+Google asset host is blocked by this environment's network policy, and the
+Drive API rejects unauthenticated requests.
+
+| File | Size | Where it belongs |
+| --- | --- | --- |
+| `Hedge Trimming 6 OPENING IMAGEjpeg` | 6.7 MB | `/hedge-trimming/` hero |
+| `Body Corporate Opening Image.jpeg` | 8.2 MB | `/body-corporate/` hero |
+| `Hedge Trimming 6 -.jpeg` | 11.7 MB | `/hedge-trimming/` sixth tile |
+
+Re-saved under about 4 MB each they will come straight through. There is also
+no `Body Corporate 5` in the folder, which is why that gallery has five tiles.
+
 ## Known follow-ups
 
 1. **Quote form has no server-side backup.** Delivery depends entirely on the
@@ -298,21 +353,18 @@ title and `schemaName`.
    confirmed against the Google Business Profile.
 3. **Reviews** — no `aggregateRating` is published, since inventing one is a schema
    violation. Once Google reviews are syndicated, add real review data.
-4. **Missing photo sets.** Three files in the Drive "Photo Changes" folder could not
-   be retrieved (`Hedge Trimming 6 -.jpeg` exceeds the 10 MB connector limit;
-   the two "OPENING IMAGE" files time out). No photos were supplied for Garden
-   Maintenance, Weed Control or Commercial Property, and no replacement
-   before/after transformation pair. Those sections still use design-bundle images.
-5. **Lawn mowing runs entirely on client photography.** All six "Lawn Mowing"
-   files from the Drive *Photo Changes* folder are on that page and nothing
-   else is: Lawn Mowing 4 is the hero, 5 is the pricing feature shot, and
-   1, 2, 3 and 6 are the Recent Work tiles. Both promoted files were
-   re-encoded from the originals at 1200px (the first pass had capped them at
-   900) — the sources are in the scratchpad `dl/` folder if they need redoing.
-6. **No photos for the renamed weed page.** There are no block slashing or
-   vegetation management photographs in the supplied sets, so `/weed-control/`
-   still uses garden imagery for a page that now sells slashing. A few shots of
-   a vacant block before and after a cut would carry that section.
+4. **Three photographs are still pending** — see the table above. Until they
+   arrive, the hedge trimming and body corporate heroes are design-bundle
+   images rather than the ones the client chose.
+5. **No photos for several sections.** Nothing was supplied for garden
+   maintenance, weed control or commercial property, and there is still no
+   replacement before/after transformation pair. `/weed-control/` is the
+   sharpest gap: it now sells block slashing and vegetation management, and a
+   vacant block before and after a cut would carry that section.
+6. **Lawn Mowing 1 does double duty** as the About and garden maintenance hero
+   as well as the first lawn mowing tile. It reads fine — manicured lawn,
+   clipped hedge row, planter — but if a real garden maintenance photograph
+   turns up, that is the slot to put it in.
 7. **Two amendment rows need the client's wording**, not a guess — see the
    response notes: the "Mow, edge, trim, blow. Weed, shape, remove" line does
    not exist on this build, and "from standard weekly" has no matching source
