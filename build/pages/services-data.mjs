@@ -193,10 +193,12 @@ export const serviceData = [
   eyebrow: 'Hedges & Screens',
   h1: 'Hedge Trimming &amp; <span class="accent">Reductions</span> in Berwick &amp; Narre Warren',
   answer: 'Blue Hills trims, shapes and reduces hedges across Berwick, Narre Warren, Pakenham, Officer and Beaconsfield. We handle routine maintenance trims on formal hedges, height and width reductions on hedges that have outgrown their space, and restoration cuts on screens that have been left too long. Every cutting is raked out and cleared as part of the job, and green waste is taken off site where your quote includes removal.',
-  image: img.hedge,
-  imageAlt: 'Professional hedge trimming with sharp, clean lines by Blue Hills in Narre Warren VIC',
-  secondImage: img.hedge3,
-  secondImageAlt: 'Screening hedge along a commercial car park trimmed clear of the parking bays',
+  /* Hero is the client's "Hedge Trimming 6 OPENING IMAGE"; the six numbered
+     Hedge Trimming photographs fill the six Recent Work tiles below. */
+  image: img.hedgeOpening,
+  imageAlt: 'Formal hedges trimmed to square blocks along a driveway in Pakenham VIC by Blue Hills',
+  secondImage: img.hedge,
+  secondImageAlt: 'Blue Hills hedge trimmer cutting a hedge face to a sharp, clean line',
   introEyebrow: 'The Service',
   introHeading: 'Sharp lines. <span class="accent">Healthy growth.</span>',
   intro: [
@@ -243,10 +245,12 @@ export const serviceData = [
   galleryHeading: 'Recent hedge trimming jobs',
   galleryIntro: 'Formal hedges, boundary screens and car park screening cut to a true line, with every cutting raked up and cleared.',
   gallery: [
+    { src: img.hedge1, title: 'Reduction & reshape', alt: 'Established hedge reduced and reshaped to a clean line by Blue Hills' },
     { src: img.hedge2, title: 'Driveway hedges', alt: 'Shaped hedges lining the driveway of a two-storey home after trimming' },
-    { src: img.hedge5, title: 'Driveway screen & gate', alt: 'Tall driveway screening hedge trimmed back clear of the entry gate' },
+    { src: img.hedge3, title: 'Car park screening', alt: 'Commercial car park screening hedge cut to a level line by Blue Hills' },
     { src: img.hedge4, title: 'Boundary hedge', alt: 'Boundary hedge trimmed square beside a palm and maintained lawn' },
-    { src: img.hedge1, title: 'Reduction & reshape', alt: 'Established hedge reduced and reshaped to a clean line by Blue Hills' }
+    { src: img.hedge5, title: 'Driveway screen & gate', alt: 'Tall driveway screening hedge trimmed back clear of the entry gate' },
+    { src: img.hedge6, title: 'Level boundary run', alt: 'Long boundary hedge trimmed to a level line beside a mown lawn' }
   ],
   faqHeading: 'Hedge trimming <span class="accent">questions</span>',
   faqs: [
@@ -432,8 +436,9 @@ export const serviceData = [
   eyebrow: 'Strata & Owners Corporations',
   h1: 'Body Corporate &amp; <span class="accent">Strata Grounds</span> Maintenance',
   answer: 'Blue Hills holds body corporate, strata and owners corporation grounds maintenance contracts across Pakenham, Berwick, Narre Warren, Officer and the surrounding South-East Melbourne suburbs. Every contract includes a documented service schedule, the same crew each visit, public liability insurance and clear monthly invoicing — so committees and managers always know exactly what was done and when.',
-  image: img.bodyCorp,
-  imageAlt: 'Blue Hills crew maintaining body corporate common area gardens in Pakenham VIC',
+  /* Hero is the client's "Body Corporate Opening Image". */
+  image: img.bodyCorpOpening,
+  imageAlt: 'Shaped shrubs and clipped frontage on a body corporate unit maintained by Blue Hills in Pakenham VIC',
   secondImage: img.bodyCorpCrew,
   secondImageAlt: 'Blue Hills crew carrying out body corporate grounds maintenance on a Pakenham estate',
   introEyebrow: 'The Service',
@@ -482,12 +487,14 @@ export const serviceData = [
   areaSuburbs: ['Pakenham', 'Berwick', 'Narre Warren', 'Officer', 'Beaconsfield', 'Botanic Ridge', 'Devon Meadows', 'Cranbourne South', 'Narre Warren North', 'Lysterfield', 'Nar Nar Goon', 'Koo Wee Rup'],
   galleryHeading: 'Recent body corporate sites',
   galleryIntro: 'Common areas on townhouse groups, unit developments and managed estates across the Pakenham–Berwick corridor.',
+  /* Five tiles, not six: the client's Photo Changes folder has Body Corporate
+     1, 2, 3, 4 and 6 but no 5. Add it here when it arrives. */
   gallery: [
-    { src: img.bc6, title: 'Townhouse court common lawn', alt: 'Common area lawn in a townhouse court maintained under a body corporate contract' },
-    { src: img.bc3, title: 'Townhouse frontage', alt: 'Townhouse frontage with maintained garden beds and mown common area lawn' },
-    { src: img.bc2, title: 'Driveway & shaped shrubs', alt: 'Shared driveway with shaped shrubs maintained on a body corporate schedule' },
     { src: img.bc1, title: 'Boundary hedge & entry', alt: 'Boundary screening hedge and entry gate maintained on a strata-managed estate' },
-    { src: img.bc4, title: 'Commercial frontage', alt: 'Commercial frontage hedge and footpath edge kept clear on a scheduled visit' }
+    { src: img.bc2, title: 'Driveway & shaped shrubs', alt: 'Shared driveway with shaped shrubs maintained on a body corporate schedule' },
+    { src: img.bc3, title: 'Townhouse frontage', alt: 'Townhouse frontage with maintained garden beds and mown common area lawn' },
+    { src: img.bc4, title: 'Commercial frontage', alt: 'Commercial frontage hedge and footpath edge kept clear on a scheduled visit' },
+    { src: img.bc6, title: 'Townhouse court common lawn', alt: 'Common area lawn in a townhouse court maintained under a body corporate contract' }
   ],
   faqHeading: 'Body corporate <span class="accent">questions</span>',
   faqs: [

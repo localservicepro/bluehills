@@ -310,10 +310,10 @@ Current placement, verified by perceptual hash against the Drive originals
 | `/about/` | Lawn Mowing 1 | — | — |
 | `/lawn-mowing/` | Lawn Mowing 4 | Lawn Mowing 5 | Lawn Mowing 1, 2, 3, 6 |
 | `/acreage-mowing/` | Acreage Mowing 3 | Acreage Mowing 2 | Acreage Mowing 5, 6, 4, 1 |
-| `/hedge-trimming/` | **design bundle** | Hedge Trimming 3 | Hedge Trimming 2, 5, 4, 1 |
+| `/hedge-trimming/` | Hedge Trimming 6 OPENING IMAGE | design bundle | Hedge Trimming 1, 2, 3, 4, 5, 6 |
 | `/garden-maintenance/` | Lawn Mowing 1 | design bundle | — |
 | `/weed-control/` | design bundle | design bundle | — |
-| `/body-corporate/` | **design bundle** | design bundle | Body Corporate 6, 3, 2, 1, 4 |
+| `/body-corporate/` | Body Corporate Opening Image | design bundle | Body Corporate 1, 2, 3, 4, 6 |
 | `/commercial-property/` | design bundle | design bundle | — |
 
 Every file that could be downloaded is placed; nothing is sitting unused.
@@ -325,22 +325,18 @@ Originals are in the scratchpad `dl/` folder. `scratchpad/variants.py` writes
 promoted to a hero later may only have a 900 — re-encode it from the source
 (that is what happened to Lawn Mowing 4 and 5). Heroes need the 1200.
 
-### Files that cannot be retrieved
+### Large files and the Drive connector
 
-Three files in the folder are too large for the Drive connector, which times
-out somewhere above 5 MB — `Body Corporate 6.jpeg` at 5.09 MB is the largest
-that has come through. Direct Drive downloads are not an alternative: every
-Google asset host is blocked by this environment's network policy, and the
-Drive API rejects unauthenticated requests.
+The connector times out on Drive files somewhere above roughly 5 MB, and there
+is no fallback: every Google asset host is blocked by this environment's
+network policy and the Drive API rejects unauthenticated requests. Three
+photographs were stuck behind that for two rounds until the client re-saved
+the folder as compressed WebP, all under 5 MB, at which point they came
+straight through. If a photo will not download, that size ceiling is the first
+thing to check.
 
-| File | Size | Where it belongs |
-| --- | --- | --- |
-| `Hedge Trimming 6 OPENING IMAGEjpeg` | 6.7 MB | `/hedge-trimming/` hero |
-| `Body Corporate Opening Image.jpeg` | 8.2 MB | `/body-corporate/` hero |
-| `Hedge Trimming 6 -.jpeg` | 11.7 MB | `/hedge-trimming/` sixth tile |
-
-Re-saved under about 4 MB each they will come straight through. There is also
-no `Body Corporate 5` in the folder, which is why that gallery has five tiles.
+There is still no `Body Corporate 5` in the folder, which is why that gallery
+has five tiles rather than six.
 
 ## Known follow-ups
 
@@ -353,9 +349,8 @@ no `Body Corporate 5` in the folder, which is why that gallery has five tiles.
    confirmed against the Google Business Profile.
 3. **Reviews** — no `aggregateRating` is published, since inventing one is a schema
    violation. Once Google reviews are syndicated, add real review data.
-4. **Three photographs are still pending** — see the table above. Until they
-   arrive, the hedge trimming and body corporate heroes are design-bundle
-   images rather than the ones the client chose.
+4. **Body Corporate 5 has never been supplied**, so that gallery runs five
+   tiles. Everything else the client has sent is placed.
 5. **No photos for several sections.** Nothing was supplied for garden
    maintenance, weed control or commercial property, and there is still no
    replacement before/after transformation pair. `/weed-control/` is the

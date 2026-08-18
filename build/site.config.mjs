@@ -90,10 +90,15 @@ export const img = {
   hedge3: '/assets/img/grounds-maintenance-commercial-car-park-screening-hedge.webp',
   hedge4: '/assets/img/hedge-trimming-boundary-hedge-with-palm-and-lawn.webp',
   hedge5: '/assets/img/hedge-trimming-long-driveway-hedge-and-gate.webp',
+  hedge6: '/assets/img/hedge-trimming-level-boundary-hedge-and-lawn.webp',
+  // "Hedge Trimming 6 OPENING IMAGE" — the client's pick for the page hero.
+  hedgeOpening: '/assets/img/hedge-trimming-formal-hedges-driveway-pakenham.webp',
 
   bc1: '/assets/img/body-corporate-boundary-hedge-and-entry-gate.webp',
   bc2: '/assets/img/body-corporate-driveway-with-shaped-shrubs.webp',
   bc3: '/assets/img/body-corporate-townhouse-frontage-and-garden-beds.webp',
   bc4: '/assets/img/body-corporate-commercial-frontage-hedge-and-path.webp',
-  bc6: '/assets/img/body-corporate-townhouse-court-common-lawn.webp'
+  bc6: '/assets/img/body-corporate-townhouse-court-common-lawn.webp',
+  // "Body Corporate Opening Image" — the client's pick for the page hero.
+  bodyCorpOpening: '/assets/img/body-corporate-shaped-shrubs-unit-frontage.webp'
 };
