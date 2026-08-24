@@ -29,19 +29,19 @@ export const serviceData = [
   secondImage: img.lawn5,
   secondImageAlt: 'Wide residential lawn mowed and edged by Blue Hills, with the branded trailer on the driveway',
   offerPrice: '99',
-  offerNote: 'From $99 plus GST per visit for a standard residential lawn with a two-person crew. Clipping removal is not included.',
+  offerNote: 'From $99 plus GST per visit for a standard residential lawn with a two-person crew. Clippings go into your green bin on site; off-site removal is quoted separately.',
   introEyebrow: 'The Service',
   introHeading: 'A lawn that always looks <span class="accent">freshly done.</span>',
   intro: [
     'A good mow is not just about cutting grass. It is about cut height, blade sharpness, edge definition and clean-up — the four things that separate a lawn that looks maintained from one that just looks cut. Blue Hills has been mowing lawns across the Pakenham–Berwick corridor since 2017, and the same crew that starts on your property is the crew that keeps it.',
     'We set the cut height to suit your grass type and the season. Kikuyu and couch through the warmer months come down harder; buffalo and ryegrass in winter get left longer to protect the crown. Blades are kept sharp so the leaf is cut rather than torn, which is what keeps a lawn green instead of tip-burnt and brown.',
-    'Every mow finishes with hard edging along paths, driveways and garden beds, then a blower pass across the hard surfaces so nothing is left behind. Clipping removal is available as an add-on and is quoted separately, as it is not included in the standard visit.'
+    'Every mow finishes with hard edging along paths, driveways and garden beds, then a blower pass across the hard surfaces so nothing is left behind. We catch on the majority of residential mows and empty the clippings into your green waste bin on site, without overfilling it. Taking them off site instead is quoted separately.'
   ],
   facts: [
     { k: 'Starting price', v: 'From $99 + GST per visit (standard residential lawn, two-person crew)' },
     { k: 'Who we mow for', v: 'Home owners, plus body corporate, strata and commercial sites' },
     { k: 'Before every visit', v: 'An SMS 24 hours ahead with an ETA — recurring clients are on a fixed route' },
-    { k: 'Clipping removal', v: 'Not included in the standard visit — quoted separately on request' },
+    { k: 'Grass clippings', v: 'Caught on most residential mows and emptied into your green bin, never overfilled' },
     { k: 'Frequency', v: 'Weekly, fortnightly or monthly — fortnightly Sep–May is most common' },
     { k: 'Included every visit', v: 'Mowing, hard edging, and a blow-down of garden beds and hard surfaces' },
     { k: 'Main service suburbs', v: 'Pakenham, Officer, Berwick, Narre Warren, Beaconsfield, Botanic Ridge' },
@@ -68,7 +68,7 @@ export const serviceData = [
   pricingEyebrow: 'What It Costs',
   pricingHeading: 'Honest lawn mowing prices in <span class="accent">Pakenham</span>',
   pricing: [
-    'Standard residential lawn mowing for home owners starts at <strong>$99 plus GST per visit</strong> for a two-person crew. Clipping removal is not included in that figure and is quoted separately if you want the catch bag emptied off-site.',
+    'Standard residential lawn mowing for home owners starts at <strong>$99 plus GST per visit</strong> for a two-person crew. We catch on most residential mows and the clippings go into your green bin on site; having them taken off site instead is quoted separately.',
     'The final price depends on three things: total lawn area, how often we visit, and access. A compact Officer courtyard on a fortnightly cycle sits at the bottom of the range. A large Harkaway block on a monthly cycle, where growth has more time to get away, sits higher.',
     'Larger and rural blocks are handled under <a href="/acreage-mowing/" style="color:#C9A96E">acreage mowing</a>, which is quoted on site. Everything is quoted before we start — you will never receive an invoice you have not already agreed to.'
   ],
@@ -85,9 +85,9 @@ export const serviceData = [
   ],
   faqHeading: 'Lawn mowing <span class="accent">questions</span>',
   faqs: [
-    { q: 'How much does lawn mowing cost in Pakenham?', a: 'Residential lawn mowing in Pakenham for home owners starts at $99+GST per visit for a two-person crew. Clipping removal is not included. The exact price depends on lawn size, visit frequency and access. You receive a fixed per-visit price in writing after a free on-site assessment.' },
+    { q: 'How much does lawn mowing cost in Pakenham?', a: 'Residential lawn mowing in Pakenham for home owners starts at $99+GST per visit for a two-person crew. Clippings are caught and go into your green bin on site; off-site removal is quoted separately. The exact price depends on lawn size, visit frequency and access. You receive a fixed per-visit price in writing after a free on-site assessment.' },
     { q: 'How often should my lawn be mowed in South-East Melbourne?', a: 'Most South-East Melbourne lawns are best mowed fortnightly from September to May, then monthly from June to August when growth slows. Fast-growing kikuyu on an irrigated block may need weekly mowing through peak spring. We recommend a frequency after seeing your grass type and site.' },
-    { q: 'Do you remove the grass clippings?', a: 'Clipping removal is not part of the standard visit price. Most clients have clippings mulched back into the lawn, which returns nitrogen and moisture to the soil. If you would prefer clippings taken off-site, we quote that as an add-on.' },
+    { q: 'Do you remove the grass clippings?', a: 'We catch on the majority of residential mows, and the clippings go into your green waste bin on site — filled sensibly and never overfilled. That is part of the visit, not an extra. If there is more grass than the bin will take, or you would rather nothing went in it, we can take the clippings off site instead and that is quoted separately. Some clients prefer clippings mulched back into the lawn, which returns nitrogen and moisture to the soil; just tell us which you want.' },
     { q: 'Do I need to be home when you mow?', a: 'No. Once your property is on the run we can service it whether you are home or not, provided we have side gate access. If the gate is locked, let us know the code or leave it unlatched on your service day.' },
     { q: 'What happens if it rains on my scheduled day?', a: 'Mowing a saturated lawn damages the turf and leaves ruts, so we reschedule rather than force it. You are contacted with a new day, usually within the same week. You are never charged for a visit we did not complete.' },
     { q: 'Do you mow both front and back yards?', a: 'Yes. The quoted per-visit price covers the whole property unless you specifically ask us to service only part of it — some clients on larger blocks have us mow the front and the immediate house surrounds only.' },
@@ -197,8 +197,8 @@ export const serviceData = [
      Hedge Trimming photographs fill the six Recent Work tiles below. */
   image: img.hedgeOpening,
   imageAlt: 'Formal hedges trimmed to square blocks along a driveway in Pakenham VIC by Blue Hills',
-  secondImage: img.hedge,
-  secondImageAlt: 'Blue Hills hedge trimmer cutting a hedge face to a sharp, clean line',
+  secondImage: img.newHedge1,
+  secondImageAlt: 'Long formal hedge run cut to a straight, level face beside a maintained lawn',
   introEyebrow: 'The Service',
   introHeading: 'Sharp lines. <span class="accent">Healthy growth.</span>',
   intro: [
@@ -280,8 +280,8 @@ export const serviceData = [
   answer: 'Blue Hills provides ongoing garden maintenance, seasonal clean-ups, general pruning and softscaping across Berwick, Pakenham, Officer, Beaconsfield and the surrounding South-East Melbourne suburbs. Work can be booked as a recurring maintenance schedule, a one-off seasonal reset, or a pre-sale presentation tidy before a property goes to market.',
   image: img.garden,
   imageAlt: 'Blue Hills team performing professional garden maintenance in Berwick VIC',
-  secondImage: img.pruning,
-  secondImageAlt: 'Freshly maintained garden path with clean edges and pruned plants in Narre Warren VIC',
+  secondImage: img.newGarden1,
+  secondImageAlt: 'Mulched garden beds and a clipped border hedge running along a maintained driveway',
   introEyebrow: 'The Service',
   introHeading: 'Gardens that look <span class="accent">intentional,</span> not overgrown.',
   intro: [
@@ -355,10 +355,10 @@ export const serviceData = [
   eyebrow: 'Weeds, Blocks & Vegetation',
   h1: 'Weed Management, Block Slashing &amp; <span class="accent">Vegetation Management</span>',
   answer: 'Blue Hills provides weed management, block slashing and vegetation management across Pakenham, Officer, Berwick, Narre Warren and the wider South-East Melbourne corridor. On maintained properties we treat weeds in lawns, garden beds, driveways and paths using selective spraying, targeted spot treatment and hand-weeding. On vacant blocks, paddocks, easements and neglected sites we slash and clear overgrown vegetation, including work done to satisfy council fire-prevention notices. All of it is available as a one-off job or as part of a recurring maintenance schedule.',
-  image: img.weed,
-  imageAlt: 'Weed management and treated garden beds maintained by Blue Hills across South-East Melbourne',
-  secondImage: img.stripes,
-  secondImageAlt: 'Weed-free, freshly mowed and edged lawn with clean stripe lines in Officer VIC',
+  image: img.newWeed1,
+  imageAlt: 'Blue Hills zero-turn mower slashing an overgrown vacant block in South-East Melbourne',
+  secondImage: img.newWeed3,
+  secondImageAlt: 'Large open block slashed back to an even, manageable height by Blue Hills',
   introEyebrow: 'The Service',
   introHeading: 'From <span class="accent">bindii in a lawn</span> to a block you cannot walk through.',
   intro: [
@@ -522,10 +522,10 @@ export const serviceData = [
   eyebrow: 'Commercial & Industrial',
   h1: 'Commercial Property Maintenance in <span class="accent">Berwick</span> &amp; Pakenham',
   answer: 'Blue Hills holds ongoing commercial and industrial grounds maintenance contracts across Berwick, Narre Warren, Pakenham, Officer and Cranbourne South. We service office parks, retail centres, childcare facilities, medical practices and industrial estates — covering mowing, hedging, weed control, garden bed maintenance and seasonal clean-ups under one consistent provider, on a documented schedule.',
-  image: img.commercial,
-  imageAlt: 'Commercial office park lawn mowing and garden care by Blue Hills in Berwick VIC',
-  secondImage: img.stripes,
-  secondImageAlt: 'Freshly mowed and edged commercial lawn with clean stripe lines in Officer VIC',
+  image: img.newCommercial1,
+  imageAlt: 'Retail strip frontage and verge mown and edged by Blue Hills in South-East Melbourne',
+  secondImage: img.newCommercial2,
+  secondImageAlt: 'Office building grounds with mown lawn and maintained garden beds kept on a Blue Hills contract',
   introEyebrow: 'The Service',
   introHeading: 'Your grounds are the first thing a <span class="accent">customer sees.</span>',
   intro: [

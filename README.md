@@ -273,6 +273,18 @@ claiming otherwise sets an expectation the crew cannot always meet:
 If you edit either page, keep all four conditions. "All green waste removed"
 is the phrasing to avoid.
 
+Lawn clippings follow the same logic and the `/lawn-mowing/` page says so in
+five places — the FAQ, the Key facts row, the intro, the pricing copy and the
+`offerNote` that feeds `Offer` schema. The crew catches on the majority of
+residential mows and empties into the client's own green bin on site; taking
+clippings **off site** is the separately quoted add-on. Change one of those
+five and change the rest, or the page contradicts itself.
+
+Two places still say a flat "clipping removal is not included" and were left
+alone because the client's amendment sheet specified that wording: the home
+page pricing FAQ, and the key-facts line in `llms.txt`. Both are true of
+off-site removal but read as broader than they are.
+
 ## Weed page naming
 
 The page at `/weed-control/` is titled **Weed Management, Block Slashing &
@@ -301,20 +313,25 @@ Where no opening image was supplied, the strongest of the numbered six is used
 as the hero and the rest fill the Recent Work tiles. Where a slot has no client
 photograph at all it still shows design-bundle imagery.
 
+A second folder, **Bluehills - New Images**, holds later replacements. Those
+are keyed `new*` in `site.config.mjs` and are marked "new:" below, because
+both folders contain a "Hedge Trimming 1" and a "Hedge Trimming 2" and they
+are different photographs.
+
 Current placement, verified by perceptual hash against the Drive originals
 (`scratchpad/srcmap.json`):
 
 | Page | Hero | Feature shot | Recent Work tiles |
 | --- | --- | --- | --- |
-| `/` | design bundle | — | Opening Page Tile 6 pruning, Opening Page - Body Corp |
+| `/` | design bundle | — | tiles 02/03/05 from "New Images"; Opening Page Tile 6 pruning; Opening Page - Body Corp |
 | `/about/` | Lawn Mowing 1 | — | — |
 | `/lawn-mowing/` | Lawn Mowing 4 | Lawn Mowing 5 | Lawn Mowing 1, 2, 3, 6 |
 | `/acreage-mowing/` | Acreage Mowing 3 | Acreage Mowing 2 | Acreage Mowing 5, 6, 4, 1 |
-| `/hedge-trimming/` | Hedge Trimming 6 OPENING IMAGE | design bundle | Hedge Trimming 1, 2, 3, 4, 5, 6 |
-| `/garden-maintenance/` | Lawn Mowing 1 | design bundle | — |
-| `/weed-control/` | design bundle | design bundle | — |
+| `/hedge-trimming/` | Hedge Trimming 6 OPENING IMAGE | new: Hedge Trimming 1 | Hedge Trimming 1, 2, 3, 4, 5, 6 |
+| `/garden-maintenance/` | Lawn Mowing 1 | new: Garden maintenance 1 | — |
+| `/weed-control/` | new: Weeed & vegetation 1 | new: Weed Management & Vegetation 3 | — |
 | `/body-corporate/` | Body Corporate Opening Image | design bundle | Body Corporate 1, 2, 3, 4, 6 |
-| `/commercial-property/` | design bundle | design bundle | — |
+| `/commercial-property/` | new: Commercial Property 1 | new: Commercial Property 2 | — |
 
 Every file that could be downloaded is placed; nothing is sitting unused.
 

@@ -100,5 +100,15 @@ export const img = {
   bc4: '/assets/img/body-corporate-commercial-frontage-hedge-and-path.webp',
   bc6: '/assets/img/body-corporate-townhouse-court-common-lawn.webp',
   // "Body Corporate Opening Image" — the client's pick for the page hero.
-  bodyCorpOpening: '/assets/img/body-corporate-shaped-shrubs-unit-frontage.webp'
+  bodyCorpOpening: '/assets/img/body-corporate-shaped-shrubs-unit-frontage.webp',
+
+  /* ---- "Bluehills - New Images" folder ---- */
+  newAcreage1: '/assets/img/acreage-mowing-shaded-parkland-lawn.webp',
+  newHedge1: '/assets/img/hedge-trimming-long-formal-hedge-run.webp',
+  newHedge2: '/assets/img/hedge-trimming-retaining-wall-hedge-street-corner.webp',
+  newGarden1: '/assets/img/garden-maintenance-mulched-beds-and-border-hedge.webp',
+  newWeed1: '/assets/img/block-slashing-vacant-lot-zero-turn-mower.webp',
+  newWeed3: '/assets/img/vegetation-management-slashed-open-block.webp',
+  newCommercial1: '/assets/img/commercial-property-retail-strip-verge-mowing.webp',
+  newCommercial2: '/assets/img/commercial-property-office-grounds-and-garden-beds.webp'
 };
