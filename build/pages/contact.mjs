@@ -25,7 +25,7 @@ const body = `  <section class="hero hero--page" style="padding-bottom:80px">
           <p class="eyebrow eyebrow--rule">Free Quotes — No Obligation</p>
           <h1 class="h1" style="font-size:clamp(30px,3.8vw,50px);margin:20px 0 22px">Get your free <span class="accent">Blue Hills quote</span></h1>
           <div class="answer-block answer-block--dark">
-            <p>Send the form and we will be in touch within <strong>48 hours</strong> to organise a free on-site assessment and walkthrough — for lawn mowing, acreage mowing, hedge trimming, garden maintenance, weed management, or body corporate and commercial grounds maintenance anywhere across our 18-suburb South-East Melbourne service area.</p>
+            <p>Send the form and we will be in touch within <strong>48 hours</strong> to organise a free on-site assessment and walkthrough.</p>
           </div>
         </div>
 
