@@ -41,7 +41,7 @@ const notFound = page({
   slug: '404',
   active: 'none',
   title: 'Page Not Found | Blue Hills Property Maintenance',
-  description: 'That page could not be found. Browse Blue Hills Property Maintenance services or call 0411 342 456 for a free quote in Pakenham and South-East Melbourne.',
+  description: 'That page could not be found. Browse Blue Hills services or call 0411 342 456 for a free quote in Pakenham and South-East Melbourne.',
   bodyHtml: `  <section class="hero hero--page">
     <div class="hero__skew" aria-hidden="true"></div>
     <div class="shell hero__inner">
@@ -289,4 +289,34 @@ ErrorDocument 404 /404.html
 </IfModule>
 `));
 
+/* ---------------- Meta length guard ----------------
+   Google truncates a title past roughly 60 characters and a description past
+   roughly 160, and a truncated description loses whichever call to action was
+   on the end. Descriptions in particular drift long as page copy is edited, so
+   this fails the build rather than letting it ship. Measured on the rendered
+   text, not the raw HTML, so `&amp;` counts as one character. */
+const TITLE_MAX = 60;
+const DESC_MAX = 160;
+const decode = (s) => s
+  .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+  .replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+
+const metaProblems = [];
+for (const line of out) {
+  const rel = line.split('  (')[0];
+  if (!rel.endsWith('.html')) continue;
+  const src = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+  const title = decode((src.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '').trim();
+  const desc = decode((src.match(/<meta name="description" content="([\s\S]*?)">/) || [])[1] || '').trim();
+  if (!title) metaProblems.push(rel + ': no <title>');
+  else if (title.length > TITLE_MAX) metaProblems.push(`${rel}: title ${title.length} chars (max ${TITLE_MAX}) — ${title}`);
+  if (!desc) metaProblems.push(rel + ': no meta description');
+  else if (desc.length > DESC_MAX) metaProblems.push(`${rel}: description ${desc.length} chars (max ${DESC_MAX})`);
+}
+if (metaProblems.length) {
+  console.error('\nMeta length check failed:\n  ' + metaProblems.join('\n  ') + '\n');
+  process.exitCode = 1;
+}
+
 console.log('Built ' + out.length + ' files:\n  ' + out.join('\n  '));
+if (!metaProblems.length) console.log('Meta lengths OK (titles <= ' + TITLE_MAX + ', descriptions <= ' + DESC_MAX + ').');

@@ -248,7 +248,7 @@ export default page({
   slug: '',
   active: 'home',
   title: 'Lawn Mowing & Garden Maintenance Pakenham | Blue Hills',
-  description: 'Professional lawn mowing and garden maintenance in Pakenham, Officer, Berwick and across South-East Melbourne. Acreage mowing, hedge trimming, weed management, body corporate and commercial grounds care. Established 2017. Free quotes — call 0411 342 456.',
+  description: 'Lawn mowing and garden maintenance in Pakenham, Officer and Berwick. Acreage mowing, hedging, weed and commercial grounds care. Free quote 0411 342 456.',
   keywords: 'lawn mowing Pakenham, garden maintenance Pakenham, acreage mowing Pakenham Upper, hedge trimming Berwick, weed control Officer, body corporate garden maintenance Narre Warren, commercial property maintenance South-East Melbourne',
   image: img.hero,
   imageAlt: 'Manicured lawn maintained by Blue Hills Property Maintenance in Pakenham VIC',

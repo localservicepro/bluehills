@@ -169,7 +169,7 @@ export default page({
   slug: 'about',
   active: 'about',
   title: 'About Blue Hills Property Maintenance | Pakenham Since 2017',
-  description: 'Blue Hills Property Maintenance Pty Ltd is a Pakenham-based garden and property maintenance company established in 2017, servicing 18 suburbs across South-East Melbourne for residential, body corporate, strata and commercial clients.',
+  description: 'Pakenham garden and property maintenance company established 2017, servicing 18 South-East Melbourne suburbs for homes, strata and commercial sites.',
   keywords: 'Blue Hills Property Maintenance, Pakenham garden maintenance company, lawn mowing business Pakenham, about Blue Hills, property maintenance South-East Melbourne',
   image: img.garden,
   imageAlt: 'The Blue Hills team performing professional garden maintenance in Berwick VIC',

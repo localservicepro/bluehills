@@ -129,8 +129,8 @@ ${faqs.map((f, i) => `        <details${i === 0 ? ' open' : ''}>
 export default page({
   slug: 'contact',
   active: 'contact',
-  title: 'Contact Blue Hills Property Maintenance Pakenham | 0411 342 456',
-  description: 'Contact Blue Hills Property Maintenance in Pakenham for a free, no-obligation quote on lawn mowing, acreage mowing, hedge trimming, garden maintenance, weed management and body corporate or commercial grounds care. Call 0411 342 456.',
+  title: 'Contact Blue Hills Property Maintenance Pakenham',
+  description: 'Get a free, no-obligation quote on lawn mowing, garden maintenance, hedging or commercial grounds care in Pakenham and South-East Melbourne. 0411 342 456.',
   keywords: 'contact Blue Hills Property Maintenance, lawn mowing quote Pakenham, garden maintenance quote Berwick, free quote gardener Officer, Pakenham lawn mowing phone number',
   image: img.stripes,
   imageAlt: 'Freshly mowed and edged lawn with clean stripe lines in Officer VIC',

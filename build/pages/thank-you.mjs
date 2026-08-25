@@ -73,7 +73,7 @@ export default page({
   active: 'none',
   noindex: true,
   title: 'Thank You | Blue Hills Property Maintenance',
-  description: 'Thanks for your quote request. The Blue Hills team will be in touch to arrange your free on-site assessment.',
+  description: 'Thanks for your quote request. The Blue Hills team will be in touch within 48 hours to arrange your free on-site assessment.',
   image: img.hero,
   bodyHtml: body,
   jsonLd: [

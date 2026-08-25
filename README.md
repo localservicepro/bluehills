@@ -70,6 +70,12 @@ cache headers and the 404 document on Apache/cPanel hosting.
 ## SEO / AEO / GEO
 
 - Unique title, meta description, canonical, Open Graph and Twitter tags per page.
+- **Titles are capped at 60 characters and descriptions at 160**, measured on the
+  rendered text so `&amp;` counts as one. `build/build.mjs` checks every page it
+  writes and exits non-zero if either is over, because descriptions drift long
+  as page copy is edited and a truncated one loses the phone number on the end.
+  Each title leads with the service and the suburb it targets, then the brand;
+  each description names the service, three or four suburbs, and the number.
 - JSON-LD `@graph` on every page: `LandscapingBusiness` + `LocalBusiness` (NAP, geo,
   18 × `areaServed`, `hasOfferCatalog`, `sameAs`), `WebSite`, `WebPage`,
   `BreadcrumbList`, and per-page `Service`, `FAQPage`, `ImageGallery`, `ContactPoint`.
