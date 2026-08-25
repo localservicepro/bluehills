@@ -230,6 +230,14 @@ Breakpoint is 900px. Below it:
   touch.
 - There is no sticky bottom call bar.
 
+Facebook and Instagram sit in the header row as inline-SVG icons at every
+breakpoint — beside the phone number on desktop, and between the logo and the
+menu button on phones, so a visitor reaches them without opening the menu.
+Below 400px the `Property Maintenance` strapline is hidden: a wrapping flex
+container breaks the line before it shrinks anything, so the strapline's
+natural width was enough to push the menu button onto a second row and take
+the header back to 125px. The logo carries those words anyway.
+
 `scratchpad/mobileaudit.mjs` walks six pages at 360/390/414/768 and fails on
 horizontal overflow, elements wider than the viewport, tap targets under 40px,
 text under 10px, a header over 90px, and any break in the menu open/close/

@@ -274,6 +274,14 @@ export function header(active) {
       </button>
       <nav class="site-nav" aria-label="Primary">${navMarkup(active)}
       </nav>
+      <div class="header-social">
+        <a href="${biz.facebook}" target="_blank" rel="noopener me" aria-label="Blue Hills Property Maintenance on Facebook">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true" focusable="false"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94Z"/></svg>
+        </a>
+        <a href="${biz.instagram}" target="_blank" rel="noopener me" aria-label="Blue Hills Property Maintenance on Instagram">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r="1.15" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
       <div class="header-actions">
         <a class="header-phone" href="${biz.phoneHref}">${biz.phoneDisplay}</a>
         <a class="header-cta" href="/contact/" data-quote-open>Free Quote</a>
