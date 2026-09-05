@@ -501,6 +501,22 @@ ${keywords ? `<meta name="keywords" content="${esc(keywords)}">\n` : ''}<link re
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/lato-400.woff2" crossorigin>
 <style>${CSS}</style>
 ${preloadHero ? `<link rel="preload" as="image" href="${widestVariant(preloadHero)}" imagesrcset="${variantSrcset(preloadHero)}" imagesizes="${SIZES.hero}" fetchpriority="high">\n` : ''}
+<!-- Google Analytics 4 — property G-KZYXSGKZTT. Google's own snippet,
+     unmodified, plus a preconnect. async is what Google ships and what keeps
+     it off the critical path: it never blocks the parser, and gtag() calls
+     queue into dataLayer before the library lands, so nothing is lost.
+     /thank-you/ is a normal pageview, which is the conversion to mark up in
+     GA as a key event. -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KZYXSGKZTT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KZYXSGKZTT');
+</script>
+
 <!-- GoHighLevel external tracking (page analytics + form submission capture).
      defer, not blocking: loaded without it this script held up first render by
      ~3.1s on mobile. defer still guarantees it runs before DOMContentLoaded,

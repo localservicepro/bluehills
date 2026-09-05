@@ -178,11 +178,32 @@ update them or the browser picks the wrong file. On a 412px phone the hero now
 loads the 900 variant at 138 KB instead of the 1200 at 245 KB.
 
 Measured initial mobile load (412px @1.75 DPR, gzipped where applicable):
-images 144 KB, fonts 131 KB, third-party JS 81 KB, HTML 17 KB, own JS 3 KB —
-**375 KB total**, against roughly 1.1 MB of images alone before this pass.
+images 144 KB, fonts 131 KB, third-party JS 128 KB, HTML 18 KB, own JS 3 KB —
+**424 KB total**, against roughly 1.1 MB of images alone before this pass.
 
-Two flagged items are third-party and not fixable from here: the tracker's
-66 KB of unminified JavaScript, and a 32ms forced reflow attributed to it.
+Third-party JavaScript is now the largest single line and none of it is ours
+to fix: the GoHighLevel tracker's 66 KB of unminified script plus a 32ms
+forced reflow attributed to it, and roughly 48 KB for `gtag.js`. Google hosts
+are blocked by this environment's network policy, so that 48 KB is a stated
+estimate in `scratchpad/weigh.mjs` rather than a measurement — check it in
+DevTools against the live site.
+
+## Analytics
+
+Google Analytics 4, property **G-KZYXSGKZTT**, in `build/layout.mjs` so it
+lands on all twelve pages including `/thank-you/` and `404.html`. It is
+Google's own snippet unmodified, plus a `preconnect`.
+
+Keep `async`. It is what Google ships, it never blocks the parser, and
+`gtag()` pushes into `dataLayer` before the library arrives, so the `js` and
+`config` calls are queued and replayed rather than lost. Do not switch it to
+`defer` to match the GoHighLevel tracker below it — that one is deferred
+because it *was* render-blocking without it.
+
+`/thank-you/` is a normal pageview and is the conversion to mark as a key
+event in GA. It is `noindex`, which affects search, not analytics.
+`scratchpad/gatest.mjs` checks the request fires with the right measurement
+ID, that the script is async, and that the dataLayer queue is populated.
 
 ## Copy grids and motion
 
